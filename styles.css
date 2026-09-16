@@ -20,13 +20,17 @@
   --type-card: clamp(2rem, 3.1vw, 2.9rem);
 
   --content: min(1180px, calc(100% - 56px));
+
   --radius-soft: 44% 56% 51% 49% / 47% 42% 58% 53%;
   --radius-tall: 48% 52% 46% 54% / 38% 43% 57% 62%;
   --radius-wide: 56% 44% 52% 48% / 48% 57% 43% 52%;
+
   --shadow: 0 18px 40px rgba(45, 48, 41, .08);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -38,21 +42,27 @@ body {
   position: relative;
   margin: 0;
   overflow-x: hidden;
-  background: var(--paper);
-  color: var(--ink);
-  font: var(--type-body) / 1.62 "DM Sans", sans-serif;
-}
-
-body::before {
-  position: fixed;
-  z-index: -3;
-  inset: 0;
   background:
     radial-gradient(circle at 14% 13%, rgba(202, 112, 88, .07), transparent 22rem),
     radial-gradient(circle at 90% 37%, rgba(125, 138, 112, .08), transparent 27rem),
     var(--paper);
-  content: "";
-  pointer-events: none;
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.62;
+}
+
+/* Ensure normal content is always DM Sans */
+
+p,
+span,
+a,
+button,
+input,
+textarea,
+li,
+summary {
+  font-family: "DM Sans", sans-serif;
 }
 
 img {
@@ -75,7 +85,7 @@ textarea {
   margin-inline: auto;
 }
 
-/* Type: only these sizes are used */
+/* Typography */
 
 h1,
 h2,
@@ -125,8 +135,18 @@ p {
 .section-label,
 .eyebrow,
 .card-mark,
+.detail,
+.preview-bar,
+.portrait-caption {
+  font-family: "DM Mono", monospace;
+}
+
+.section-label,
+.eyebrow,
+.card-mark,
 .detail {
-  font: var(--type-small) / 1.25 "DM Mono", monospace;
+  font-size: var(--type-small);
+  line-height: 1.25;
   letter-spacing: .055em;
   text-transform: uppercase;
 }
@@ -142,16 +162,19 @@ p {
   color: var(--clay);
 }
 
-/* Header */
+/* Preview */
 
 .preview-bar {
   padding: .58rem 1rem;
   background: var(--ink);
   color: var(--paper);
-  font: var(--type-small) / 1.2 "DM Mono", monospace;
+  font-size: var(--type-small);
+  line-height: 1.2;
   letter-spacing: .05em;
   text-align: center;
 }
+
+/* Header */
 
 .site-header {
   display: flex;
@@ -169,6 +192,7 @@ p {
 }
 
 .brand i {
+  font-family: inherit;
   font-weight: 400;
 }
 
@@ -199,7 +223,8 @@ p {
   border-radius: 50%;
   background: transparent;
   color: var(--ink);
-  font: var(--type-small) "DM Mono", monospace;
+  font-family: "DM Mono", monospace;
+  font-size: var(--type-small);
   cursor: pointer;
   transition: background .25s ease, color .25s ease, transform .25s ease;
 }
@@ -222,7 +247,8 @@ p {
   border-radius: 999px;
   background: var(--ink);
   color: #fff;
-  font: .88rem "DM Sans", sans-serif;
+  font-family: "DM Sans", sans-serif;
+  font-size: .88rem;
   text-decoration: none;
   cursor: pointer;
   transition: background .25s ease, transform .25s ease;
@@ -240,11 +266,16 @@ summary:focus-visible {
   outline-offset: 4px;
 }
 
-/* Shared floating stones */
+/* Main and Zen path */
+
+main {
+  position: relative;
+  isolation: isolate;
+}
 
 .zen-path {
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   top: 0;
   bottom: 0;
   left: clamp(1rem, 6vw, 7rem);
@@ -292,6 +323,7 @@ summary:focus-visible {
 
 .hero {
   position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.05fr .95fr;
   align-items: center;
@@ -350,14 +382,16 @@ summary:focus-visible {
   flex-wrap: wrap;
   gap: .25rem .7rem;
   margin-top: .9rem;
-  font: var(--type-small) "DM Mono", monospace;
+  font-size: var(--type-small);
 }
 
 .portrait-name {
+  font-family: "DM Mono", monospace;
   font-weight: 500;
 }
 
 .portrait-role {
+  font-family: "DM Mono", monospace;
   color: var(--muted);
 }
 
@@ -378,10 +412,11 @@ summary:focus-visible {
   transform: rotate(13deg);
 }
 
-/* The former marquee becomes an editorial pause */
+/* Zen pause */
 
 .zen-pause {
   position: relative;
+  z-index: 1;
   display: grid;
   min-height: 8.5rem;
   place-items: center;
@@ -396,7 +431,9 @@ summary:focus-visible {
   max-width: 34rem;
   margin: 0;
   padding: 1.8rem;
-  font: clamp(1.5rem, 2.8vw, 2.2rem) / 1.05 "Instrument Serif", serif;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  line-height: 1.05;
   letter-spacing: -.02em;
   text-align: center;
 }
@@ -423,32 +460,24 @@ summary:focus-visible {
   transform: rotate(24deg);
 }
 
-/* Sections */
+/* Generic section rhythm */
 
 .section {
   position: relative;
+  z-index: 1;
   padding: clamp(6rem, 11vw, 9.5rem) 0;
 }
 
+/* About */
+
 .about {
-  position: relative;
   display: grid;
   grid-template-columns: 11rem minmax(0, 1fr);
   gap: clamp(2.5rem, 5vw, 4rem);
 }
 
-.about-body,
-.approach-grid,
-.process-grid,
-.focus-list,
-.session-grid {
-  position: relative;
-  z-index: 1;
-}
-
 .about h2 {
   max-width: 44rem;
-  font-size: var(--type-section);
 }
 
 .about p,
@@ -479,10 +508,6 @@ summary:focus-visible {
   display: grid;
   grid-template-columns: .88fr 1.12fr;
   gap: clamp(3rem, 7vw, 6rem);
-}
-
-.approach h2 {
-  font-size: var(--type-section);
 }
 
 .approach-copy .large {
@@ -550,23 +575,23 @@ summary:focus-visible {
 }
 
 .process-card:nth-child(1) {
-  background: var(--sand);
   border-radius: 48% 52% 43% 57% / 46% 41% 59% 54%;
+  background: var(--sand);
 }
 
 .process-card:nth-child(2) {
-  background: #d8dfd2;
   border-radius: 56% 44% 52% 48% / 41% 52% 48% 59%;
+  background: #d8dfd2;
 }
 
 .process-card:nth-child(3) {
-  background: #edcfbd;
   border-radius: 46% 54% 57% 43% / 55% 42% 58% 45%;
+  background: #edcfbd;
 }
 
 .process-card:nth-child(4) {
-  background: #e5dfcf;
   border-radius: 52% 48% 44% 56% / 45% 55% 45% 55%;
+  background: #e5dfcf;
 }
 
 .process-wide {
@@ -627,7 +652,9 @@ summary:focus-visible {
 }
 
 .focus-title-text {
-  font: clamp(1.8rem, 3.35vw, 2.65rem) / 1.1 "Instrument Serif", serif;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(1.8rem, 3.35vw, 2.65rem);
+  line-height: 1.1;
   letter-spacing: -.03em;
 }
 
@@ -852,7 +879,7 @@ footer p {
   margin: 0;
 }
 
-/* Animations */
+/* Entry animation */
 
 .reveal {
   animation: appear .7s ease both;
@@ -1016,6 +1043,8 @@ footer p {
     padding: 1.6rem 0 2rem;
   }
 }
+
+/* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
   html {
