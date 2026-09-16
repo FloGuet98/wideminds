@@ -1,225 +1,268 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>wide minds — private preview</title>
-    <link rel="stylesheet" href="styles.css" />
-    <style>
-      .portrait-caption { display:flex; flex-wrap:wrap; gap:4px 11px; }
-      .portrait-name, .portrait-role { white-space:nowrap; }
-      .portrait-name { font-weight:500; }
-      .booking-panel { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:22px; padding:50px; background:var(--moss); color:var(--cream); }
-      .booking-panel .eyebrow { color:#dce7d2; }
-      .booking-panel h3 { margin:0; font-size:clamp(38px,4vw,58px); line-height:.94; }
-      .booking-panel h3 em { color:var(--cream); }
-      .booking-panel > div:last-child { align-self:end; font-size:18px; }
-      .booking-panel .light { background:var(--cream); color:var(--ink); border:0; cursor:pointer; }
-      .booking-frame { margin-top:22px; border:1px solid var(--line); background:var(--cream); min-height:720px; }
-      .booking-frame iframe { display:block; width:100%; min-height:720px; border:0; }
-      @media(max-width:720px) { .booking-panel { grid-template-columns:1fr; gap:26px; padding:34px 24px; } .booking-frame, .booking-frame iframe { min-height:660px; } }
-    </style>
-  </head>
-  <body>
-    <div class="preview-bar"><span data-de="Privater Entwurf — nicht veröffentlichen" data-en="Private draft — not for publication">Privater Entwurf — nicht veröffentlichen</span></div>
-    <header class="site-header wrap">
-      <a class="brand" href="#top" aria-label="wide minds home">wide <i>minds</i></a>
-      <nav aria-label="Main navigation">
-        <a href="#about" data-de="Über mich" data-en="About">Über mich</a>
-        <a href="#approach" data-de="Mein Ansatz" data-en="Approach">Mein Ansatz</a>
-        <a href="#sessions" data-de="Sitzungen" data-en="Sessions">Sitzungen</a>
-      </nav>
-      <button class="language" id="language-toggle" aria-label="Switch language">EN</button>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>wide minds — private preview</title>
 
-    <main id="top">
-      <section class="hero wrap">
-  <div class="hero-copy reveal">
+  <link rel="stylesheet" href="styles.css" />
 
-    <p class="eyebrow">
-      Psychological counselling in Berlin & online
+  <style>
+    .portrait-caption { display:flex; flex-wrap:wrap; gap:4px 11px; }
+    .portrait-name, .portrait-role { white-space:nowrap; }
+    .portrait-name { font-weight:500; }
+
+    .booking-panel {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:48px;
+      margin-top:22px;
+      padding:50px;
+      background:var(--moss);
+      color:var(--cream);
+    }
+
+    .booking-frame {
+      margin-top:22px;
+      border:1px solid var(--line);
+      background:var(--cream);
+      min-height:720px;
+    }
+
+    .booking-frame iframe {
+      width:100%;
+      min-height:720px;
+      border:0;
+      display:block;
+    }
+
+    @media(max-width:720px){
+      .booking-panel {
+        grid-template-columns:1fr;
+        gap:26px;
+        padding:34px 24px;
+      }
+    }
+
+    /* LANGUAGE + ANIMATION SYSTEM */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width:720px) {
+      .hero h1 { font-size: clamp(38px, 10vw, 60px); }
+      .intro { font-size: 16px; }
+      .section { padding: 90px 0; }
+      .accordion summary { font-size: 20px; }
+      .contact { padding: 50px 20px; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="preview-bar">
+  <span data-de="Privater Entwurf — nicht veröffentlichen" data-en="Private draft — not for publication">
+    Private draft — not for publication
+  </span>
+</div>
+
+<header class="site-header wrap">
+  <a class="brand" href="#top">wide <i>minds</i></a>
+
+  <nav>
+    <a href="#about" data-de="Über mich" data-en="About">About</a>
+    <a href="#process" data-de="Ablauf" data-en="Process">Process</a>
+    <a href="#interventions" data-de="Themen" data-en="Topics">Topics</a>
+  </nav>
+
+  <button class="language" id="language-toggle">EN</button>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap reveal">
+    <div class="hero-copy">
+
+      <p class="eyebrow"
+        data-de="Psychologische Beratung in Berlin & online"
+        data-en="Psychological counselling in Berlin & online">
+        Psychological counselling in Berlin & online
+      </p>
+
+      <h1
+        data-de="Ein Raum, um<br><em>weiter</em> zu denken."
+        data-en="A space to<br><em>breathe and think.</em>">
+        A space to<br><em>breathe and think.</em>
+      </h1>
+
+      <p class="intro"
+        data-de="Ein ruhiger, strukturierter Raum für Reflexion und Veränderung."
+        data-en="A calm, structured space for reflection and change.">
+        A calm, structured space for reflection and change.
+      </p>
+
+      <a class="button" href="#contact"
+        data-de="15-min Erstgespräch buchen"
+        data-en="Book 15-min intro call">
+        Book 15-min intro call
+      </a>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>wide minds · room to breathe · room to reflect · room to change ·</span>
+      <span>wide minds · room to breathe · room to reflect · room to change ·</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section wrap reveal" id="about">
+
+    <p class="section-label" data-de="Über mich" data-en="About">About</p>
+
+    <h2>Florian Gütchow</h2>
+
+    <p data-de="M.Sc. Klinische Psychologie (Cum Laude), Universität Leiden. B.Sc. Psychologie, Radboud Universität Nijmegen."
+       data-en="MSc Clinical Psychology (Cum Laude), Leiden University. BSc Psychology, Radboud University.">
+      MSc Clinical Psychology (Cum Laude), Leiden University. BSc Psychology, Radboud University.
     </p>
 
-    <h1>
-      A space to<br><em>breathe and think.</em>
-    </h1>
-
-    <p class="intro">
-      A calm, structured space for reflection, emotional clarity, and meaningful change.
+    <p data-de="Evidenzbasierte Methoden (CBT, ACT, trauma-informiert)."
+       data-en="Evidence-based methods (CBT, ACT, trauma-informed).">
+      Evidence-based methods (CBT, ACT, trauma-informed).
     </p>
 
-    <a class="button" href="#contact">
-      Book 15-min free introduction call
-    </a>
-
-  </div>
-</section>
-
-<section class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>wide minds · room to reflect · room to breathe · room to change ·</span>
-    <span>wide minds · room to reflect · room to breathe · room to change ·</span>
-  </div>
-</section>
-
-<section class="section wrap" id="about">
-  <p class="section-label">About</p>
-
-  <h2>Florian Gütchow</h2>
-
-  <p>
-    Bachelor of Science in Psychology (Cum Laude), Radboud University Nijmegen.<br>
-    Master of Science in Clinical Psychology (Cum Laude), Leiden University.
-  </p>
-
-  <p>
-    Training in mindfulness-based approaches and evidence-informed psychotherapy
-    including CBT, ACT, and trauma-focused interventions.
-  </p>
-
-  <p>
-    My work focuses on creating a structured, safe, and collaborative space for psychological change.
-  </p>
-</section>
-<section class="section wrap" id="process">
-  <p class="section-label">Process</p>
-
-  <h2>What to expect</h2>
-
-  <p><strong>1. First session:</strong> Initial exploration and comfort check.</p>
-
-  <p><strong>2. Intake session:</strong> Structured understanding of your history, situation, and goals.</p>
-
-  <p><strong>3. Collaborative work:</strong> Personalized therapeutic direction based on your needs.</p>
-
-  <p>
-    Therapy is paced, calm, and non-pressuring. Confidentiality is strictly maintained.
-  </p>
-
-  <p><em>It takes courage to begin change. I’m here to support you in that process.</em></p>
-</section>
-
-<section class="section wrap" id="interventions">
-  <p class="section-label">Interventions</p>
-
-  <h2>Evidence-based approaches</h2>
-
-  <div class="accordion">
-
-    <details>
-      <summary>Anxiety</summary>
-      <p>Exposure therapy and fear hierarchy work to reduce avoidance patterns.</p>
-    </details>
-
-    <details>
-      <summary>Trauma</summary>
-      <p>EMDR, CPT, NET, IRRT and exposure-based approaches for safe processing of trauma.</p>
-    </details>
-
-    <details>
-      <summary>Depression</summary>
-      <p>Behavioral Activation, CBT cognitive restructuring, ACT, MBCT, Problem Solving Therapy.</p>
-    </details>
-
-    <details>
-      <summary>Borderline / Emotion Regulation</summary>
-      <p>DBT focusing on emotional regulation, distress tolerance, and interpersonal skills.</p>
-    </details>
-
-    <details>
-      <summary>Life Transitions</summary>
-      <p>Support for identity shifts, relationships, career changes using ACT and CBT methods.</p>
-    </details>
-
-  </div>
-</section>
-      
-      <section id="about" class="about wrap section">
-        <div class="section-label">01 / <span data-de="Über mich" data-en="About">Über mich</span></div>
-        <div>
-          <h2 data-de="Neugierig auf das, was Sie <em>bewegt.</em>" data-en="Curious about what <em>moves you.</em>">Neugierig auf das, was Sie <em>bewegt.</em></h2>
-          <p data-de="Ich bin Florian Gütschow, klinischer Psychologe (M.Sc.), Achtsamkeitstrainer und Psychologischer Psychotherapeut in Ausbildung. Ich biete psychologische Beratung auf Deutsch und Englisch an — in Berlin und online." data-en="I am Florian Gütschow, a clinical psychologist (MSc), mindfulness teacher and psychotherapist in training. I offer psychological counselling in German and English — in Berlin and online.">Ich bin Florian Gütschow, klinischer Psychologe (M.Sc.), Achtsamkeitstrainer und Psychologischer Psychotherapeut in Ausbildung. Ich biete psychologische Beratung auf Deutsch und Englisch — in Berlin und online.</p>
-          <p data-de="Nach fünf Jahren des Studiums im Ausland habe ich vor drei Jahren in Berlin Fuß gefasst. Hier habe ich wide minds gegründet, um ein modernes psychologisches Angebot auf Augenhöhe anzubieten. Neben meiner selbstständigen Tätigkeit arbeite ich in der Ambulanz des Medizinischen Versorgungszentrums BFA in Steglitz. Zuvor habe ich in psychotherapeutischen Praxen, sozialen Einrichtungen und einer Tagesklinik mit politisch Verfolgten, Folterüberlebenden und Menschen mit Fluchterfahrung gearbeitet. Meine eigenen Erfahrungen mit Reisen, dem Leben im Ausland und einem englischsprachigen Studium haben mich darin bestärkt, kulturoffen und sprachsensibel zu arbeiten." data-en="After five years of studying abroad, I put down roots in Berlin three years ago. Here I founded wide minds to offer modern psychological counselling on equal footing. Alongside my self-employed work, I work in the outpatient clinic of the Medizinisches Versorgungszentrum BFA in Steglitz. Before this, I worked in psychotherapy practices, social services and a day clinic with politically persecuted people, torture survivors and people with experience of forced displacement. My own experience of travelling, living abroad and studying in English has strengthened my commitment to a culturally open and language-sensitive approach.">Nach sechs Jahren des Studiums im Ausland habe ich vor drei Jahren in Berlin Fuß gefasst. Hier habe ich wide minds gegründet, um ein modernes psychologisches Angebot auf Augenhöhe anzubieten. Neben meiner selbstständigen Tätigkeit arbeite ich in der Ambulanz des Medizinischen Versorgungszentrums BFA in Steglitz. Zuvor habe ich in psychotherapeutischen Praxen, sozialen Einrichtungen und einer Tagesklinik mit politisch Verfolgten, Folterüberlebenden und Menschen mit Fluchterfahrung gearbeitet. Meine eigenen Erfahrungen mit Reisen, dem Leben im Ausland und einem englischsprachigen Studium haben mich darin bestärkt, kulturoffen und sprachsensibel zu arbeiten.</p>
-        </div>
-      </section>
-
-      <section id="approach" class="approach section">
-        <div class="wrap">
-          <div class="section-label">02 / <span data-de="Mein Ansatz" data-en="Approach">Mein Ansatz</span></div>
-          <div class="approach-grid">
-            <h2 data-de="Kein richtiger Weg.<br>Ihr <em>eigener.</em>" data-en="No single right way.<br>Your <em>own.</em>">Kein richtiger Weg.<br>Ihr <em>eigener.</em></h2>
-            <div>
-              <p class="large" data-de="Psychologische Beratung kann ein urteilsfreier Raum sein: für Vergangenes, Gegenwärtiges und das, was sich verändern darf. Ihre Bedürfnisse, Ziele und Ressourcen stehen dabei im Mittelpunkt. Ich arbeite modern, transparent und auf Augenhöhe — mit Zeit, um anzukommen und Vertrauen aufzubauen. Dabei orientiere ich mich an wissenschaftlich fundierten Ansätzen und an dem, was für Sie persönlich hilfreich ist." data-en="Psychological counselling can be a non-judgemental space for your past, present, and what may change. Your needs, goals and resources remain at the centre. I work in a modern, transparent and equal-footed way — with time to settle in and build trust. My work is informed by evidence-based approaches and by what is personally helpful to you.">Psychologische Beratung kann ein urteilsfreier Raum sein: für Vergangenes, Gegenwärtiges und das, was sich verändern darf. Ihre Bedürfnisse, Ziele und Ressourcen stehen dabei im Mittelpunkt. Ich arbeite modern, transparent und auf Augenhöhe — mit Zeit, um anzukommen und Vertrauen aufzubauen. Dabei orientiere ich mich an wissenschaftlich fundierten Ansätzen und an dem, was für Sie persönlich hilfreich ist.</p>
-              <p data-de="Ich bin offen für die Begleitung bei ernsthaften psychischen Belastungen ebenso wie für Themen rund um persönliches Wachstum, Selbstentwicklung und Orientierung." data-en="I welcome work around significant psychological distress as well as themes of personal growth, self-development and finding direction.">Ich bin offen für die Begleitung bei ernsthaften psychischen Belastungen ebenso wie für Themen rund um persönliches Wachstum, Selbstentwicklung und Orientierung.</p>
-              <div class="methods"><span>KVT / CBT</span><span>ACT</span><span data-de="Achtsamkeit" data-en="Mindfulness">Achtsamkeit</span><span>Compassion-Focused Therapy</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact" id="contact">
-
-  <div>
-    <p class="eyebrow">Contact</p>
-
-    <h2>Let’s talk</h2>
-
-    <p>Free 15-minute introductory call to explore whether this feels right.</p>
-  </div>
-
-  <div>
-
-    <form action="mailto:your@email.com" method="post" enctype="text/plain">
-
-      <input type="email" name="email" placeholder="Your email address" required>
-
-      <button class="button" type="submit">
-        Request 15-min free call
-      </button>
-
-    </form>
-
-    <p class="small">
-      Confidential contact • Reply within 48h
+    <p data-de="Sicherer, ruhiger therapeutischer Rahmen ohne Druck."
+       data-en="Safe, calm therapeutic space without pressure.">
+      Safe, calm therapeutic space without pressure.
     </p>
 
-  </div>
+  </section>
 
-</section>
+  <!-- PROCESS -->
+  <section class="section wrap reveal" id="process">
 
-      <section class="focus wrap section">
-        <div class="section-label">03 / <span data-de="Mögliche Anliegen" data-en="Areas I work with">Mögliche Anliegen</span></div>
-        <ul>
-          <li data-de="Ängste & Phobien" data-en="Anxiety & phobias">Ängste & Phobien</li>
-          <li data-de="Krisenintervention" data-en="Crisis intervention">Krisenintervention</li>
-          <li data-de="Depression & Erschöpfung" data-en="Depression & burnout">Depression & Erschöpfung</li>
-          <li data-de="Trauma & belastende Erfahrungen" data-en="Trauma & difficult experiences">Trauma & belastende Erfahrungen</li>
-          <li data-de="Selbstwert & Prokrastination" data-en="Self-worth & procrastination">Selbstwert & Prokrastination</li>
-          <li data-de="Persönliches Wachstum & Entwicklung" data-en="Personal growth & development">Persönliches Wachstum & Entwicklung</li>
-          <li data-de="Beziehungen & Leben im Ausland" data-en="Relationships & life abroad">Beziehungen & Leben im Ausland</li>
-        </ul>
-      </section>
+    <p class="section-label" data-de="Ablauf" data-en="Process">Process</p>
 
-      <section id="sessions" class="sessions section wrap">
-        <div class="section-label">04 / <span data-de="Sitzungen" data-en="Sessions">Sitzungen</span></div>
-        <div class="session-grid">
-          <article><p class="number">01</p><h3 data-de="Kennenlernen" data-en="Getting acquainted">Kennenlernen</h3><p data-de="Ein erstes, unverbindliches Gespräch, um Ihre Fragen zu klären und herauszufinden, ob eine Zusammenarbeit passend sein könnte." data-en="A first, no-obligation conversation to answer your questions and see whether working together feels right.">Ein erstes, unverbindliches Gespräch, um Ihre Fragen zu klären und herauszufinden, ob eine Zusammenarbeit passend sein könnte.</p><p class="detail" data-de="15 Min. · kostenlos · online / vor Ort" data-en="15 min · free · online / in person">15 Min. · kostenlos · online / vor Ort</p></article>
-          <article><p class="number">02</p><h3 data-de="Einzelsitzung" data-en="Individual session">Einzelsitzung</h3><p data-de="Ein geschützter Rahmen, in dem wir Ihre Themen in Ihrem Tempo betrachten und mit konkreten Möglichkeiten arbeiten." data-en="A protected setting to explore your concerns at your pace and work with practical possibilities.">Ein geschützter Rahmen, in dem wir Ihre Themen in Ihrem Tempo betrachten und mit konkreten Möglichkeiten arbeiten.</p><p class="detail" data-de="50 Min. · 80 € · Selbstzahlende" data-en="50 min · €80 · self-pay">50 Min. · 80 € · Selbstzahlende</p></article>
-        </div>
-        <div class="booking-panel">
-          <div><p class="eyebrow" data-de="Online buchen" data-en="Book online">Online buchen</p><h3 data-de="Ein passender<br><em>Moment.</em>" data-en="A moment that<br><em>works for you.</em>">Ein passender<br><em>Moment.</em></h3></div>
-          <div><p data-de="Wählen Sie einen freien Termin für ein unverbindliches Kennenlerngespräch." data-en="Choose an available time for a no-obligation introductory call.">Wählen Sie einen freien Termin für ein unverbindliches Kennenlerngespräch.</p><button class="button light" id="show-booking" type="button" data-de="Freie Termine ansehen" data-en="View available times">Freie Termine ansehen</button></div>
-        </div>
-        <div class="booking-frame" id="booking-frame" hidden>
-          <iframe title="Meetergo booking calendar" data-src="https://cal.meetergo.com/fguetschowpsychotherapy/30-min-meeting-or-fguetschowpsychotherapy?lang=en" loading="lazy"></iframe>
-        </div>
-      </section>
+    <h2 data-de="Was dich erwartet" data-en="What to expect">
+      What to expect
+    </h2>
 
-      <section id="preview-note" class="contact wrap"><div><p class="eyebrow">wide minds</p><h2 data-de="In Ruhe<br><em>ankommen.</em>" data-en="Arrive<br><em>at ease.</em>">In Ruhe<br><em>ankommen.</em></h2></div><div><p data-de="Ein unverbindliches Kennenlerngespräch kann online gebucht werden. Die Kontaktadresse und rechtlichen Angaben folgen vor der Veröffentlichung." data-en="A no-obligation introductory call can be booked online. The contact address and legal details will follow before publication.">Ein unverbindliches Kennenlerngespräch kann online gebucht werden. Die Kontaktadresse und rechtlichen Angaben folgen vor der Veröffentlichung.</p><p class="small" data-de="Dieser Entwurf ist nicht öffentlich und nicht für die Kontaktaufnahme oder Notfälle bestimmt." data-en="This draft is not public and is not intended for contact or emergencies.">Dieser Entwurf ist nicht öffentlich und nicht für die Kontaktaufnahme oder Notfälle bestimmt.</p></div></section>
-    </main>
-    <footer class="wrap"><a class="brand" href="#top">wide <i>minds</i></a><p>Berlin & online</p><p>© <span id="year"></span> Florian Gütschow</p></footer>
-    <script src="script.js"></script>
-    <script src="booking.js"></script>
-  </body>
+    <p><strong>1.</strong> First session: orientation & fit check</p>
+    <p><strong>2.</strong> Intake session: structured exploration</p>
+    <p><strong>3.</strong> Ongoing work: collaborative approach</p>
+
+  </section>
+
+  <!-- INTERVENTIONS -->
+  <section class="section wrap reveal" id="interventions">
+
+    <p class="section-label" data-de="Themen" data-en="Topics">Topics</p>
+
+    <h2 data-de="Womit wir arbeiten können" data-en="What we can work on">
+      What we can work on
+    </h2>
+
+    <div class="accordion">
+
+      <details>
+        <summary>Anxiety</summary>
+        <p>Exposure therapy, fear hierarchy, reduction of avoidance.</p>
+      </details>
+
+      <details>
+        <summary>Trauma</summary>
+        <p>EMDR, CPT, NET, IRRT, trauma-focused CBT.</p>
+      </details>
+
+      <details>
+        <summary>Depression</summary>
+        <p>Behavioral activation, CBT, ACT, MBCT.</p>
+      </details>
+
+      <details>
+        <summary>Emotion Regulation</summary>
+        <p>DBT skills for regulation, distress tolerance, relationships.</p>
+      </details>
+
+      <details>
+        <summary>Life Transitions</summary>
+        <p>Identity shifts, career change, orientation phases.</p>
+      </details>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact reveal" id="contact">
+
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Let’s talk</h2>
+      <p>Free 15-minute introductory call.</p>
+    </div>
+
+    <div>
+
+      <form action="mailto:your@email.com">
+
+        <input type="email" placeholder="Your email" required>
+
+        <button class="button" type="submit">
+          Book intro call
+        </button>
+
+      </form>
+
+      <p class="small">Confidential • Reply within 48h</p>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- LANGUAGE TOGGLE -->
+<script>
+let lang = "en";
+
+document.getElementById("language-toggle").addEventListener("click", () => {
+  lang = lang === "en" ? "de" : "en";
+
+  document.querySelectorAll("[data-de]").forEach(el => {
+    const val = el.getAttribute("data-" + lang);
+    if (val) el.innerHTML = val;
+  });
+
+  document.getElementById("language-toggle").textContent = lang.toUpperCase();
+});
+</script>
+
+<!-- SCROLL ANIMATION -->
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add("visible");
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+</body>
 </html>
