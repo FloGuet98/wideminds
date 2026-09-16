@@ -1,835 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap');
+/* =========================================
+   WABI-SABI LAYER 01
+   Safe visual upgrade — no layout changes
+   ========================================= */
 
-:root {
-  --ink: #2d3029;
-  --paper: #f4f0e7;
-  --clay: #ca7058;
-  --moss: #7d8a70;
-  --line: #cfc8bb;
-  --cream: #faf8f3;
-  --muted: #5a5f54;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* More warmth behind the existing page */
 body {
-  margin: 0;
-  overflow-x: hidden;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: "DM Sans", sans-serif;
-  font-size: 16px;
-  line-height: 1.55;
+  background:
+    radial-gradient(
+      circle at 12% 10%,
+      rgba(202, 112, 88, .07),
+      transparent 32rem
+    ),
+    radial-gradient(
+      circle at 88% 55%,
+      rgba(125, 138, 112, .06),
+      transparent 28rem
+    ),
+    var(--paper);
 }
 
-body,
-p,
-span,
-a,
-div,
-button,
-input,
-textarea {
-  font-family: "DM Sans", sans-serif;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-.wrap {
-  width: min(1180px, calc(100% - 56px));
-  margin-inline: auto;
-}
-
-.preview-bar {
-  padding: 9px;
-  background: var(--ink);
-  color: var(--paper);
-  font: 12px "DM Mono", monospace;
-  letter-spacing: .04em;
-  text-align: center;
-}
-
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 93px;
-}
-
-.brand {
-  color: inherit;
-  font: 34px "Instrument Serif", serif;
-  letter-spacing: -.04em;
-  text-decoration: none;
-}
-
-.brand i {
-  font-weight: 400;
-}
-
-.site-header nav {
-  display: flex;
-  gap: 28px;
-}
-
-.site-header nav a {
-  color: inherit;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.site-header nav a:hover {
-  color: var(--clay);
-}
-
-.language {
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--ink);
-  border-radius: 50%;
-  background: none;
-  color: var(--ink);
-  font: 12px "DM Mono", monospace;
-  cursor: pointer;
-}
-
-.language:hover {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  align-items: center;
-  gap: 80px;
-  min-height: 620px;
-  padding: 58px 0 94px;
-}
-
-.section-label,
-.eyebrow,
-.number,
-.detail,
-.card-mark {
-  font: 12px "DM Mono", monospace;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-}
-
-.section-label {
-  display: block;
-  margin-bottom: 38px;
-  color: var(--clay);
-}
-
-.eyebrow {
-  margin: 0 0 26px;
-  color: var(--clay);
-}
-
-h1,
-h2,
-h3,
-p {
-  margin-top: 0;
-}
-
-h1,
-h2 {
-  color: var(--ink);
-  font: clamp(55px, 7vw, 100px) / .91 "Instrument Serif", serif;
-  font-weight: 400;
-  letter-spacing: -.055em;
-}
-
-h1 em,
-h2 em {
-  color: var(--clay);
-}
-
-h3 {
-  margin: 25px 0 16px;
-  font: 42px "Instrument Serif", serif;
-  letter-spacing: -.04em;
-}
-
-.intro {
-  max-width: 450px;
-  margin: 34px 0;
-  font-size: 19px;
-  line-height: 1.5;
-}
-
-.button {
-  display: inline-block;
-  padding: 14px 21px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--ink);
-  color: #fff;
-  font: 14px "DM Sans", sans-serif;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background .2s ease, transform .2s ease;
-}
-
-.button:hover {
-  background: var(--clay);
-  transform: translateY(-1px);
-}
-
-.button:focus-visible,
-.language:focus-visible,
-summary:focus-visible {
-  outline: 2px solid var(--clay);
-  outline-offset: 3px;
-}
-
-.hero-portrait {
-  position: relative;
-  max-width: 430px;
-  justify-self: end;
-}
-
-.hero-portrait img,
-.portrait-image img {
-  display: block;
-  width: 100%;
-  aspect-ratio: .88;
-  object-fit: cover;
-  object-position: center 38%;
-  border-radius: 220px 220px 12px 12px;
-  filter: saturate(.82) contrast(.95);
-}
-
-.portrait-image {
-  overflow: hidden;
-  border-radius: 220px 220px 12px 12px;
-}
-
-.sun,
-.shape-sun {
-  position: absolute;
-  z-index: -1;
-  top: -45px;
-  right: -54px;
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  background: var(--clay);
-}
-
-.portrait-caption {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 11px;
-  margin: 13px 0 0;
-  font: 12px "DM Mono", monospace;
-}
-
-.portrait-name,
-.portrait-role {
-  white-space: nowrap;
-}
-
-.portrait-name {
-  font-weight: 500;
-}
-
-.portrait-role {
-  color: var(--muted);
-}
-
-/* Original calm text strip */
-
-.marquee,
-.zen-pause {
-  overflow: hidden;
-  padding: 17px 0;
-  background: var(--moss);
-  color: var(--cream);
-  white-space: nowrap;
-}
-
+/* Remove the moving, corporate-feeling brand ticker */
 .marquee {
-  font: 22px "Instrument Serif", serif;
-  letter-spacing: .04em;
-}
-
-.marquee-track {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee-scroll 20s linear infinite;
-}
-
-.marquee-track span {
-  display: inline-block;
-  padding-right: 60px;
-}
-
-@keyframes marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.zen-pause {
-  display: grid;
-  min-height: 120px;
-  place-items: center;
-  white-space: normal;
-}
-
-.zen-pause p {
-  max-width: 600px;
-  margin: 0;
-  padding: 20px;
-  font: 28px / 1.1 "Instrument Serif", serif;
-  text-align: center;
-}
-
-.section {
-  padding: 138px 0;
-}
-
-/* About */
-
-.about {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 52px;
-}
-
-.about h2 {
-  max-width: 700px;
-  margin-bottom: 35px;
-  font-size: clamp(47px, 5vw, 76px);
-}
-
-.about p {
-  max-width: 680px;
-  font-size: 18px;
-}
-
-/* Approach */
-
-.approach {
-  background: #dfe1d7;
-}
-
-.approach-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-}
-
-.approach h2 {
-  font-size: clamp(45px, 5vw, 70px);
-}
-
-.approach-copy p {
-  max-width: 680px;
-}
-
-.large {
-  font-size: 23px;
-  line-height: 1.43;
-}
-
-.methods {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 32px;
-}
-
-.methods span {
-  padding: 7px 11px;
-  border: 1px solid #99a08f;
-  border-radius: 999px;
-  font-size: 13px;
-}
-
-/* Process */
-
-.process-intro {
-  max-width: 680px;
-  margin-bottom: 42px;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.process-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.process-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 260px;
-  padding: 32px;
-  border: 1px solid var(--line);
-  background: var(--cream);
-}
-
-.process-card h3 {
-  margin: 0 0 16px;
-  font-size: clamp(28px, 3vw, 42px);
-}
-
-.process-card p {
-  margin-bottom: 16px;
-}
-
-.process-wide {
-  grid-column: 1 / -1;
-}
-
-.card-mark {
-  display: block;
-  margin-bottom: 18px;
-  color: var(--clay);
-}
-
-.process-quote {
-  margin-top: 10px;
-  padding-left: 14px;
-  border-left: 2px solid var(--moss);
-  color: var(--muted);
-  font-style: italic;
-}
-
-/* Areas / smooth stone accordions */
-
-.focus-accordions .focus-intro,
-.focus-intro {
-  max-width: 680px;
-  margin-bottom: 52px;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.focus-list {
-  max-width: 980px;
-  margin-left: auto;
-}
-
-.focus-item {
-  margin: 0;
-  padding: 28px 0;
-  border-top: 1px solid var(--line);
-}
-
-.focus-item:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.focus-item summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  cursor: pointer;
-  list-style: none;
-}
-
-.focus-item summary::-webkit-details-marker {
   display: none;
 }
 
-.focus-title-text {
-  flex: 1;
-  color: var(--ink);
-  font: clamp(26px, 3.2vw, 38px) / 1.2 "Instrument Serif", serif;
+/* Make your existing Process cards warmer and gentler */
+.process-card {
+  border-color: rgba(45, 48, 41, .14);
+  border-radius: 32px;
+  box-shadow: 0 12px 28px rgba(45, 48, 41, .05);
 }
 
-.focus-stone {
-  position: relative;
-  top: 2px;
-  flex: 0 0 28px;
-  width: 28px;
-  height: 28px;
-  border-radius: 46% 54% 58% 42% / 49% 38% 62% 51%;
-  background: var(--line);
-  box-shadow:
-    inset 0 0 0 1px rgba(45, 48, 41, .08),
-    0 4px 10px rgba(45, 48, 41, .06);
-  transition: background .35s ease, transform .35s ease;
+.process-card:nth-child(1) {
+  background: #eadfc9;
 }
 
-.focus-stone::after {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .55);
-  content: "";
-  filter: blur(1px);
+.process-card:nth-child(2) {
+  background: #dce3d6;
 }
 
-.focus-item[open] .focus-stone {
-  background: var(--moss);
-  transform: rotate(-9deg) translateY(-2px);
+.process-card:nth-child(3) {
+  background: #efd4c4;
 }
 
-.focus-inner {
-  display: grid;
-  overflow: hidden;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows .4s ease;
+.process-card:nth-child(4) {
+  background: #e7e2d6;
 }
 
-.focus-item[open] .focus-inner {
-  grid-template-rows: 1fr;
-}
-
-.focus-inner > p {
-  min-height: 0;
-  max-width: 820px;
-  margin: 0;
-  padding-top: 18px;
-  font-size: 17px;
-  line-height: 1.6;
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity .4s ease, transform .4s ease;
-}
-
-.focus-item[open] .focus-inner > p {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.focus-approach {
-  padding-top: 6px !important;
-  color: var(--muted);
-  font-style: italic;
-}
-
-/* Sessions */
-
-.sessions {
-  background: var(--paper);
-}
-
-.sessions-intro {
-  max-width: 680px;
-  margin-bottom: 42px;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.session-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
+/* Give the Sessions cards distinct but quiet earth surfaces */
 .session-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 320px;
-  padding: 32px;
-  border: 1px solid var(--line);
-  background: var(--paper);
+  border-color: rgba(45, 48, 41, .14);
+  border-radius: 32px;
+  box-shadow: 0 12px 28px rgba(45, 48, 41, .05);
 }
 
-.session-card h3 {
-  margin: 10px 0 16px;
+.session-card:first-child {
+  background: #faf8f3;
 }
 
-.session-card p {
-  margin-bottom: 14px;
+.session-card:last-child {
+  background: #dce3d6;
 }
 
-.session-card .detail {
-  margin-top: auto;
-  color: var(--muted);
-}
-
-.session-card .button {
-  align-self: flex-start;
-  margin-top: 14px;
-}
-
-.sessions-note {
-  max-width: 720px;
-  margin-top: 28px;
-}
-
-.sessions-note p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 15px;
-  font-style: italic;
-  line-height: 1.6;
-}
-
-/* Booking */
-
+/* Make the booking area feel less rectangular */
 .booking-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  margin-top: 28px;
-  padding: 50px;
-  background: var(--moss);
-  color: var(--cream);
-}
-
-.booking-panel .eyebrow {
-  color: #dce7d2;
-}
-
-.booking-panel h3 {
-  margin: 0;
-  font-size: clamp(38px, 4vw, 58px);
-  line-height: .94;
-}
-
-.booking-panel h3 em {
-  color: var(--cream);
-}
-
-.booking-panel > div:last-child {
-  align-self: end;
-  font-size: 18px;
-}
-
-.booking-panel .light {
-  border: 0;
-  background: var(--cream);
-  color: var(--ink);
-  cursor: pointer;
+  border-radius: 38px;
+  overflow: hidden;
 }
 
 .booking-frame {
-  min-height: 720px;
-  margin-top: 22px;
-  border: 1px solid var(--line);
-  background: var(--cream);
+  border-radius: 30px;
+  overflow: hidden;
 }
 
-.booking-frame iframe {
-  display: block;
-  width: 100%;
-  min-height: 720px;
-  border: 0;
+/* Keep the portrait frame organic, but controlled */
+.portrait-image {
+  border-radius: 220px 220px 18px 18px;
+  overflow: hidden;
 }
-
-/* Contact */
-
-.contact {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 90px;
-  margin-bottom: 0;
-  padding: 85px;
-  background: var(--clay);
-  color: #fff;
-}
-
-.contact .eyebrow {
-  color: #ffe0d8;
-}
-
-.contact h2 {
-  margin: 0;
-  font-size: clamp(53px, 6vw, 85px);
-}
-
-.contact h2 em {
-  color: #fff;
-}
-
-.contact > div:last-child {
-  align-self: end;
-  font-size: 18px;
-}
-
-.small {
-  margin-top: 28px;
-  font-size: 13px;
-  opacity: .8;
-}
-
-/* Footer */
-
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px 0;
-  color: #6a6d65;
-  font-size: 12px;
-}
-
-footer p {
-  margin: 0;
-}
-
-/* Intro reveal */
-
-.reveal {
-  animation: appear .7s ease both;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(13px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* Mobile */
 
 @media (max-width: 720px) {
-  .wrap {
-    width: min(100% - 36px, 1180px);
-  }
-
-  .site-header {
-    height: 74px;
-  }
-
-  .site-header nav {
-    display: none;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    min-height: auto;
-    padding: 55px 0 70px;
-  }
-
-  .hero-copy {
-    order: 2;
-  }
-
-  .hero-portrait {
-    width: min(100%, 400px);
-    justify-self: start;
-  }
-
-  .sun,
-  .shape-sun {
-    top: -30px;
-    right: -18px;
-  }
-
-  .section {
-    padding: 85px 0;
-  }
-
-  .about {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .section-label {
-    margin-bottom: 27px;
-  }
-
-  .approach-grid,
-  .process-grid,
-  .session-grid,
-  .contact,
-  .booking-panel {
-    grid-template-columns: 1fr;
-    gap: 26px;
-  }
-
-  .process-wide {
-    grid-column: auto;
-  }
-
-  .contact {
-    width: 100%;
-    padding: 58px 18px;
-  }
-
-  .contact > div {
-    width: min(100% - 36px, 1180px);
-    margin-inline: auto;
+  .process-card,
+  .session-card {
+    border-radius: 24px;
   }
 
   .booking-panel {
-    padding: 34px 24px;
+    border-radius: 28px;
   }
 
-  .booking-frame,
-  .booking-frame iframe {
-    min-height: 660px;
-  }
-
-  .focus-item {
-    padding: 22px 0;
-  }
-
-  .focus-title-text {
-    font-size: clamp(22px, 5.5vw, 30px);
-  }
-
-  .focus-stone {
-    flex-basis: 24px;
-    width: 24px;
-    height: 24px;
-  }
-
-  .focus-inner > p {
-    font-size: 16px;
-  }
-
-  .session-card,
-  .process-card {
-    min-height: auto;
-    padding: 26px;
-  }
-
-  footer {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .brand {
-    font-size: 30px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
+  .booking-frame {
+    border-radius: 22px;
   }
 }
