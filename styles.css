@@ -326,37 +326,97 @@ h1 em,h2 em{color:var(--clay)}
   }
 }
 
-/* ===== SESSIONS ===== */
+/* ===== SESSIONS – SPACIOUS, WABI-SABI ===== */
 
-.sessions{background:var(--paper)}
-.session-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px
-}
-.session-grid article{
-  padding:32px;
-  border:1px solid var(--line);
-  min-height:310px;
-  display:flex;
-  flex-direction:column
+.sessions-intro {
+  font-size: 18px;
+  max-width: 680px;
+  margin: 0 0 48px;
+  line-height: 1.5;
+  color: var(--ink);
 }
 
-.number{
-  font:12px 'DM Mono',monospace;
-  color:var(--clay)
+.session-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
 }
 
-h3{
-  font:42px 'Instrument Serif',serif;
-  letter-spacing:-.04em;
-  margin:25px 0 16px
+@media (min-width: 760px) {
+  .session-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.detail{
-  margin:auto 0 0;
-  font:12px 'DM Mono',monospace;
-  text-transform:uppercase
+.session-card {
+  padding: 32px;
+  border: 1px solid var(--line);
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+}
+
+.session-card .number {
+  margin: 0;
+}
+
+.session-card h3 {
+  margin: 10px 0 16px;
+}
+
+.session-card p {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.session-card .detail {
+  margin-top: auto;
+  font: 12px 'DM Mono', monospace;
+  text-transform: uppercase;
+  color: var(--muted, #5a5a5a);
+}
+
+.session-card .button {
+  margin-top: 14px;
+  align-self: start;
+}
+
+/* Inclusion note – warm, quiet, non-bureaucratic */
+.sessions-note {
+  margin-top: 32px;
+  max-width: 720px;
+}
+
+.sessions-note p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted, #5a5a5a);
+  font-style: italic;
+}
+
+/* Mobile tweaks */
+@media (max-width: 720px) {
+  .sessions-intro {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+
+  .session-card {
+    min-height: auto;
+    padding: 26px;
+  }
+
+  .sessions-note {
+    margin-top: 24px;
+  }
+
+  .sessions-note p {
+    font-size: 14px;
+  }
 }
 
 /* ===== CONTACT ===== */
