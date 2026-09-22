@@ -1,36 +1,423 @@
 /* =========================================
-   WABI-SABI LAYER 01
-   Safe visual upgrade — no layout changes
+   WABI-SABI BASE
+   Earthy, soft, organic — no hard edges
    ========================================= */
 
-/* More warmth behind the existing page */
+:root {
+  /* Paper & earth tones */
+  --paper: #f7f5f0;
+  --sand: #f3efe6;
+  --clay: #c98a6f;
+  --clay-soft: rgba(201, 138, 111, 0.18);
+  --moss: #7d8a70;
+  --moss-soft: rgba(125, 138, 112, 0.18);
+  --stone: #d8d3c7;
+  --ink: #2d3029;
+  --ink-soft: rgba(45, 48, 41, 0.7);
+
+  /* Shapes */
+  --radius-soft: 22px;
+  --radius-tall: 26px;
+  --radius-wide: 28px;
+  --radius-organic: 34px;
+}
+
+/* Base page */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
+  font-family: "EB Garamond", "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
   background:
-    radial-gradient(
-      circle at 12% 10%,
-      rgba(202, 112, 88, .07),
-      transparent 32rem
-    ),
-    radial-gradient(
-      circle at 88% 55%,
-      rgba(125, 138, 112, .06),
-      transparent 28rem
-    ),
+    radial-gradient(circle at 12% 10%, rgba(202, 112, 88, 0.07), transparent 32rem),
+    radial-gradient(circle at 88% 55%, rgba(125, 138, 112, 0.06), transparent 28rem),
     var(--paper);
 }
 
-/* Remove the moving, corporate-feeling brand ticker */
-.marquee {
-  display: none;
+/* ---------- Header & Navigation ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid rgba(45, 48, 41, 0.06);
 }
 
-/* Make your existing Process cards warmer and gentler */
+.brand {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.brand i {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-style: italic;
+  color: var(--clay);
+}
+
+.site-header nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.site-header nav a:hover {
+  color: var(--clay);
+}
+
+.language {
+  background: transparent;
+  border: 1px solid rgba(45, 48, 41, 0.18);
+  color: var(--ink-soft);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.language:hover {
+  background: var(--clay-soft);
+  border-color: var(--clay);
+  color: var(--ink);
+}
+
+/* ---------- Layout wrappers ---------- */
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 140px 0;
+}
+
+.section-label {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 2.2rem;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  align-items: center;
+  min-height: 82vh;
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.6rem 0;
+  letter-spacing: 0.04em;
+}
+
+.hero h1 {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 1.2rem 0;
+  color: var(--ink);
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--clay);
+}
+
+.intro {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.8rem 0;
+  max-width: 42ch;
+}
+
+.button {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  background: #1f211c;
+}
+
+/* Portrait */
+
+.hero-portrait {
+  position: relative;
+  margin: 0;
+}
+
+.shape-sun {
+  position: absolute;
+  inset: -18% -12% auto auto;
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #f6f2e8 60%, #e8e2d4);
+  box-shadow:
+    0 18px 40px rgba(45, 48, 41, 0.08),
+    inset 0 0 40px rgba(255, 255, 255, 0.6);
+  z-index: 0;
+}
+
+.portrait-image {
+  position: relative;
+  z-index: 1;
+  border-radius: 220px 220px 18px 18px;
+  overflow: hidden;
+  box-shadow: 0 22px 50px rgba(45, 48, 41, 0.12);
+}
+
+.portrait-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.portrait-caption {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.portrait-name {
+  display: block;
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.portrait-role {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Quiet transition / Pebble path ---------- */
+
+.zen-pause {
+  position: relative;
+  padding: 120px 0;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, var(--moss-soft), transparent 60%),
+    linear-gradient(to bottom, transparent, rgba(125, 138, 112, 0.04));
+  overflow: hidden;
+}
+
+.zen-pause p {
+  position: relative;
+  z-index: 2;
+  max-width: 55ch;
+  margin: 0 auto;
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+/* Organic pebble path from top to bottom */
+.zen-path {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(120px 90px at 18% 10%, var(--clay-soft), transparent 60%),
+    radial-gradient(140px 100px at 78% 28%, var(--moss-soft), transparent 60%),
+    radial-gradient(110px 80px at 22% 55%, var(--moss-soft), transparent 60%),
+    radial-gradient(130px 90px at 68% 72%, var(--clay-soft), transparent 60%),
+    radial-gradient(120px 90px at 15% 88%, var(--moss-soft), transparent 60%);
+  filter: blur(0.2px);
+}
+
+/* ---------- About ---------- */
+
+.about {
+  position: relative;
+}
+
+.about-body h2 {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-weight: 500;
+  margin: 0 0 1.4rem 0;
+  color: var(--ink);
+}
+
+.about-body p {
+  margin: 0 0 1rem 0;
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+
+.about-pebble {
+  position: absolute;
+  right: 6%;
+  bottom: 12%;
+  width: 90px;
+  height: 120px;
+  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
+  background: var(--clay-soft);
+  transform: rotate(18deg);
+  pointer-events: none;
+}
+
+/* ---------- Approach ---------- */
+
+.approach {
+  position: relative;
+  background:
+    radial-gradient(circle at 70% 10%, var(--moss-soft), transparent 50%),
+    radial-gradient(circle at 10% 80%, var(--clay-soft), transparent 50%);
+}
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.approach h2 {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: var(--ink);
+}
+
+.approach-copy .large {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.approach-copy p {
+  margin: 0 0 1rem 0;
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+
+.methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+.methods span {
+  background: var(--sand);
+  color: var(--ink-soft);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(45, 48, 41, 0.08);
+}
+
+.approach-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent 60%),
+    radial-gradient(circle at 70% 70%, var(--moss-soft), transparent 60%);
+  box-shadow: inset 0 0 60px rgba(125, 138, 112, 0.12);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* ---------- Process ---------- */
+
+.process {
+  position: relative;
+}
+
+.process-intro {
+  margin: 0 0 2.2rem 0;
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}
+
 .process-card {
-  border-color: rgba(45, 48, 41, .14);
-  border-radius: 32px;
-  box-shadow: 0 12px 28px rgba(45, 48, 41, .05);
+  position: relative;
+  background: var(--sand);
+  border: 1px solid rgba(45, 48, 41, 0.12);
+  border-radius: var(--radius-organic);
+  padding: 1.6rem;
+  box-shadow: 0 12px 28px rgba(45, 48, 41, 0.05);
 }
 
+.process-card .card-mark {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  opacity: 0.7;
+}
+
+.process-card h3 {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.6rem 0 0.6rem 0;
+  color: var(--ink);
+}
+
+.process-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* Earthy surfaces for process cards */
 .process-card:nth-child(1) {
   background: #eadfc9;
 }
@@ -47,11 +434,135 @@ body {
   background: #e7e2d6;
 }
 
-/* Give the Sessions cards distinct but quiet earth surfaces */
+/* ---------- Focus (Accordion / Zieharmonika) ---------- */
+
+.focus {
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 0%, var(--clay-soft), transparent 50%),
+    radial-gradient(circle at 80% 100%, var(--moss-soft), transparent 50%);
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.6fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.focus h2 {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+  color: var(--ink);
+}
+
+.focus-copy p {
+  margin: 0 0 1rem 0;
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+
+.accordion {
+  display: grid;
+  gap: 0.9rem;
+}
+
+details {
+  background: var(--sand);
+  border: 1px solid rgba(45, 48, 41, 0.1);
+  border-radius: var(--radius-tall);
+  padding: 0.9rem 1.1rem;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+details[open] {
+  background: #fff;
+  border-color: rgba(45, 48, 41, 0.18);
+  box-shadow: 0 10px 24px rgba(45, 48, 41, 0.06);
+}
+
+summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+  flex: 0 0 1.4em;
+  text-align: center;
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 1.2rem;
+  color: var(--clay);
+  transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+details p {
+  margin: 0.8rem 0 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* ---------- Sessions ---------- */
+
+.sessions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+}
+
 .session-card {
-  border-color: rgba(45, 48, 41, .14);
-  border-radius: 32px;
-  box-shadow: 0 12px 28px rgba(45, 48, 41, .05);
+  position: relative;
+  background: var(--sand);
+  border: 1px solid rgba(45, 48, 41, 0.12);
+  border-radius: var(--radius-organic);
+  padding: 1.8rem;
+  box-shadow: 0 12px 28px rgba(45, 48, 41, 0.05);
+}
+
+.session-card .card-mark {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  opacity: 0.7;
+}
+
+.session-card h3 {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.4rem 0 0.4rem 0;
+  color: var(--ink);
+}
+
+.session-card p {
+  margin: 0;
+  font-size: 0.93rem;
+  color: var(--ink-soft);
 }
 
 .session-card:first-child {
@@ -62,34 +573,129 @@ body {
   background: #dce3d6;
 }
 
-/* Make the booking area feel less rectangular */
+/* ---------- Booking ---------- */
+
 .booking-panel {
-  border-radius: 38px;
+  background: #fff;
+  border: 1px solid rgba(45, 48, 41, 0.12);
+  border-radius: var(--radius-wide);
   overflow: hidden;
+  box-shadow: 0 18px 40px rgba(45, 48, 41, 0.08);
 }
 
 .booking-frame {
-  border-radius: 30px;
+  width: 100%;
+  height: 720px;
+  border: none;
+  border-radius: var(--radius-tall);
   overflow: hidden;
 }
 
-/* Keep the portrait frame organic, but controlled */
-.portrait-image {
-  border-radius: 220px 220px 18px 18px;
-  overflow: hidden;
+/* ---------- Contact ---------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
 }
 
-@media (max-width: 720px) {
-  .process-card,
-  .session-card {
-    border-radius: 24px;
+.contact h2 {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: clamp(1.6rem, 2.6vw, 2rem);
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+  color: var(--ink);
+}
+
+.contact-copy p {
+  margin: 0 0 1rem 0;
+  color: var(--ink-soft);
+  max-width: 65ch;
+}
+
+.contact-details p {
+  margin: 0 0 0.4rem 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.contact-details a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid rgba(45, 48, 41, 0.08);
+  padding: 3rem 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Utilities & animations ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.6rem;
+    min-height: auto;
+    padding: 80px 0 50px;
   }
 
-  .booking-panel {
-    border-radius: 28px;
+  .hero-portrait {
+    order: -1;
   }
 
-  .booking-frame {
-    border-radius: 22px;
+  .approach-grid,
+  .focus-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .approach-orbit {
+    width: 260px;
+    height: 260px;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sessions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 90px 0;
+  }
+
+  .zen-pause {
+    padding: 90px 0;
+  }
+
+  .about-pebble {
+    width: 70px;
+    height: 95px;
+    right: 4%;
+    bottom: 8%;
   }
 }
