@@ -1,3 +1,8 @@
+/* CANARY-TEST: if you see a red body, the new CSS is loaded */
+body {
+  background: red !important;
+}
+
 /* =========================================
    WABI-SABI BASE
    Earthy, soft, organic — no hard edges
