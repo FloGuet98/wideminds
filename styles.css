@@ -922,3 +922,336 @@ body::after {
     height: 680px;
   }
 }
+/* =========================================
+   PROCESS: ZEN GARDEN PEBBLE TRAIL
+   ========================================= */
+
+.zen-path-wrapper {
+  position: relative;
+  margin-top: 40px;
+}
+
+/* ---------- Start stone (centered) ---------- */
+
+.zen-start {
+  display: grid;
+  place-items: center;
+  margin-bottom: 40px;
+}
+
+.zen-start-card {
+  max-width: 560px;
+  text-align: center;
+  border-radius: 34px;
+}
+
+/* ---------- Trail container ---------- */
+
+.zen-trail {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 70px;
+  padding: 20px 0 40px;
+}
+
+/* Subtle central "path" line */
+.zen-trail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    rgba(202, 112, 88, 0.0),
+    rgba(202, 112, 88, 0.22),
+    rgba(202, 112, 88, 0.22),
+    rgba(202, 112, 88, 0.0)
+  );
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- Steps + pebbles along the path ---------- */
+
+.zen-step {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.zen-step-card {
+  position: relative;
+  max-width: 720px;
+  width: 100%;
+  z-index: 2;
+  border-radius: 30px 26px 32px 28px;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: zenStepFadeIn 0.7s ease forwards;
+}
+
+/* Staggered animation for steps */
+.zen-step:nth-child(1) .zen-step-card {
+  animation-delay: 0.1s;
+  border-radius: 30px 26px 32px 28px;
+}
+
+.zen-step:nth-child(2) .zen-step-card {
+  animation-delay: 0.25s;
+  border-radius: 28px 32px 26px 30px;
+}
+
+.zen-step:nth-child(3) .zen-step-card {
+  animation-delay: 0.4s;
+  border-radius: 32px 28px 30px 26px;
+}
+
+@keyframes zenStepFadeIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Pebbles along the trail (left + right) */
+.zen-trail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    /* left side pebbles */
+    radial-gradient(22px 16px at 18% 12%, rgba(201, 138, 111, 0.55), transparent 70%),
+    radial-gradient(18px 13px at 22% 38%, rgba(125, 138, 112, 0.5), transparent 70%),
+    radial-gradient(20px 15px at 16% 62%, rgba(201, 138, 111, 0.5), transparent 70%),
+    radial-gradient(19px 14px at 20% 85%, rgba(125, 138, 112, 0.45), transparent 70%),
+    /* right side pebbles */
+    radial-gradient(20px 15px at 78% 18%, rgba(125, 138, 112, 0.5), transparent 70%),
+    radial-gradient(22px 16px at 82% 42%, rgba(201, 138, 111, 0.55), transparent 70%),
+    radial-gradient(18px 13px at 76% 66%, rgba(125, 138, 112, 0.45), transparent 70%),
+    radial-gradient(19px 14px at 80% 88%, rgba(201, 138, 111, 0.5), transparent 70%);
+  filter: blur(0.3px);
+}
+
+/* Optional: small footstep dots near each step */
+.zen-step::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--clay));
+  box-shadow: 0 6px 12px rgba(45, 48, 41, 0.12);
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* Hide extra footstep on first step if you want */
+.zen-step:first-child::before {
+  display: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 720px) {
+  .zen-trail {
+    gap: 50px;
+  }
+
+  .zen-step-card {
+    border-radius: 24px !important;
+  }
+
+  /* Less visible pebbles on small screens */
+  .zen-trail::after {
+    background:
+      radial-gradient(16px 12px at 18% 12%, rgba(201, 138, 111, 0.45), transparent 70%),
+      radial-gradient(14px 10px at 22% 38%, rgba(125, 138, 112, 0.4), transparent 70%),
+      radial-gradient(15px 11px at 16% 62%, rgba(201, 138, 111, 0.4), transparent 70%),
+      radial-gradient(14px 10px at 20% 85%, rgba(125, 138, 112, 0.35), transparent 70%),
+      radial-gradient(15px 11px at 78% 18%, rgba(125, 138, 112, 0.4), transparent 70%),
+      radial-gradient(16px 12px at 82% 42%, rgba(201, 138, 111, 0.45), transparent 70%),
+      radial-gradient(14px 10px at 76% 66%, rgba(125, 138, 112, 0.35), transparent 70%),
+      radial-gradient(14px 10px at 80% 88%, rgba(201, 138, 111, 0.4), transparent 70%);
+  }
+
+  .zen-step::before {
+    display: none;
+  }
+}
+
+/* =========================================
+   AREAS: GREY WABI-SABI STONES, ONE LINE
+   ========================================= */
+
+.focus-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+/* Each item: stone + title row, then content */
+.focus-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 14px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.focus-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+/* Grey wabi-sabi stone */
+.focus-stone {
+  display: block;
+  width: 42px;
+  height: 50px;
+  margin: 2px 0 0 6px;
+  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
+  background: radial-gradient(circle at 30% 30%, #f5f5f5, #b8b8b8);
+  box-shadow: 0 8px 16px rgba(45, 48, 41, 0.12);
+  transform: rotate(-6deg);
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+/* Make the summary row align with the stone */
+.focus-item summary {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 6px 16px 0;
+  position: relative;
+  transition: background-color 0.25s ease;
+  border-radius: 6px;
+  margin: 0 -6px;
+}
+
+.focus-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.focus-item summary:hover {
+  background-color: rgba(207, 200, 187, 0.18);
+}
+
+.focus-item summary:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 3px;
+}
+
+.focus-title-text {
+  font: clamp(20px, 2.4vw, 28px) "Instrument Serif", serif;
+  color: var(--ink);
+  display: block;
+  letter-spacing: -0.02em;
+}
+
+/* Optional subtle +/- */
+.focus-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 18px "DM Mono", monospace;
+  color: var(--clay);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.focus-item[open] summary::after {
+  content: "–";
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Smooth roll-out */
+.focus-inner {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+  overflow: hidden;
+  padding-left: 52px;
+}
+
+.focus-item[open] .focus-inner {
+  grid-template-rows: 1fr;
+}
+
+.focus-inner p {
+  min-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  padding: 0 0 22px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 75ch;
+  color: var(--ink);
+}
+
+.focus-item[open] .focus-inner p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.focus-approach {
+  color: #5a5a5a;
+  font-style: italic;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .focus-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-top: 14px;
+  }
+
+  .focus-stone {
+    width: 36px;
+    height: 42px;
+    margin: 0 0 6px 0;
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .focus-item summary {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding: 16px 6px 16px 0;
+    padding-right: 40px;
+  }
+
+  .focus-inner {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding-left: 0;
+  }
+
+  .focus-title-text {
+    font-size: 19px;
+  }
+
+  .focus-item summary::after {
+    font-size: 16px;
+  }
+
+  .focus-inner p {
+    font-size: 15px;
+    padding-bottom: 18px;
+  }
+}
