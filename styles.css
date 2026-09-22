@@ -1,7 +1,3 @@
-/* CANARY-TEST: if you see a red body, the new CSS is loaded */
-body {
-  background: red !important;
-}
 
 /* =========================================
    WABI-SABI BASE
@@ -702,5 +698,196 @@ details p {
     height: 95px;
     right: 4%;
     bottom: 8%;
+  }
+}
+
+/* =========================================
+   WABI-SABI: RIVER / PEBBLE PATH
+   Subtle, flowing, not overwhelming
+   ========================================= */
+
+/* Soft “river” band flowing down the page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(140px 100px at 20% 8%,  rgba(201, 138, 111, 0.14), transparent 60%),
+    radial-gradient(160px 120px at 75% 22%, rgba(125, 138, 112, 0.12), transparent 60%),
+    radial-gradient(150px 110px at 25% 45%, rgba(125, 138, 112, 0.10), transparent 60%),
+    radial-gradient(170px 130px at 70% 68%, rgba(201, 138, 111, 0.12), transparent 60%),
+    radial-gradient(140px 100px at 18% 82%, rgba(125, 138, 112, 0.11), transparent 60%);
+  filter: blur(0.6px);
+}
+
+/* A few discrete “pebbles” along the scroll */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(40px 28px at 15% 12%, rgba(201, 138, 111, 0.25), transparent 70%),
+    radial-gradient(50px 34px at 78% 30%, rgba(201, 138, 111, 0.22), transparent 70%),
+    radial-gradient(38px 26px at 22% 52%, rgba(125, 138, 112, 0.22), transparent 70%),
+    radial-gradient(46px 32px at 68% 74%, rgba(201, 138, 111, 0.20), transparent 70%),
+    radial-gradient(42px 30px at 12% 86%, rgba(125, 138, 112, 0.20), transparent 70%);
+  filter: blur(0.4px);
+}
+
+/* =========================================
+   PROCESS: CALMER, MORE AIR, WABI-SABI
+   ========================================= */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+}
+
+.process-card {
+  padding: 1.9rem 1.7rem;
+  border-radius: 38px;            /* more organic */
+  border: 1px solid rgba(45, 48, 41, 0.08);
+  box-shadow: 0 10px 26px rgba(45, 48, 41, 0.04);
+}
+
+.process-card .card-mark {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.process-card h3 {
+  font-size: 1.08rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.process-card p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Slightly different organic shape per card */
+.process-card:nth-child(1) {
+  border-radius: 38px 34px 40px 36px;
+}
+
+.process-card:nth-child(2) {
+  border-radius: 36px 40px 34px 38px;
+}
+
+.process-card:nth-child(3) {
+  border-radius: 40px 36px 38px 34px;
+}
+
+.process-card:nth-child(4) {
+  border-radius: 34px 38px 36px 40px;
+}
+
+@media (min-width: 900px) {
+  /* On large screens, keep 2x2 instead of 4 in a row */
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* =========================================
+   FOCUS / ACCORDION: MORE SPACE, CALMER
+   ========================================= */
+
+.accordion {
+  display: grid;
+  gap: 1.1rem;
+}
+
+details {
+  padding: 1.1rem 1.2rem;
+  border-radius: 28px;
+  border: 1px solid rgba(45, 48, 41, 0.08);
+  background: var(--sand);
+  box-shadow: 0 6px 18px rgba(45, 48, 41, 0.03);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+details[open] {
+  background: #fff;
+  border-color: rgba(45, 48, 41, 0.14);
+  box-shadow: 0 10px 28px rgba(45, 48, 41, 0.06);
+}
+
+summary {
+  padding: 0.2rem 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+
+summary::after {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+details p {
+  margin-top: 0.9rem;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* =========================================
+   SESSIONS: MORE AIR, SOFTER SHAPES
+   ========================================= */
+
+.sessions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+
+.session-card {
+  padding: 1.9rem 1.7rem;
+  border-radius: 36px;
+  border: 1px solid rgba(45, 48, 41, 0.08);
+  box-shadow: 0 10px 26px rgba(45, 48, 41, 0.04);
+}
+
+.session-card .card-mark {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.session-card h3 {
+  font-size: 1.1rem;
+  margin-top: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.session-card p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+/* Slightly different organic radius per session card */
+.session-card:first-child {
+  border-radius: 38px 34px 40px 36px;
+}
+
+.session-card:last-child {
+  border-radius: 36px 40px 34px 38px;
+}
+
+@media (min-width: 720px) {
+  .sessions-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.9rem;
   }
 }
