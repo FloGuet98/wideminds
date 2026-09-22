@@ -992,3 +992,31 @@ body::after {
     height: 680px;
   }
 }
+
+/* Refinement: these rules exactly match the supplied details markup. */
+.focus-list .focus-item { display:block; border-top:1px solid var(--line); padding:0; }
+.focus-list .focus-item:last-child { border-bottom:1px solid var(--line); }
+.focus-list .focus-item summary { display:grid; grid-template-columns:48px minmax(0,1fr) 26px; align-items:center; gap:14px; padding:18px 4px; margin:0; }
+.focus-list .focus-stone { grid-column:1; grid-row:1; margin:0; width:36px; height:43px; }
+.focus-list .focus-title-text { grid-column:2; }
+.focus-list .focus-item summary::after { grid-column:3; position:static; transform:none; text-align:right; }
+.focus-list .focus-item[open] summary::after { transform:none; }
+.focus-list .focus-inner { display:grid; grid-template-rows:0fr; overflow:hidden; padding:0; transition:grid-template-rows .36s ease; }
+.focus-list .focus-item[open] .focus-inner { grid-template-rows:1fr; }
+.focus-list .focus-inner > p { min-height:0; overflow:hidden; margin:0; padding:0 0 0 62px; opacity:0; transform:translateY(-7px); transition:opacity .25s ease,transform .36s ease,padding .36s ease; }
+.focus-list .focus-item[open] .focus-inner > p { padding-bottom:15px; opacity:1; transform:none; }
+
+/* A quiet pebble trail fills as the visitor scrolls. */
+.zen-path { --scroll-progress:0; position:fixed; right:21px; top:18vh; z-index:5; width:31px; height:64vh; pointer-events:none; opacity:.85; }
+.zen-path::before,.zen-path::after { content:""; position:absolute; inset:0; background:radial-gradient(9px 7px at 50% 4%,#a7ada4 0 76%,transparent 80%),radial-gradient(13px 9px at 38% 18%,#9ba299 0 76%,transparent 80%),radial-gradient(10px 8px at 59% 32%,#a7ada4 0 76%,transparent 80%),radial-gradient(14px 10px at 40% 47%,#969f95 0 76%,transparent 80%),radial-gradient(10px 7px at 58% 62%,#a7ada4 0 76%,transparent 80%),radial-gradient(13px 9px at 42% 78%,#969f95 0 76%,transparent 80%),radial-gradient(9px 7px at 55% 94%,#a7ada4 0 76%,transparent 80%); }
+.zen-path::before { opacity:.25; }
+.zen-path::after { background:radial-gradient(9px 7px at 50% 4%,#65725f 0 76%,transparent 80%),radial-gradient(13px 9px at 38% 18%,#65725f 0 76%,transparent 80%),radial-gradient(10px 8px at 59% 32%,#65725f 0 76%,transparent 80%),radial-gradient(14px 10px at 40% 47%,#65725f 0 76%,transparent 80%),radial-gradient(10px 7px at 58% 62%,#65725f 0 76%,transparent 80%),radial-gradient(13px 9px at 42% 78%,#65725f 0 76%,transparent 80%),radial-gradient(9px 7px at 55% 94%,#65725f 0 76%,transparent 80%); clip-path:inset(calc(100% - (var(--scroll-progress) * 100%)) 0 0); transition:clip-path .18s linear; }
+@media (max-width:720px){.zen-path{display:none}.focus-list .focus-item summary{grid-template-columns:40px minmax(0,1fr) 22px}.focus-list .focus-inner>p{padding-left:0}}
+
+/* Professional information layers, kept deliberately quiet within the existing style. */
+.qualification-panel{margin-top:42px;padding:27px 28px;border:1px solid var(--line);border-radius:24px 28px 22px 26px;background:rgba(250,248,243,.55)}
+.qualification-panel .eyebrow{margin-bottom:15px}.qualification-panel ul{margin:0;padding-left:19px}.qualification-panel li{margin:6px 0;font-size:14px}.qualification-panel .small{max-width:70ch;margin:20px 0 0;color:#555d55;opacity:1}
+.sessions .session-grid{grid-template-columns:repeat(3,1fr)}.sessions .session-grid article{position:relative;min-height:330px}.sessions-note{margin-top:26px;max-width:760px}.sessions-note p{margin:0;font-size:14px}
+.payments{background:#e0e3da}.payment-layout{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}.payment-layout h2,.faq h2,.legal h2{font-size:clamp(44px,5vw,68px);margin-bottom:24px}.payment-layout>div>p{max-width:460px;font-size:18px}.payment-steps{list-style:none;margin:0;padding:0;border-top:1px solid #aab3a3}.payment-steps li{display:grid;grid-template-columns:44px 1fr;gap:2px;padding:13px 0;border-bottom:1px solid #aab3a3}.payment-steps span{grid-row:span 2;font:12px var(--mono);color:var(--clay)}.payment-steps strong{font:20px var(--serif);font-weight:400;letter-spacing:-.02em}.payment-steps small{color:#596259}.payment-note{max-width:720px;margin:35px 0 0;font:12px/1.6 var(--mono);color:#596259}
+.faq-intro{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:38px}.faq-intro p{max-width:390px;margin:0}.faq-list{border-top:1px solid var(--line)}.faq-list details{border-bottom:1px solid var(--line)}.faq-list summary{list-style:none;cursor:pointer;position:relative;padding:18px 32px 18px 0;font:clamp(23px,2.8vw,34px)/1.15 var(--serif);letter-spacing:-.035em}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary::after{content:"+";position:absolute;right:2px;font:18px var(--mono);color:var(--clay)}.faq-list details[open] summary::after{content:"–"}.faq-list details p{max-width:720px;margin:0;padding:0 32px 24px 0}.legal{border-top:1px solid var(--line);padding:65px 0 80px}.legal h2{margin-bottom:20px}.legal>p:last-child{max-width:750px}.legal .eyebrow{margin-bottom:20px}
+@media(max-width:900px){.sessions .session-grid{grid-template-columns:1fr}.payment-layout,.faq-intro{grid-template-columns:1fr;gap:25px}.payment-layout{align-items:start}.qualification-panel{padding:22px}.legal{padding:55px 0}.faq-intro{margin-bottom:28px}}
