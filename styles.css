@@ -1,5 +1,5 @@
 /* =========================================
-   WABI-SABI × OLD DESIGN (MERGED)
+   WABI-SABI × OLD DESIGN (FINAL)
    Fluid, editorial, calm, professional
    ========================================= */
 
@@ -327,110 +327,6 @@ h1 em, h2 em {
   }
 }
 
-/* ---------- Focus / Accordion (Zieharmonika) ---------- */
-
-.focus {
-  background: var(--paper);
-}
-
-.focus-accordions .focus-intro p {
-  font-size: 18px;
-  max-width: 680px;
-  margin: 0 0 38px;
-  line-height: 1.5;
-}
-
-.focus-item {
-  border-top: 1px solid var(--line);
-}
-
-.focus-item:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.focus-title {
-  list-style: none;
-  cursor: pointer;
-  padding: 22px 0 22px 6px;
-  position: relative;
-  padding-right: 50px;
-  transition: background-color 0.25s ease;
-  border-radius: 6px;
-  margin: 0 -6px;
-}
-
-.focus-title::-webkit-details-marker {
-  display: none;
-}
-
-.focus-title:hover {
-  background-color: rgba(207, 200, 187, 0.18);
-}
-
-.focus-title:focus-visible {
-  outline: 2px solid var(--clay);
-  outline-offset: 3px;
-}
-
-.focus-title-text {
-  font: clamp(22px, 2.6vw, 32px) "Instrument Serif", serif;
-  color: var(--ink);
-  display: block;
-}
-
-.focus-title::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font: 20px "DM Mono", monospace;
-  color: var(--clay);
-  transition: transform 0.35s ease, opacity 0.35s ease;
-}
-
-.focus-item[open] .focus-title::after {
-  content: "–";
-  transform: translateY(-50%) scale(1.05);
-}
-
-.focus-inner {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
-  overflow: hidden;
-}
-
-.focus-item[open] .focus-inner {
-  grid-template-rows: 1fr;
-}
-
-.focus-content {
-  min-height: 0;
-  opacity: 0;
-  transform: translateY(-6px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-  padding: 0 0 26px;
-}
-
-.focus-item[open] .focus-content {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.focus-content p {
-  margin: 0 0 14px;
-  font-size: 16px;
-  line-height: 1.55;
-  max-width: 820px;
-  color: var(--ink);
-}
-
-.focus-approach {
-  color: #5a5a5a;
-  font-style: italic;
-}
-
 /* ---------- Sessions ---------- */
 
 .sessions {
@@ -596,7 +492,7 @@ body::after {
   filter: blur(0.4px);
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- Responsive (Base) ---------- */
 
 @media (max-width: 720px) {
   .wrap {
@@ -636,8 +532,7 @@ body::after {
     padding: 85px 0;
   }
 
-  .about,
-  .focus {
+  .about {
     grid-template-columns: 1fr;
     gap: 0;
   }
@@ -675,255 +570,10 @@ body::after {
   .brand {
     font-size: 30px;
   }
-
-  /* Accordion mobile tweaks */
-  .focus-title {
-    padding: 18px 0 18px 6px;
-    padding-right: 44px;
-  }
-
-  .focus-title::after {
-    font-size: 18px;
-  }
-
-  .focus-content p {
-    font-size: 15px;
-  }
-
-  .focus-content {
-    padding-bottom: 20px;
-  }
 }
 
 /* =========================================
-   PROCESS JOURNEY: PEBBLE PATH
-   ========================================= */
-
-.process-journey {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 60px;
-  margin-top: 40px;
-}
-
-/* Centered start */
-.process-start {
-  display: grid;
-  place-items: center;
-}
-
-.process-start-card {
-  max-width: 520px;
-  text-align: center;
-  border-radius: 34px;
-}
-
-/* Pebble path container */
-.pebble-path {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 50px;
-  padding: 40px 0 60px;
-}
-
-/* Subtle “footstep” markers between steps */
-.pebble-path .process-step::before {
-  content: "";
-  position: absolute;
-  left: -24px;
-  top: -28px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, var(--clay));
-  box-shadow: 0 6px 14px rgba(45, 48, 41, 0.12);
-}
-
-/* On mobile, hide the side footstep so it doesn't overlap */
-@media (max-width: 720px) {
-  .pebble-path .process-step::before {
-    display: none;
-  }
-}
-
-/* Slightly different organic radii for steps */
-.pebble-path .process-step:nth-child(1) {
-  border-radius: 30px 26px 32px 28px;
-}
-
-.pebble-path .process-step:nth-child(2) {
-  border-radius: 28px 32px 26px 30px;
-}
-
-.pebble-path .process-step:nth-child(3) {
-  border-radius: 32px 28px 30px 26px;
-}
-
-/* Optional: a very soft connecting line behind the path */
-.pebble-path::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 20px;
-  bottom: 20px;
-  width: 2px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    to bottom,
-    rgba(202, 112, 88, 0.0),
-    rgba(202, 112, 88, 0.18),
-    rgba(202, 112, 88, 0.18),
-    rgba(202, 112, 88, 0.0)
-  );
-  border-radius: 2px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* =========================================
-   FOCUS: PEBBLE STONES + SMOOTH ROLL-OUT
-   ========================================= */
-
-.focus-item {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 18px;
-  align-items: start;
-}
-
-/* Pebble symbol */
-.focus-pebble {
-  display: block;
-  width: 42px;
-  height: 52px;
-  margin: 6px 0 0 8px;
-  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
-  background: radial-gradient(circle at 30% 30%, #fff, var(--clay));
-  box-shadow: 0 8px 18px rgba(45, 48, 41, 0.12);
-  transform: rotate(-10deg);
-  flex: 0 0 auto;
-}
-
-/* Make the title text align nicely with the pebble */
-.focus-title {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  padding: 18px 0 18px 6px;
-  padding-right: 50px;
-  border-radius: 6px;
-  margin: 0 -6px;
-}
-
-/* Smooth roll-out is already in your CSS via .focus-inner;
-   we just ensure it's calm and not too fast. */
-.focus-inner {
-  grid-column: 1 / -1;
-  grid-row: 2 / 3;
-  padding-left: 56px;
-}
-
-/* Slightly softer content text */
-.focus-content p {
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 75ch;
-}
-
-@media (max-width: 720px) {
-  .focus-item {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .focus-pebble {
-    width: 36px;
-    height: 44px;
-    margin: 0 0 6px 0;
-  }
-
-  .focus-title {
-    grid-column: 1 / -1;
-    grid-row: auto;
-    padding: 16px 0 16px 6px;
-    padding-right: 44px;
-  }
-
-  .focus-inner {
-    grid-column: 1 / -1;
-    grid-row: auto;
-    padding-left: 0;
-  }
-}
-
-/* =========================================
-   BOOKING: MESSAGE OF HOPE, WABI-SABI
-   ========================================= */
-
-.booking {
-  background: linear-gradient(
-    to bottom,
-    var(--paper),
-    #f7f3ea
-  );
-}
-
-.booking-intro {
-  max-width: 720px;
-  margin: 0 0 42px;
-}
-
-.booking-intro h2 {
-  font: clamp(40px, 5vw, 58px) / 1.05 "Instrument Serif", serif;
-  letter-spacing: -0.04em;
-  margin: 0 0 14px;
-  color: var(--ink);
-}
-
-.booking-intro p {
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--ink);
-  max-width: 65ch;
-}
-
-.booking-panel {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 14px 38px rgba(45, 48, 41, 0.07);
-  padding: 18px;
-}
-
-.booking-frame {
-  width: 100%;
-  height: 760px;
-  border: none;
-  border-radius: 22px;
-  display: block;
-}
-
-@media (max-width: 720px) {
-  .booking-intro h2 {
-    font-size: 32px;
-  }
-
-  .booking-intro p {
-    font-size: 15px;
-  }
-
-  .booking-panel {
-    padding: 12px;
-  }
-
-  .booking-frame {
-    height: 680px;
-  }
-}
-/* =========================================
-   PROCESS: ZEN GARDEN PEBBLE TRAIL
+   PROCESS: ZEN GARDEN PEBBLE TRAIL (FINAL)
    ========================================= */
 
 .zen-path-wrapper {
@@ -1026,12 +676,10 @@ body::after {
   pointer-events: none;
   z-index: 1;
   background:
-    /* left side pebbles */
     radial-gradient(22px 16px at 18% 12%, rgba(201, 138, 111, 0.55), transparent 70%),
     radial-gradient(18px 13px at 22% 38%, rgba(125, 138, 112, 0.5), transparent 70%),
     radial-gradient(20px 15px at 16% 62%, rgba(201, 138, 111, 0.5), transparent 70%),
     radial-gradient(19px 14px at 20% 85%, rgba(125, 138, 112, 0.45), transparent 70%),
-    /* right side pebbles */
     radial-gradient(20px 15px at 78% 18%, rgba(125, 138, 112, 0.5), transparent 70%),
     radial-gradient(22px 16px at 82% 42%, rgba(201, 138, 111, 0.55), transparent 70%),
     radial-gradient(18px 13px at 76% 66%, rgba(125, 138, 112, 0.45), transparent 70%),
@@ -1039,7 +687,7 @@ body::after {
   filter: blur(0.3px);
 }
 
-/* Optional: small footstep dots near each step */
+/* Small footstep dots above each step */
 .zen-step::before {
   content: "";
   position: absolute;
@@ -1054,7 +702,6 @@ body::after {
   z-index: 3;
 }
 
-/* Hide extra footstep on first step if you want */
 .zen-step:first-child::before {
   display: none;
 }
@@ -1069,7 +716,6 @@ body::after {
     border-radius: 24px !important;
   }
 
-  /* Less visible pebbles on small screens */
   .zen-trail::after {
     background:
       radial-gradient(16px 12px at 18% 12%, rgba(201, 138, 111, 0.45), transparent 70%),
@@ -1088,16 +734,17 @@ body::after {
 }
 
 /* =========================================
-   AREAS: GREY WABI-SABI STONES, ONE LINE
+   AREAS: GREY WABI-SABI STONES (FINAL)
    ========================================= */
 
+/* Container for accordion list */
 .focus-list {
   display: grid;
   gap: 14px;
   margin-top: 28px;
 }
 
-/* Each item: stone + title row, then content */
+/* Each accordion item */
 .focus-item {
   display: grid;
   grid-template-columns: 52px 1fr;
@@ -1125,7 +772,7 @@ body::after {
   cursor: pointer;
 }
 
-/* Make the summary row align with the stone */
+/* Summary (title) to the right of the stone */
 .focus-item summary {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -1158,7 +805,7 @@ body::after {
   letter-spacing: -0.02em;
 }
 
-/* Optional subtle +/- */
+/* +/- indicator */
 .focus-item summary::after {
   content: "+";
   position: absolute;
@@ -1175,22 +822,29 @@ body::after {
   transform: translateY(-50%) scale(1.05);
 }
 
-/* Smooth roll-out */
+/* Content: smooth roll-out without clipping */
 .focus-inner {
   grid-column: 1 / -1;
   grid-row: 2 / 3;
+  display: block; /* important: no grid here to avoid clipping */
+  overflow: visible;
+  padding-left: 52px;
+}
+
+/* The actual collapsible container */
+.focus-content {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.35s ease;
   overflow: hidden;
-  padding-left: 52px;
 }
 
-.focus-item[open] .focus-inner {
+.focus-item[open] .focus-content {
   grid-template-rows: 1fr;
 }
 
-.focus-inner p {
+/* Text content */
+.focus-content p {
   min-height: 0;
   opacity: 0;
   transform: translateY(-6px);
@@ -1203,7 +857,7 @@ body::after {
   color: var(--ink);
 }
 
-.focus-item[open] .focus-inner p {
+.focus-item[open] .focus-content p {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1250,8 +904,74 @@ body::after {
     font-size: 16px;
   }
 
-  .focus-inner p {
+  .focus-content p {
     font-size: 15px;
     padding-bottom: 18px;
+  }
+}
+
+/* =========================================
+   BOOKING: MESSAGE OF HOPE, WABI-SABI
+   ========================================= */
+
+.booking {
+  background: linear-gradient(
+    to bottom,
+    var(--paper),
+    #f7f3ea
+  );
+}
+
+.booking-intro {
+  max-width: 720px;
+  margin: 0 0 42px;
+}
+
+.booking-intro h2 {
+  font: clamp(40px, 5vw, 58px) / 1.05 "Instrument Serif", serif;
+  letter-spacing: -0.04em;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+
+.booking-intro p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 65ch;
+}
+
+.booking-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 14px 38px rgba(45, 48, 41, 0.07);
+  padding: 18px;
+}
+
+.booking-frame {
+  width: 100%;
+  height: 760px;
+  border: none;
+  border-radius: 22px;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .booking-intro h2 {
+    font-size: 32px;
+  }
+
+  .booking-intro p {
+    font-size: 15px;
+  }
+
+  .booking-panel {
+    padding: 12px;
+  }
+
+  .booking-frame {
+    height: 680px;
   }
 }
