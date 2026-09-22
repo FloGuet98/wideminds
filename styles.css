@@ -1,5 +1,5 @@
 /* =========================================
-   WABI-SABI × OLD DESIGN (FINAL)
+   WABI-SABI × OLD DESIGN (FINAL v2)
    Fluid, editorial, calm, professional
    ========================================= */
 
@@ -10,6 +10,7 @@
   --paper: #f4f0e7;
   --clay: #ca7058;
   --moss: #7d8a70;
+  --moss-dark: #5f6b55;
   --line: #cfc8bb;
   --cream: #faf8f3;
   --sand: #f3efe6;
@@ -288,6 +289,7 @@ h1 em, h2 em {
   right: 22px;
   font: 12px "DM Mono", monospace;
   color: var(--clay);
+  display: none; /* numbering removed as requested */
 }
 
 .process-card h3 {
@@ -573,7 +575,8 @@ body::after {
 }
 
 /* =========================================
-   PROCESS: ZEN GARDEN PEBBLE TRAIL (FINAL)
+   PROCESS: ZEN GARDEN PEBBLE TRAIL (v2)
+   Curvy, green, organic path
    ========================================= */
 
 .zen-path-wrapper {
@@ -586,7 +589,7 @@ body::after {
 .zen-start {
   display: grid;
   place-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .zen-start-card {
@@ -601,44 +604,61 @@ body::after {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 70px;
-  padding: 20px 0 40px;
+  gap: 90px;
+  padding: 40px 0 60px;
 }
 
-/* Subtle central "path" line */
+/* Curvy, green "river" path */
 .zen-trail::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: 10px;
-  bottom: 10px;
-  width: 2px;
+  top: -20px;
+  bottom: -20px;
+  width: 140px;
   transform: translateX(-50%);
-  background: linear-gradient(
-    to bottom,
-    rgba(202, 112, 88, 0.0),
-    rgba(202, 112, 88, 0.22),
-    rgba(202, 112, 88, 0.22),
-    rgba(202, 112, 88, 0.0)
-  );
-  border-radius: 2px;
+  background:
+    radial-gradient(50% 50% at 50% 50%, rgba(125, 138, 112, 0.18), transparent 70%),
+    radial-gradient(60% 60% at 40% 40%, rgba(125, 138, 112, 0.12), transparent 70%),
+    radial-gradient(55% 55% at 60% 60%, rgba(125, 138, 112, 0.12), transparent 70%);
+  filter: blur(0.6px);
+  border-radius: 999px;
   pointer-events: none;
   z-index: 0;
 }
 
-/* ---------- Steps + pebbles along the path ---------- */
+/* Organic pebbles scattered along the path */
+.zen-trail::after {
+  content: "";
+  position: absolute;
+  inset: -40px 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(24px 18px at 22% 15%, rgba(125, 138, 112, 0.6), transparent 70%),
+    radial-gradient(20px 15px at 68% 22%, rgba(125, 138, 112, 0.5), transparent 70%),
+    radial-gradient(22px 16px at 30% 45%, rgba(125, 138, 112, 0.55), transparent 70%),
+    radial-gradient(18px 13px at 75% 52%, rgba(125, 138, 112, 0.45), transparent 70%),
+    radial-gradient(20px 15px at 25% 72%, rgba(125, 138, 112, 0.5), transparent 70%),
+    radial-gradient(22px 16px at 70% 80%, rgba(125, 138, 112, 0.55), transparent 70%),
+    radial-gradient(16px 12px at 35% 88%, rgba(125, 138, 112, 0.4), transparent 70%),
+    radial-gradient(18px 13px at 60% 10%, rgba(125, 138, 112, 0.45), transparent 70%);
+  filter: blur(0.3px);
+}
+
+/* ---------- Steps ---------- */
 
 .zen-step {
   position: relative;
   display: grid;
   place-items: center;
+  z-index: 2;
 }
 
 .zen-step-card {
   position: relative;
   max-width: 720px;
   width: 100%;
-  z-index: 2;
   border-radius: 30px 26px 32px 28px;
   opacity: 0;
   transform: translateY(18px);
@@ -668,35 +688,16 @@ body::after {
   }
 }
 
-/* Pebbles along the trail (left + right) */
-.zen-trail::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background:
-    radial-gradient(22px 16px at 18% 12%, rgba(201, 138, 111, 0.55), transparent 70%),
-    radial-gradient(18px 13px at 22% 38%, rgba(125, 138, 112, 0.5), transparent 70%),
-    radial-gradient(20px 15px at 16% 62%, rgba(201, 138, 111, 0.5), transparent 70%),
-    radial-gradient(19px 14px at 20% 85%, rgba(125, 138, 112, 0.45), transparent 70%),
-    radial-gradient(20px 15px at 78% 18%, rgba(125, 138, 112, 0.5), transparent 70%),
-    radial-gradient(22px 16px at 82% 42%, rgba(201, 138, 111, 0.55), transparent 70%),
-    radial-gradient(18px 13px at 76% 66%, rgba(125, 138, 112, 0.45), transparent 70%),
-    radial-gradient(19px 14px at 80% 88%, rgba(201, 138, 111, 0.5), transparent 70%);
-  filter: blur(0.3px);
-}
-
 /* Small footstep dots above each step */
 .zen-step::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: -18px;
+  top: -22px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, var(--clay));
+  background: radial-gradient(circle at 30% 30%, #fff, var(--moss));
   box-shadow: 0 6px 12px rgba(45, 48, 41, 0.12);
   transform: translateX(-50%);
   z-index: 3;
@@ -709,23 +710,27 @@ body::after {
 /* Mobile adjustments */
 @media (max-width: 720px) {
   .zen-trail {
-    gap: 50px;
+    gap: 60px;
   }
 
   .zen-step-card {
     border-radius: 24px !important;
   }
 
+  .zen-trail::before {
+    width: 100px;
+  }
+
   .zen-trail::after {
     background:
-      radial-gradient(16px 12px at 18% 12%, rgba(201, 138, 111, 0.45), transparent 70%),
-      radial-gradient(14px 10px at 22% 38%, rgba(125, 138, 112, 0.4), transparent 70%),
-      radial-gradient(15px 11px at 16% 62%, rgba(201, 138, 111, 0.4), transparent 70%),
-      radial-gradient(14px 10px at 20% 85%, rgba(125, 138, 112, 0.35), transparent 70%),
-      radial-gradient(15px 11px at 78% 18%, rgba(125, 138, 112, 0.4), transparent 70%),
-      radial-gradient(16px 12px at 82% 42%, rgba(201, 138, 111, 0.45), transparent 70%),
-      radial-gradient(14px 10px at 76% 66%, rgba(125, 138, 112, 0.35), transparent 70%),
-      radial-gradient(14px 10px at 80% 88%, rgba(201, 138, 111, 0.4), transparent 70%);
+      radial-gradient(18px 13px at 22% 15%, rgba(125, 138, 112, 0.5), transparent 70%),
+      radial-gradient(16px 12px at 68% 22%, rgba(125, 138, 112, 0.4), transparent 70%),
+      radial-gradient(17px 13px at 30% 45%, rgba(125, 138, 112, 0.45), transparent 70%),
+      radial-gradient(14px 10px at 75% 52%, rgba(125, 138, 112, 0.35), transparent 70%),
+      radial-gradient(16px 12px at 25% 72%, rgba(125, 138, 112, 0.4), transparent 70%),
+      radial-gradient(17px 13px at 70% 80%, rgba(125, 138, 112, 0.45), transparent 70%),
+      radial-gradient(13px 10px at 35% 88%, rgba(125, 138, 112, 0.3), transparent 70%),
+      radial-gradient(14px 10px at 60% 10%, rgba(125, 138, 112, 0.35), transparent 70%);
   }
 
   .zen-step::before {
@@ -734,7 +739,8 @@ body::after {
 }
 
 /* =========================================
-   AREAS: GREY WABI-SABI STONES (FINAL)
+   AREAS: GREY WABI-SABI STONES (v2)
+   Stone next to heading, text centered & normal width
    ========================================= */
 
 /* Container for accordion list */
@@ -763,7 +769,7 @@ body::after {
   display: block;
   width: 42px;
   height: 50px;
-  margin: 2px 0 0 6px;
+  margin: 6px 0 0 0;
   border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
   background: radial-gradient(circle at 30% 30%, #f5f5f5, #b8b8b8);
   box-shadow: 0 8px 16px rgba(45, 48, 41, 0.12);
@@ -778,7 +784,7 @@ body::after {
   grid-row: 1 / 2;
   list-style: none;
   cursor: pointer;
-  padding: 16px 6px 16px 0;
+  padding: 14px 6px 14px 0;
   position: relative;
   transition: background-color 0.25s ease;
   border-radius: 6px;
@@ -822,13 +828,13 @@ body::after {
   transform: translateY(-50%) scale(1.05);
 }
 
-/* Content: smooth roll-out without clipping */
+/* Content: smooth roll-out, centered text, normal width */
 .focus-inner {
   grid-column: 1 / -1;
   grid-row: 2 / 3;
-  display: block; /* important: no grid here to avoid clipping */
+  display: block;
   overflow: visible;
-  padding-left: 52px;
+  padding: 0;
 }
 
 /* The actual collapsible container */
@@ -849,12 +855,13 @@ body::after {
   opacity: 0;
   transform: translateY(-6px);
   transition: opacity 0.35s ease, transform 0.35s ease;
-  padding: 0 0 22px;
-  margin: 0;
+  padding: 14px 12px 22px;
+  margin: 0 auto;
   font-size: 16px;
   line-height: 1.6;
   max-width: 75ch;
   color: var(--ink);
+  text-align: left;
 }
 
 .focus-item[open] .focus-content p {
@@ -865,6 +872,15 @@ body::after {
 .focus-approach {
   color: #5a5a5a;
   font-style: italic;
+}
+
+/* Ensure that sections after focus are not pulled into the accordion */
+.focus-list ~ .section,
+.focus-list ~ .sessions,
+.focus-list ~ .booking,
+.focus-list ~ .contact {
+  position: relative;
+  z-index: 2;
 }
 
 /* Mobile */
