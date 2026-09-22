@@ -1,712 +1,571 @@
-
 /* =========================================
-   WABI-SABI BASE
-   Earthy, soft, organic — no hard edges
+   WABI-SABI × OLD DESIGN (MERGED)
+   Fluid, editorial, calm, professional
    ========================================= */
 
-:root {
-  /* Paper & earth tones */
-  --paper: #f7f5f0;
-  --sand: #f3efe6;
-  --clay: #c98a6f;
-  --clay-soft: rgba(201, 138, 111, 0.18);
-  --moss: #7d8a70;
-  --moss-soft: rgba(125, 138, 112, 0.18);
-  --stone: #d8d3c7;
-  --ink: #2d3029;
-  --ink-soft: rgba(45, 48, 41, 0.7);
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap');
 
-  /* Shapes */
-  --radius-soft: 22px;
-  --radius-tall: 26px;
-  --radius-wide: 28px;
-  --radius-organic: 34px;
+:root {
+  --ink: #2d3029;
+  --paper: #f4f0e7;
+  --clay: #ca7058;
+  --moss: #7d8a70;
+  --line: #cfc8bb;
+  --cream: #faf8f3;
+  --sand: #f3efe6;
+  --stone: #d8d3c7;
 }
 
-/* Base page */
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: "EB Garamond", "Times New Roman", serif;
-  font-size: 18px;
-  line-height: 1.6;
+  background: var(--paper);
   color: var(--ink);
-  background:
-    radial-gradient(circle at 12% 10%, rgba(202, 112, 88, 0.07), transparent 32rem),
-    radial-gradient(circle at 88% 55%, rgba(125, 138, 112, 0.06), transparent 28rem),
-    var(--paper);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
 }
 
-/* ---------- Header & Navigation ---------- */
+body, p, span, a, div {
+  font-family: "DM Sans", sans-serif;
+}
+
+.wrap {
+  width: min(1180px, calc(100% - 56px));
+  margin-inline: auto;
+}
+
+/* ---------- Preview bar ---------- */
+
+.preview-bar {
+  background: var(--ink);
+  color: var(--paper);
+  font: 12px "DM Mono", monospace;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 9px;
+}
+
+/* ---------- Header ---------- */
 
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter: saturate(140%) blur(8px);
-  border-bottom: 1px solid rgba(45, 48, 41, 0.06);
+  height: 93px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .brand {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: 1.35rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--ink);
+  color: inherit;
   text-decoration: none;
+  font: 34px "Instrument Serif", serif;
+  letter-spacing: -0.04em;
 }
 
 .brand i {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-style: italic;
-  color: var(--clay);
+  font-weight: normal;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 28px;
 }
 
 .site-header nav a {
-  color: var(--ink-soft);
+  font-size: 14px;
+  color: inherit;
   text-decoration: none;
-  font-size: 0.95rem;
-  letter-spacing: 0.01em;
-  transition: color 0.2s ease;
-}
-
-.site-header nav a:hover {
-  color: var(--clay);
 }
 
 .language {
-  background: transparent;
-  border: 1px solid rgba(45, 48, 41, 0.18);
-  color: var(--ink-soft);
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
+  border: 1px solid var(--ink);
+  background: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font: 12px "DM Mono", monospace;
   cursor: pointer;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.language:hover {
-  background: var(--clay-soft);
-  border-color: var(--clay);
-  color: var(--ink);
-}
-
-/* ---------- Layout wrappers ---------- */
-
-.wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.section {
-  padding: 140px 0;
-}
-
-.section-label {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  margin-bottom: 2.2rem;
-  letter-spacing: 0.03em;
 }
 
 /* ---------- Hero ---------- */
 
 .hero {
+  min-height: 620px;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 5rem;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 80px;
   align-items: center;
-  min-height: 82vh;
+  padding: 58px 0 94px;
 }
 
 .eyebrow {
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  margin: 0 0 0.6rem 0;
-  letter-spacing: 0.04em;
+  font: 12px "DM Mono", monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin: 0 0 26px;
 }
 
-.hero h1 {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
-  font-weight: 500;
-  line-height: 1.15;
-  margin: 0 0 1.2rem 0;
-  color: var(--ink);
+h1, h2, h3, p {
+  margin-top: 0;
 }
 
-.hero h1 em {
-  font-style: italic;
+h1, h2 {
+  font: clamp(55px, 7vw, 100px) / 0.91 "Instrument Serif", serif;
+  letter-spacing: -0.055em;
+  font-weight: 400;
+}
+
+h1 em, h2 em {
   color: var(--clay);
 }
 
 .intro {
-  font-size: 1.05rem;
-  color: var(--ink-soft);
-  margin: 0 0 1.8rem 0;
-  max-width: 42ch;
+  max-width: 450px;
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 34px 0;
 }
 
 .button {
   display: inline-block;
   background: var(--ink);
-  color: var(--paper);
-  padding: 0.9rem 1.6rem;
   border-radius: 999px;
+  color: #fff;
+  padding: 14px 21px;
   text-decoration: none;
-  font-size: 0.95rem;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+  font-size: 14px;
 }
-
-.button:hover {
-  transform: translateY(-2px);
-  background: #1f211c;
-}
-
-/* Portrait */
 
 .hero-portrait {
   position: relative;
-  margin: 0;
+  max-width: 430px;
+  justify-self: end;
 }
 
-.shape-sun {
-  position: absolute;
-  inset: -18% -12% auto auto;
-  width: 78%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, #f6f2e8 60%, #e8e2d4);
-  box-shadow:
-    0 18px 40px rgba(45, 48, 41, 0.08),
-    inset 0 0 40px rgba(255, 255, 255, 0.6);
-  z-index: 0;
-}
-
-.portrait-image {
-  position: relative;
-  z-index: 1;
-  border-radius: 220px 220px 18px 18px;
-  overflow: hidden;
-  box-shadow: 0 22px 50px rgba(45, 48, 41, 0.12);
-}
-
-.portrait-image img {
+.hero-portrait img {
   display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: 0.88;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 220px 220px 8px 8px;
+  filter: saturate(0.82) contrast(0.95);
+}
+
+.shape-sun,
+.sun {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  right: -54px;
+  top: -45px;
+  background: var(--clay);
+  z-index: -1;
 }
 
 .portrait-caption {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
+  font: 12px "DM Mono", monospace;
+  margin: 13px 0 0;
 }
 
-.portrait-name {
+/* ---------- Sections ---------- */
+
+.section {
+  padding: 138px 0;
+}
+
+.section-label {
+  font: 12px "DM Mono", monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 38px;
   display: block;
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.portrait-role {
-  display: block;
-  margin-top: 0.2rem;
-  font-size: 0.8rem;
-  color: var(--ink-soft);
-}
-
-/* ---------- Quiet transition / Pebble path ---------- */
-
-.zen-pause {
-  position: relative;
-  padding: 120px 0;
-  text-align: center;
-  background:
-    radial-gradient(circle at 50% 0%, var(--moss-soft), transparent 60%),
-    linear-gradient(to bottom, transparent, rgba(125, 138, 112, 0.04));
-  overflow: hidden;
-}
-
-.zen-pause p {
-  position: relative;
-  z-index: 2;
-  max-width: 55ch;
-  margin: 0 auto;
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: 1.25rem;
-  color: var(--ink);
-}
-
-/* Organic pebble path from top to bottom */
-.zen-path {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(120px 90px at 18% 10%, var(--clay-soft), transparent 60%),
-    radial-gradient(140px 100px at 78% 28%, var(--moss-soft), transparent 60%),
-    radial-gradient(110px 80px at 22% 55%, var(--moss-soft), transparent 60%),
-    radial-gradient(130px 90px at 68% 72%, var(--clay-soft), transparent 60%),
-    radial-gradient(120px 90px at 15% 88%, var(--moss-soft), transparent 60%);
-  filter: blur(0.2px);
 }
 
 /* ---------- About ---------- */
 
 .about {
-  position: relative;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 52px;
 }
 
-.about-body h2 {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: clamp(1.6rem, 2.6vw, 2rem);
-  font-weight: 500;
-  margin: 0 0 1.4rem 0;
-  color: var(--ink);
+.about h2 {
+  font-size: clamp(47px, 5vw, 76px);
+  max-width: 700px;
+  margin-bottom: 35px;
 }
 
-.about-body p {
-  margin: 0 0 1rem 0;
-  color: var(--ink-soft);
-  max-width: 65ch;
-}
-
-.about-pebble {
-  position: absolute;
-  right: 6%;
-  bottom: 12%;
-  width: 90px;
-  height: 120px;
-  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
-  background: var(--clay-soft);
-  transform: rotate(18deg);
-  pointer-events: none;
+.about p {
+  font-size: 18px;
+  max-width: 680px;
 }
 
 /* ---------- Approach ---------- */
 
 .approach {
-  position: relative;
-  background:
-    radial-gradient(circle at 70% 10%, var(--moss-soft), transparent 50%),
-    radial-gradient(circle at 10% 80%, var(--clay-soft), transparent 50%);
+  background: #dfe1d7;
 }
 
 .approach-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1.4fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
 }
 
 .approach h2 {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: clamp(1.6rem, 2.6vw, 2rem);
-  font-weight: 500;
-  line-height: 1.2;
-  margin: 0 0 1rem 0;
-  color: var(--ink);
+  font-size: clamp(45px, 5vw, 70px);
 }
 
-.approach-copy .large {
-  font-size: 1.05rem;
-  color: var(--ink);
+.large {
+  font-size: 23px;
+  line-height: 1.43;
 }
 
 .approach-copy p {
-  margin: 0 0 1rem 0;
-  color: var(--ink-soft);
-  max-width: 65ch;
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 68ch;
 }
 
 .methods {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.4rem;
+  gap: 8px;
+  margin-top: 32px;
 }
 
 .methods span {
-  background: var(--sand);
-  color: var(--ink-soft);
-  padding: 0.35rem 0.7rem;
+  border: 1px solid #99a08f;
   border-radius: 999px;
-  font-size: 0.8rem;
-  border: 1px solid rgba(45, 48, 41, 0.08);
+  padding: 7px 11px;
+  font-size: 13px;
 }
 
-.approach-orbit {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent 60%),
-    radial-gradient(circle at 70% 70%, var(--moss-soft), transparent 60%);
-  box-shadow: inset 0 0 60px rgba(125, 138, 112, 0.12);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.6;
-}
-
-/* ---------- Process ---------- */
+/* ---------- Process (What to expect) ---------- */
 
 .process {
-  position: relative;
+  background: var(--paper);
 }
 
 .process-intro {
-  margin: 0 0 2.2rem 0;
-  color: var(--ink-soft);
-  max-width: 65ch;
+  font-size: 18px;
+  max-width: 680px;
+  margin: 0 0 38px;
+  line-height: 1.5;
 }
 
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.6rem;
+  grid-template-columns: 1fr;
+  gap: 22px;
 }
 
 .process-card {
   position: relative;
-  background: var(--sand);
-  border: 1px solid rgba(45, 48, 41, 0.12);
-  border-radius: var(--radius-organic);
-  padding: 1.6rem;
-  box-shadow: 0 12px 28px rgba(45, 48, 41, 0.05);
+  padding: 32px;
+  border: 1px solid var(--line);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 28px;
+  background: var(--cream);
 }
 
 .process-card .card-mark {
   position: absolute;
-  top: 0.9rem;
-  right: 1rem;
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: 0.8rem;
-  color: var(--ink-soft);
-  opacity: 0.7;
+  top: 22px;
+  right: 22px;
+  font: 12px "DM Mono", monospace;
+  color: var(--clay);
 }
 
 .process-card h3 {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin: 1.6rem 0 0.6rem 0;
-  color: var(--ink);
+  font: 42px "Instrument Serif", serif;
+  letter-spacing: -0.04em;
+  margin: 25px 0 16px;
 }
 
 .process-card p {
-  margin: 0;
-  font-size: 0.92rem;
-  color: var(--ink-soft);
+  margin: auto 0 0;
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 68ch;
 }
 
-/* Earthy surfaces for process cards */
+/* Slightly different organic radii */
 .process-card:nth-child(1) {
-  background: #eadfc9;
+  border-radius: 30px 26px 32px 28px;
 }
 
 .process-card:nth-child(2) {
-  background: #dce3d6;
+  border-radius: 28px 32px 26px 30px;
 }
 
 .process-card:nth-child(3) {
-  background: #efd4c4;
+  border-radius: 32px 28px 30px 26px;
 }
 
 .process-card:nth-child(4) {
-  background: #e7e2d6;
+  border-radius: 26px 30px 28px 32px;
 }
 
-/* ---------- Focus (Accordion / Zieharmonika) ---------- */
+@media (min-width: 900px) {
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+}
+
+/* ---------- Focus / Accordion (Zieharmonika) ---------- */
 
 .focus {
-  position: relative;
-  background:
-    radial-gradient(circle at 20% 0%, var(--clay-soft), transparent 50%),
-    radial-gradient(circle at 80% 100%, var(--moss-soft), transparent 50%);
+  background: var(--paper);
 }
 
-.focus-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.6fr;
-  gap: 4rem;
-  align-items: start;
+.focus-accordions .focus-intro p {
+  font-size: 18px;
+  max-width: 680px;
+  margin: 0 0 38px;
+  line-height: 1.5;
 }
 
-.focus h2 {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: clamp(1.6rem, 2.6vw, 2rem);
-  font-weight: 500;
-  margin: 0 0 1rem 0;
-  color: var(--ink);
+.focus-item {
+  border-top: 1px solid var(--line);
 }
 
-.focus-copy p {
-  margin: 0 0 1rem 0;
-  color: var(--ink-soft);
-  max-width: 65ch;
+.focus-item:last-child {
+  border-bottom: 1px solid var(--line);
 }
 
-.accordion {
-  display: grid;
-  gap: 0.9rem;
-}
-
-details {
-  background: var(--sand);
-  border: 1px solid rgba(45, 48, 41, 0.1);
-  border-radius: var(--radius-tall);
-  padding: 0.9rem 1.1rem;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-details[open] {
-  background: #fff;
-  border-color: rgba(45, 48, 41, 0.18);
-  box-shadow: 0 10px 24px rgba(45, 48, 41, 0.06);
-}
-
-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  cursor: pointer;
+.focus-title {
   list-style: none;
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: 1.02rem;
-  font-weight: 600;
-  color: var(--ink);
+  cursor: pointer;
+  padding: 22px 0 22px 6px;
+  position: relative;
+  padding-right: 50px;
+  transition: background-color 0.25s ease;
+  border-radius: 6px;
+  margin: 0 -6px;
 }
 
-summary::-webkit-details-marker {
+.focus-title::-webkit-details-marker {
   display: none;
 }
 
-summary::after {
+.focus-title:hover {
+  background-color: rgba(207, 200, 187, 0.18);
+}
+
+.focus-title:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 3px;
+}
+
+.focus-title-text {
+  font: clamp(22px, 2.6vw, 32px) "Instrument Serif", serif;
+  color: var(--ink);
+  display: block;
+}
+
+.focus-title::after {
   content: "+";
-  flex: 0 0 1.4em;
-  text-align: center;
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: 1.2rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 20px "DM Mono", monospace;
   color: var(--clay);
-  transition: transform 0.2s ease;
+  transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
-details[open] summary::after {
-  transform: rotate(45deg);
+.focus-item[open] .focus-title::after {
+  content: "–";
+  transform: translateY(-50%) scale(1.05);
 }
 
-details p {
-  margin: 0.8rem 0 0 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--ink-soft);
+.focus-inner {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+  overflow: hidden;
+}
+
+.focus-item[open] .focus-inner {
+  grid-template-rows: 1fr;
+}
+
+.focus-content {
+  min-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  padding: 0 0 26px;
+}
+
+.focus-item[open] .focus-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.focus-content p {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 820px;
+  color: var(--ink);
+}
+
+.focus-approach {
+  color: #5a5a5a;
+  font-style: italic;
 }
 
 /* ---------- Sessions ---------- */
 
-.sessions-grid {
+.sessions {
+  background: var(--paper);
+}
+
+.session-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.8rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
 }
 
-.session-card {
-  position: relative;
-  background: var(--sand);
-  border: 1px solid rgba(45, 48, 41, 0.12);
-  border-radius: var(--radius-organic);
-  padding: 1.8rem;
-  box-shadow: 0 12px 28px rgba(45, 48, 41, 0.05);
+.session-grid article {
+  padding: 32px;
+  border: 1px solid var(--line);
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 28px;
+  background: var(--cream);
 }
 
-.session-card .card-mark {
+.session-grid .card-mark {
   position: absolute;
-  top: 0.9rem;
-  right: 1rem;
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: 0.8rem;
-  color: var(--ink-soft);
-  opacity: 0.7;
+  top: 22px;
+  right: 22px;
+  font: 12px "DM Mono", monospace;
+  color: var(--clay);
 }
 
-.session-card h3 {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 1.4rem 0 0.4rem 0;
-  color: var(--ink);
+.number {
+  font: 12px "DM Mono", monospace;
+  color: var(--clay);
 }
 
-.session-card p {
-  margin: 0;
-  font-size: 0.93rem;
-  color: var(--ink-soft);
+h3 {
+  font: 42px "Instrument Serif", serif;
+  letter-spacing: -0.04em;
+  margin: 25px 0 16px;
 }
 
-.session-card:first-child {
-  background: #faf8f3;
-}
-
-.session-card:last-child {
-  background: #dce3d6;
+.detail {
+  margin: auto 0 0;
+  font: 12px "DM Mono", monospace;
+  text-transform: uppercase;
 }
 
 /* ---------- Booking ---------- */
 
 .booking-panel {
   background: #fff;
-  border: 1px solid rgba(45, 48, 41, 0.12);
-  border-radius: var(--radius-wide);
+  border: 1px solid var(--line);
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(45, 48, 41, 0.08);
+  box-shadow: 0 10px 28px rgba(45, 48, 41, 0.06);
 }
 
 .booking-frame {
   width: 100%;
   height: 720px;
   border: none;
-  border-radius: var(--radius-tall);
+  border-radius: 22px;
   overflow: hidden;
 }
 
 /* ---------- Contact ---------- */
 
-.contact-grid {
+.contact {
+  background: var(--clay);
+  color: #fff;
+  padding: 85px;
   display: grid;
-  grid-template-columns: 0.9fr 1.4fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  margin-bottom: 0;
+}
+
+.contact .eyebrow {
+  color: #ffe0d8;
 }
 
 .contact h2 {
-  font-family: "Cormorant Garamond", "EB Garamond", serif;
-  font-size: clamp(1.6rem, 2.6vw, 2rem);
-  font-weight: 500;
-  margin: 0 0 1rem 0;
-  color: var(--ink);
+  font-size: clamp(53px, 6vw, 85px);
+  margin: 0;
 }
 
-.contact-copy p {
-  margin: 0 0 1rem 0;
-  color: var(--ink-soft);
-  max-width: 65ch;
+.contact h2 em {
+  color: #fff;
 }
 
-.contact-details p {
-  margin: 0 0 0.4rem 0;
-  font-size: 0.95rem;
-  color: var(--ink-soft);
+.contact > div:last-child {
+  align-self: end;
+  font-size: 18px;
 }
 
-.contact-details a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.small {
+  font-size: 13px;
+  margin: 28px 0 0;
+  opacity: 0.8;
 }
 
 /* ---------- Footer ---------- */
 
 .site-footer {
-  border-top: 1px solid rgba(45, 48, 41, 0.08);
-  padding: 3rem 0;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0;
+  color: #6a6d65;
+  font-size: 12px;
 }
 
-/* ---------- Utilities & animations ---------- */
+.site-footer p {
+  margin: 0;
+}
+
+/* ---------- Animations ---------- */
 
 .reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
+  animation: appear 0.7s ease both;
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* ---------- Mobile ---------- */
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 2.6rem;
-    min-height: auto;
-    padding: 80px 0 50px;
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(13px);
   }
-
-  .hero-portrait {
-    order: -1;
-  }
-
-  .approach-grid,
-  .focus-grid,
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2.2rem;
-  }
-
-  .approach-orbit {
-    width: 260px;
-    height: 260px;
-  }
-
-  .process-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sessions-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section {
-    padding: 90px 0;
-  }
-
-  .zen-pause {
-    padding: 90px 0;
-  }
-
-  .about-pebble {
-    width: 70px;
-    height: 95px;
-    right: 4%;
-    bottom: 8%;
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* =========================================
-   WABI-SABI: RIVER / PEBBLE PATH
-   Subtle, flowing, not overwhelming
-   ========================================= */
+/* ---------- Subtle pebble/river path (very soft) ---------- */
 
-/* Soft “river” band flowing down the page */
 body::before {
   content: "";
   position: fixed;
@@ -714,15 +573,14 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(140px 100px at 20% 8%,  rgba(201, 138, 111, 0.14), transparent 60%),
-    radial-gradient(160px 120px at 75% 22%, rgba(125, 138, 112, 0.12), transparent 60%),
-    radial-gradient(150px 110px at 25% 45%, rgba(125, 138, 112, 0.10), transparent 60%),
-    radial-gradient(170px 130px at 70% 68%, rgba(201, 138, 111, 0.12), transparent 60%),
-    radial-gradient(140px 100px at 18% 82%, rgba(125, 138, 112, 0.11), transparent 60%);
-  filter: blur(0.6px);
+    radial-gradient(140px 100px at 20% 8%, rgba(201, 138, 111, 0.09), transparent 60%),
+    radial-gradient(160px 120px at 75% 22%, rgba(125, 138, 112, 0.08), transparent 60%),
+    radial-gradient(150px 110px at 25% 45%, rgba(125, 138, 112, 0.07), transparent 60%),
+    radial-gradient(170px 130px at 70% 68%, rgba(201, 138, 111, 0.08), transparent 60%),
+    radial-gradient(140px 100px at 18% 82%, rgba(125, 138, 112, 0.07), transparent 60%);
+  filter: blur(0.5px);
 }
 
-/* A few discrete “pebbles” along the scroll */
 body::after {
   content: "";
   position: fixed;
@@ -730,164 +588,109 @@ body::after {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(40px 28px at 15% 12%, rgba(201, 138, 111, 0.25), transparent 70%),
-    radial-gradient(50px 34px at 78% 30%, rgba(201, 138, 111, 0.22), transparent 70%),
-    radial-gradient(38px 26px at 22% 52%, rgba(125, 138, 112, 0.22), transparent 70%),
-    radial-gradient(46px 32px at 68% 74%, rgba(201, 138, 111, 0.20), transparent 70%),
-    radial-gradient(42px 30px at 12% 86%, rgba(125, 138, 112, 0.20), transparent 70%);
+    radial-gradient(40px 28px at 15% 12%, rgba(201, 138, 111, 0.18), transparent 70%),
+    radial-gradient(50px 34px at 78% 30%, rgba(201, 138, 111, 0.16), transparent 70%),
+    radial-gradient(38px 26px at 22% 52%, rgba(125, 138, 112, 0.16), transparent 70%),
+    radial-gradient(46px 32px at 68% 74%, rgba(201, 138, 111, 0.14), transparent 70%),
+    radial-gradient(42px 30px at 12% 86%, rgba(125, 138, 112, 0.14), transparent 70%);
   filter: blur(0.4px);
 }
 
-/* =========================================
-   PROCESS: CALMER, MORE AIR, WABI-SABI
-   ========================================= */
+/* ---------- Responsive ---------- */
 
-.process-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.8rem;
-}
-
-.process-card {
-  padding: 1.9rem 1.7rem;
-  border-radius: 38px;            /* more organic */
-  border: 1px solid rgba(45, 48, 41, 0.08);
-  box-shadow: 0 10px 26px rgba(45, 48, 41, 0.04);
-}
-
-.process-card .card-mark {
-  font-size: 0.85rem;
-  opacity: 0.6;
-}
-
-.process-card h3 {
-  font-size: 1.08rem;
-  margin-top: 1.4rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.process-card p {
-  font-size: 0.95rem;
-  line-height: 1.65;
-}
-
-/* Slightly different organic shape per card */
-.process-card:nth-child(1) {
-  border-radius: 38px 34px 40px 36px;
-}
-
-.process-card:nth-child(2) {
-  border-radius: 36px 40px 34px 38px;
-}
-
-.process-card:nth-child(3) {
-  border-radius: 40px 36px 38px 34px;
-}
-
-.process-card:nth-child(4) {
-  border-radius: 34px 38px 36px 40px;
-}
-
-@media (min-width: 900px) {
-  /* On large screens, keep 2x2 instead of 4 in a row */
-  .process-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+@media (max-width: 720px) {
+  .wrap {
+    width: min(100% - 36px, 1180px);
   }
-}
 
-/* =========================================
-   FOCUS / ACCORDION: MORE SPACE, CALMER
-   ========================================= */
+  .site-header {
+    height: 74px;
+  }
 
-.accordion {
-  display: grid;
-  gap: 1.1rem;
-}
+  .site-header nav {
+    display: none;
+  }
 
-details {
-  padding: 1.1rem 1.2rem;
-  border-radius: 28px;
-  border: 1px solid rgba(45, 48, 41, 0.08);
-  background: var(--sand);
-  box-shadow: 0 6px 18px rgba(45, 48, 41, 0.03);
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 55px 0 70px;
+  }
 
-details[open] {
-  background: #fff;
-  border-color: rgba(45, 48, 41, 0.14);
-  box-shadow: 0 10px 28px rgba(45, 48, 41, 0.06);
-}
+  .hero-portrait {
+    justify-self: start;
+    width: min(100%, 400px);
+  }
 
-summary {
-  padding: 0.2rem 0;
-  font-size: 1.05rem;
-  letter-spacing: 0.01em;
-}
+  .hero-copy {
+    order: 2;
+  }
 
-summary::after {
-  font-size: 1.3rem;
-  opacity: 0.9;
-}
+  .shape-sun,
+  .sun {
+    right: -18px;
+  }
 
-details p {
-  margin-top: 0.9rem;
-  font-size: 0.97rem;
-  line-height: 1.7;
-  color: var(--ink-soft);
-}
+  .section {
+    padding: 85px 0;
+  }
 
-/* =========================================
-   SESSIONS: MORE AIR, SOFTER SHAPES
-   ========================================= */
+  .about,
+  .focus {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 
-.sessions-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.6rem;
-}
+  .section-label {
+    margin-bottom: 27px;
+  }
 
-.session-card {
-  padding: 1.9rem 1.7rem;
-  border-radius: 36px;
-  border: 1px solid rgba(45, 48, 41, 0.08);
-  box-shadow: 0 10px 26px rgba(45, 48, 41, 0.04);
-}
+  .approach-grid,
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
 
-.session-card .card-mark {
-  font-size: 0.85rem;
-  opacity: 0.6;
-}
+  .session-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
 
-.session-card h3 {
-  font-size: 1.1rem;
-  margin-top: 1.3rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
+  .contact {
+    width: 100%;
+    padding: 58px 18px;
+  }
 
-.session-card p {
-  font-size: 0.96rem;
-  line-height: 1.65;
-}
+  .contact > div {
+    width: min(100% - 36px, 1180px);
+    margin-inline: auto;
+  }
 
-/* Slightly different organic radius per session card */
-.session-card:first-child {
-  border-radius: 38px 34px 40px 36px;
-}
+  .site-footer {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 
-.session-card:last-child {
-  border-radius: 36px 40px 34px 38px;
-}
+  .brand {
+    font-size: 30px;
+  }
 
-@media (min-width: 720px) {
-  .sessions-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.9rem;
+  /* Accordion mobile tweaks */
+  .focus-title {
+    padding: 18px 0 18px 6px;
+    padding-right: 44px;
+  }
+
+  .focus-title::after {
+    font-size: 18px;
+  }
+
+  .focus-content p {
+    font-size: 15px;
+  }
+
+  .focus-content {
+    padding-bottom: 20px;
   }
 }
