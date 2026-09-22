@@ -694,3 +694,231 @@ body::after {
     padding-bottom: 20px;
   }
 }
+
+/* =========================================
+   PROCESS JOURNEY: PEBBLE PATH
+   ========================================= */
+
+.process-journey {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+/* Centered start */
+.process-start {
+  display: grid;
+  place-items: center;
+}
+
+.process-start-card {
+  max-width: 520px;
+  text-align: center;
+  border-radius: 34px;
+}
+
+/* Pebble path container */
+.pebble-path {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  padding: 40px 0 60px;
+}
+
+/* Subtle “footstep” markers between steps */
+.pebble-path .process-step::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: -28px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--clay));
+  box-shadow: 0 6px 14px rgba(45, 48, 41, 0.12);
+}
+
+/* On mobile, hide the side footstep so it doesn't overlap */
+@media (max-width: 720px) {
+  .pebble-path .process-step::before {
+    display: none;
+  }
+}
+
+/* Slightly different organic radii for steps */
+.pebble-path .process-step:nth-child(1) {
+  border-radius: 30px 26px 32px 28px;
+}
+
+.pebble-path .process-step:nth-child(2) {
+  border-radius: 28px 32px 26px 30px;
+}
+
+.pebble-path .process-step:nth-child(3) {
+  border-radius: 32px 28px 30px 26px;
+}
+
+/* Optional: a very soft connecting line behind the path */
+.pebble-path::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    rgba(202, 112, 88, 0.0),
+    rgba(202, 112, 88, 0.18),
+    rgba(202, 112, 88, 0.18),
+    rgba(202, 112, 88, 0.0)
+  );
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================
+   FOCUS: PEBBLE STONES + SMOOTH ROLL-OUT
+   ========================================= */
+
+.focus-item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Pebble symbol */
+.focus-pebble {
+  display: block;
+  width: 42px;
+  height: 52px;
+  margin: 6px 0 0 8px;
+  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--clay));
+  box-shadow: 0 8px 18px rgba(45, 48, 41, 0.12);
+  transform: rotate(-10deg);
+  flex: 0 0 auto;
+}
+
+/* Make the title text align nicely with the pebble */
+.focus-title {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  padding: 18px 0 18px 6px;
+  padding-right: 50px;
+  border-radius: 6px;
+  margin: 0 -6px;
+}
+
+/* Smooth roll-out is already in your CSS via .focus-inner;
+   we just ensure it's calm and not too fast. */
+.focus-inner {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  padding-left: 56px;
+}
+
+/* Slightly softer content text */
+.focus-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 75ch;
+}
+
+@media (max-width: 720px) {
+  .focus-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .focus-pebble {
+    width: 36px;
+    height: 44px;
+    margin: 0 0 6px 0;
+  }
+
+  .focus-title {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding: 16px 0 16px 6px;
+    padding-right: 44px;
+  }
+
+  .focus-inner {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding-left: 0;
+  }
+}
+
+/* =========================================
+   BOOKING: MESSAGE OF HOPE, WABI-SABI
+   ========================================= */
+
+.booking {
+  background: linear-gradient(
+    to bottom,
+    var(--paper),
+    #f7f3ea
+  );
+}
+
+.booking-intro {
+  max-width: 720px;
+  margin: 0 0 42px;
+}
+
+.booking-intro h2 {
+  font: clamp(40px, 5vw, 58px) / 1.05 "Instrument Serif", serif;
+  letter-spacing: -0.04em;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+
+.booking-intro p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 65ch;
+}
+
+.booking-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 14px 38px rgba(45, 48, 41, 0.07);
+  padding: 18px;
+}
+
+.booking-frame {
+  width: 100%;
+  height: 760px;
+  border: none;
+  border-radius: 22px;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .booking-intro h2 {
+    font-size: 32px;
+  }
+
+  .booking-intro p {
+    font-size: 15px;
+  }
+
+  .booking-panel {
+    padding: 12px;
+  }
+
+  .booking-frame {
+    height: 680px;
+  }
+}
