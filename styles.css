@@ -1023,3 +1023,26 @@ body::after {
 .diagnostic-note{display:grid;grid-template-columns:minmax(180px,.55fr) 1.45fr;gap:34px;align-items:stretch;max-width:920px;margin:70px auto 0;padding:20px;border:1px solid var(--line);border-radius:32px 26px 36px 24px;background:#ebe7dd}.diagnostic-note h3{font:clamp(36px,4vw,53px)/.96 "Instrument Serif",serif;letter-spacing:-.045em;margin:0 0 17px}.diagnostic-note p:last-child{margin:0;max-width:64ch}.shore-image{min-height:260px;border-radius:24px 18px 29px 19px;background-image:linear-gradient(90deg,rgba(244,240,231,.08),rgba(244,240,231,.2)),url("images/berlin-shore.jpg");background-size:cover;background-position:left center;filter:saturate(.65) contrast(.92)}
 @media(max-width:900px){.sessions .session-grid{grid-template-columns:1fr}.sessions .session-grid article:nth-child(3){grid-column:auto}.faq-intro,.diagnostic-note{grid-template-columns:1fr;gap:25px}.qualification-panel{padding:22px}.legal{padding:55px 0}.faq-intro{margin-bottom:28px}.shore-image{min-height:210px;background-position:left center}}
 
+
+/* Smaller hero portrait */
+.hero-portrait {
+  width: min(100%, 360px);
+  max-width: 360px;
+  justify-self: end;
+}
+
+.hero-portrait img {
+  width: 100%;
+  aspect-ratio: 0.8;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Smaller portrait on phones */
+@media (max-width: 720px) {
+  .hero-portrait {
+    width: min(100%, 320px);
+    max-width: 320px;
+    justify-self: start;
+  }
+}
