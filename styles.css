@@ -464,8 +464,6 @@ h3 {
   }
 }
 
-/* ---------- Subtle pebble/river path (very soft) ---------- */
-
 body::before {
   content: "";
   position: fixed;
