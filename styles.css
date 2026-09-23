@@ -1049,3 +1049,27 @@ body::after {
     justify-self: start;
   }
 }
+
+@media (max-width: 720px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    padding: 42px 0 64px;
+  }
+
+  .hero-copy {
+    order: 1;
+  }
+
+  .hero-portrait {
+    order: 2;
+    width: min(100%, 300px);
+    max-width: 300px;
+    align-self: center;
+  }
+
+  .site-header nav {
+    display: none;
+  }
+}
