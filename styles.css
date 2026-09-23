@@ -88,10 +88,13 @@ body, p, span, a, div {
 .language {
   border: 1px solid var(--ink);
   background: none;
-  border-radius: 50%;
-  width: 38px;
+  border-radius: 999px;
+  min-width: 110px;
   height: 38px;
+  padding: 0 16px;
+  color: var(--ink);
   font: 12px "DM Mono", monospace;
+  letter-spacing: 0.02em;
   cursor: pointer;
 }
 
