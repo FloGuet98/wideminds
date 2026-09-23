@@ -147,15 +147,17 @@ h1 em, h2 em {
 
 .hero-portrait {
   position: relative;
-  max-width: 430px;
+  width: min(100%, 360px);
+  max-width: 360px;
   justify-self: end;
 }
 
 .hero-portrait img {
   display: block;
   width: 100%;
-  aspect-ratio: 0.88;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: 900 / 1125;
+  object-fit: contain;
   object-position: center;
   border-radius: 220px 220px 8px 8px;
   filter: saturate(0.82) contrast(0.95);
@@ -516,9 +518,10 @@ body::after {
     padding: 55px 0 70px;
   }
 
-  .hero-portrait {
+ .hero-portrait {
     justify-self: start;
-    width: min(100%, 400px);
+    width: min(100%, 300px);
+    max-width: 300px;
   }
 
   .hero-copy {
