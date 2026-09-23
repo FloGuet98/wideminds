@@ -464,35 +464,6 @@ h3 {
   }
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(140px 100px at 20% 8%, rgba(201, 138, 111, 0.09), transparent 60%),
-    radial-gradient(160px 120px at 75% 22%, rgba(125, 138, 112, 0.08), transparent 60%),
-    radial-gradient(150px 110px at 25% 45%, rgba(125, 138, 112, 0.07), transparent 60%),
-    radial-gradient(170px 130px at 70% 68%, rgba(201, 138, 111, 0.08), transparent 60%),
-    radial-gradient(140px 100px at 18% 82%, rgba(125, 138, 112, 0.07), transparent 60%);
-  filter: blur(0.5px);
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(40px 28px at 15% 12%, rgba(201, 138, 111, 0.18), transparent 70%),
-    radial-gradient(50px 34px at 78% 30%, rgba(201, 138, 111, 0.16), transparent 70%),
-    radial-gradient(38px 26px at 22% 52%, rgba(125, 138, 112, 0.16), transparent 70%),
-    radial-gradient(46px 32px at 68% 74%, rgba(201, 138, 111, 0.14), transparent 70%),
-    radial-gradient(42px 30px at 12% 86%, rgba(125, 138, 112, 0.14), transparent 70%);
-  filter: blur(0.4px);
-}
 
 /* ---------- Responsive (Base) ---------- */
 
