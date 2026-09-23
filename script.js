@@ -21,7 +21,7 @@ toggle?.addEventListener('click', () => {
   const english = document.documentElement.lang !== 'en';
   document.documentElement.lang = english ? 'en' : 'de';
   document.querySelectorAll('[data-de][data-en]').forEach(node => node.innerHTML = node.dataset[english ? 'en' : 'de']);
-  toggle.textContent = english ? 'DE' : 'EN';
+  toggle.textContent = english ? 'Deutsch' : 'English'; 
   toggle.setAttribute('aria-label', english ? 'Zur deutschen Sprache wechseln' : 'Switch to English');
 });
 
