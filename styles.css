@@ -1197,3 +1197,23 @@ h3 {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+.response-time {
+  margin: 18px 0 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.email-link,
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.email-link:hover,
+.site-footer a:hover {
+  color: var(--cream);
+}
