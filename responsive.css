@@ -356,3 +356,108 @@ iframe {
     transform: none;
   }
 }
+
+/* =========================================
+   EXPERIMENT: EDITORIAL SCREEN CARDS
+   Desktop and laptop experiment only.
+   Mobile keeps normal scrolling.
+   ========================================= */
+
+@media (min-width: 901px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .screen-section {
+    min-height: 100svh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    padding-top: clamp(72px, 8vh, 120px);
+    padding-bottom: clamp(72px, 8vh, 120px);
+  }
+
+  .screen-section > .wrap,
+  .screen-section.wrap {
+    width: min(1180px, calc(100% - 56px));
+  }
+
+  .screen-section .section-label {
+    margin-bottom: 24px;
+  }
+
+  .screen-section h2 {
+    margin-bottom: 24px;
+  }
+
+  .story-card {
+    background: rgba(250, 248, 243, 0.88);
+    border: 1px solid var(--line);
+    box-shadow: 0 14px 34px rgba(45, 48, 41, 0.06);
+  }
+
+  .process .story-card,
+  .sessions .story-card {
+    min-height: 0;
+    padding: clamp(28px, 3vw, 44px);
+  }
+
+  .process .story-card h3,
+  .sessions .story-card h3 {
+    max-width: 18ch;
+  }
+
+  .process .story-card p,
+  .sessions .story-card p {
+    max-width: 58ch;
+  }
+
+  .process .zen-path-wrapper {
+    margin-top: 18px;
+  }
+
+  .process .zen-start {
+    margin-bottom: 28px;
+  }
+
+  .process .zen-trail {
+    gap: 34px;
+    padding: 22px 0 30px;
+  }
+
+  .sessions .session-grid {
+    gap: 18px;
+  }
+
+  .sessions .session-grid article {
+    min-height: 0;
+  }
+
+  .booking-panel {
+    max-height: 66vh;
+  }
+
+  .booking-frame {
+    height: min(680px, 66vh);
+  }
+}
+
+/* Keep the experiment comfortable on tablets and phones. */
+@media (max-width: 900px) {
+  html {
+    scroll-snap-type: none;
+  }
+
+  .screen-section {
+    min-height: auto;
+    display: block;
+    scroll-snap-align: none;
+  }
+
+  .story-card {
+    min-height: 0;
+  }
+}
