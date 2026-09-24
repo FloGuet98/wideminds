@@ -134,11 +134,12 @@ h1 em, h2 em {
   color: var(--clay);
 }
 
-.intro {
-  max-width: 450px;
-  font-size: 19px;
-  line-height: 1.5;
-  margin: 34px 0;
+@media (max-width: 720px) {
+  .intro {
+    font-size: 17px;
+    line-height: 1.45;
+    margin: 16px 0 20px;
+  }
 }
 .booking-reassurance,
 .service-boundary {
@@ -158,6 +159,12 @@ h1 em, h2 em {
   color: #666960;
 }
 
+.intro {
+  max-width: 450px;
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 34px 0;
+}
 .hero-facts {
   display: flex;
   flex-wrap: wrap;
@@ -663,6 +670,10 @@ h3 {
   filter: blur(0.4px);
 }
 
+.zen-trail::after {
+  display: none;
+}
+
 /* ---------- Steps ---------- */
 
 .zen-step {
@@ -855,37 +866,7 @@ h3 {
   padding: 0;
 }
 
-/* The actual collapsible container */
-.focus-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
-  overflow: hidden;
-}
 
-.focus-item[open] .focus-content {
-  grid-template-rows: 1fr;
-}
-
-/* Text content */
-.focus-content p {
-  min-height: 0;
-  opacity: 0;
-  transform: translateY(-6px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-  padding: 14px 0 22px;
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 68ch;
-  color: var(--ink);
-  text-align: left;
-}
-
-.focus-item[open] .focus-content p {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .focus-approach {
   color: #5a5a5a;
@@ -1068,8 +1049,8 @@ h3 {
   .hero {
     display: flex;
     flex-direction: column;
-    gap: 38px;
-    padding: 42px 0 64px;
+    gap: 24px;
+    padding: 24px 0 52px;
   }
 
   .hero-copy {
@@ -1100,8 +1081,8 @@ h3 {
   z-index: 101;
   min-height: 74px;
   height: auto;
-  padding: 16px 0;
-  gap: 12px;
+  padding: 10px 0;
+  gap: 8px;
 }
 
   .menu-toggle {
@@ -1174,14 +1155,15 @@ h3 {
   max-width: 100%;
 }
 
-.hero-facts {
-  gap: 8px 14px;
-  font-size: 11px;
-}
+  .hero-facts {
+    gap: 6px 10px;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+  }
 
-.hero-facts li:not(:last-child)::after {
-  right: -9px;
-}
+  .hero-facts li:not(:last-child)::after {
+    right: -7px;
+  }
 
   .main-nav a:hover,
   .main-nav a:focus-visible {
