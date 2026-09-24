@@ -15,6 +15,9 @@
   --cream: #faf8f3;
   --sand: #f3efe6;
   --stone: #d8d3c7;
+   --mono: "DM Mono", monospace;
+  --sans: "DM Sans", sans-serif;
+  --serif: "Instrument Serif", serif;
 }
 
 * {
@@ -136,6 +139,45 @@ h1 em, h2 em {
   font-size: 19px;
   line-height: 1.5;
   margin: 34px 0;
+}
+.booking-reassurance,
+.service-boundary {
+  max-width: 450px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.booking-reassurance {
+  margin: 16px 0 8px;
+  color: var(--clay);
+  font-family: "DM Mono", monospace;
+}
+
+.service-boundary {
+  margin: 0 0 22px;
+  color: #666960;
+}
+
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  color: var(--moss-dark);
+  font: 12px "DM Mono", monospace;
+}
+
+.hero-facts li {
+  position: relative;
+}
+
+.hero-facts li:not(:last-child)::after {
+  content: "·";
+  position: absolute;
+  right: -12px;
+  color: var(--clay);
 }
 
 .button {
@@ -1053,13 +1095,14 @@ h3 {
 
 /* Mobile navigation */
 @media (max-width: 720px) {
-  .site-header {
-    position: relative;
-    min-height: 74px;
-    height: auto;
-    padding: 16px 0;
-    gap: 12px;
-  }
+ .site-header {
+  position: relative;
+  z-index: 101;
+  min-height: 74px;
+  height: auto;
+  padding: 16px 0;
+  gap: 12px;
+}
 
   .menu-toggle {
     display: inline-flex;
@@ -1095,7 +1138,7 @@ h3 {
   .main-nav {
     display: none;
     position: absolute;
-    z-index: 20;
+    z-index: 100;
     top: calc(100% - 4px);
     left: 0;
     right: 0;
@@ -1126,6 +1169,20 @@ h3 {
     border-bottom: 0;
   }
 
+   .booking-reassurance,
+.service-boundary {
+  max-width: 100%;
+}
+
+.hero-facts {
+  gap: 8px 14px;
+  font-size: 11px;
+}
+
+.hero-facts li:not(:last-child)::after {
+  right: -9px;
+}
+
   .main-nav a:hover,
   .main-nav a:focus-visible {
     color: var(--clay);
@@ -1137,5 +1194,24 @@ h3 {
 
   .menu-toggle[aria-expanded="true"] .menu-icon span:last-child {
     transform: translateY(-2.5px) rotate(-45deg);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
