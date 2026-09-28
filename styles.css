@@ -1453,109 +1453,158 @@ h3 {
 }
 
 
-/* =========================
-   EXPERIENCE / TIMELINE
-========================= */
+/* ===== Erfahrung: wabi-sabi accordion ===== */
 
-.experience h2 {
-  font: clamp(45px,5vw,70px)/1.05 'Instrument Serif', serif;
-  margin-bottom: 18px;
+.experience-section {
+  background: var(--sand);
 }
 
-.experience-intro {
-  max-width: 720px;
-  font-size: 18px;
-  margin-bottom: 50px;
-  opacity: 0.9;
+.experience-heading h2 {
+  max-width: 760px;
+  margin: 0 0 48px;
+  font: 400 clamp(44px, 5vw, 70px) / 1.02 "Instrument Serif", serif;
+  letter-spacing: -0.045em;
 }
 
-/* timeline layout */
-.timeline {
-  position: relative;
-  margin-top: 20px;
-  padding-left: 28px;
-}
-
-/* vertical line */
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--line);
-  opacity: 0.7;
-}
-
-/* each item */
-.timeline-item {
-  position: relative;
-  margin-bottom: 42px;
-  padding-left: 18px;
-}
-
-/* dot */
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -3px;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--clay);
-}
-
-/* year */
-.timeline .year {
-  font: 12px 'DM Mono', monospace;
-  color: var(--clay);
-  margin-bottom: 6px;
-  letter-spacing: .04em;
-}
-
-/* content */
-.timeline h3 {
-  font: 26px 'Instrument Serif', serif;
-  margin: 0 0 6px 0;
-}
-
-.timeline p {
-  margin: 0 0 10px 0;
-  max-width: 720px;
-}
-
-/* details accordion */
-.timeline details {
-  font-size: 14px;
-}
-
-.timeline summary {
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  opacity: 0.8;
-}
-
-/* impact statement */
-.impact {
-  margin-top: 60px;
-  font-size: 18px;
-  max-width: 720px;
+.experience-list {
+  width: min(100%, 940px);
+  margin: 0 auto;
   border-top: 1px solid var(--line);
-  padding-top: 25px;
-  opacity: 0.9;
 }
 
-/* scroll reveal animation */
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: all 0.7s ease;
+.experience-item {
+  border-bottom: 1px solid var(--line);
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.experience-item summary {
+  display: grid;
+  grid-template-columns: 42px 112px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 16px;
+  min-height: 94px;
+  padding: 16px 6px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.experience-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.experience-item summary::marker {
+  content: "";
+}
+
+.experience-item summary:hover {
+  background: rgba(125, 138, 112, 0.07);
+}
+
+.experience-item summary:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: -2px;
+}
+
+.experience-stone {
+  width: 34px;
+  height: 39px;
+  border-radius: 52% 48% 45% 55% / 46% 54% 50% 50%;
+  background:
+    radial-gradient(circle at 31% 28%, rgba(255, 255, 255, 0.38), transparent 38%),
+    radial-gradient(circle at 70% 78%, rgba(45, 48, 41, 0.12), transparent 44%),
+    #a8afa1;
+  box-shadow: 1px 3px 6px rgba(45, 48, 41, 0.10);
+  transform: rotate(-8deg);
+}
+
+.experience-item:nth-child(2n) .experience-stone {
+  border-radius: 47% 53% 58% 42% / 57% 40% 60% 43%;
+  transform: rotate(7deg);
+  background-color: #c3b9a7;
+}
+
+.experience-item:nth-child(3n) .experience-stone {
+  border-radius: 56% 44% 48% 52% / 40% 58% 42% 60%;
+  transform: rotate(-3deg);
+  background-color: #a5a79a;
+}
+
+.experience-time {
+  color: var(--moss-dark);
+  font: 12px / 1.4 "DM Mono", monospace;
+  letter-spacing: 0.015em;
+}
+
+.experience-name {
+  min-width: 0;
+  color: var(--ink);
+  font: 400 clamp(24px, 2.5vw, 34px) / 1.06 "Instrument Serif", serif;
+  letter-spacing: -0.025em;
+}
+
+.experience-item summary::after {
+  content: "+";
+  grid-column: 4;
+  justify-self: end;
+  color: var(--clay);
+  font: 18px "DM Mono", monospace;
+}
+
+.experience-item[open] summary::after {
+  content: "−";
+}
+
+.experience-body {
+  padding: 0 48px 24px 170px;
+}
+
+.experience-body p {
+  max-width: 68ch;
+  margin: 0;
+  color: #50584f;
+  font: 16px / 1.7 "DM Sans", sans-serif;
+}
+
+@media (max-width: 720px) {
+  .experience-heading h2 {
+    margin-bottom: 30px;
+  }
+
+  .experience-item summary {
+    grid-template-columns: 34px minmax(0, 1fr) 24px;
+    gap: 11px;
+    min-height: 80px;
+    padding: 14px 2px;
+  }
+
+  .experience-stone {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 28px;
+    height: 33px;
+  }
+
+  .experience-time {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .experience-name {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 23px;
+  }
+
+  .experience-item summary::after {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+
+  .experience-body {
+    padding: 0 28px 22px 47px;
+  }
+
+  .experience-body p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
 }
