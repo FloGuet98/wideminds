@@ -1219,6 +1219,303 @@ h3 {
 }
 
 
+
+
+/* =========================================
+   EXPERIENCE – CLEAN REBUILD (MATCHES YOUR HTML)
+   ========================================= */
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line, #cfc8bb);
+  margin-top: 28px;
+}
+
+/* ITEM */
+.exp-item {
+  border-bottom: 1px solid var(--line, #cfc8bb);
+}
+
+/* SUMMARY */
+.exp-item summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+
+/* remove default marker */
+.exp-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* YEAR */
+.exp-year {
+  font: 12px var(--mono, monospace);
+  color: var(--clay, #ca7058);
+  min-width: 90px;
+  letter-spacing: 0.02em;
+}
+
+/* TITLE */
+.exp-item summary {
+  font: 20px var(--serif, "Instrument Serif", serif);
+  color: var(--ink, #2d3029);
+  letter-spacing: -0.02em;
+}
+
+/* PLUS / MINUS */
+.exp-item summary::after {
+  content: "+";
+  margin-left: auto;
+  font: 18px var(--mono, monospace);
+  color: var(--clay, #ca7058);
+  transition: transform 0.2s ease;
+}
+
+.exp-item[open] summary::after {
+  content: "–";
+}
+
+/* BODY */
+.exp-item p {
+  margin: 0;
+  padding: 0 0 16px 106px;
+  font: 15px/1.6 var(--sans, "DM Sans", sans-serif);
+  color: var(--ink, #2d3029);
+  opacity: 0.9;
+  max-width: 75ch;
+}
+
+/* subtle open animation */
+.exp-item[open] p {
+  animation: expFade 0.25s ease;
+}
+
+@keyframes expFade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================
+   IMPACT SECTION
+   ========================= */
+
+.exp-impact {
+  margin-top: 42px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line, #cfc8bb);
+}
+
+.impact-eyebrow {
+  font: 12px var(--mono, monospace);
+  color: var(--clay, #ca7058);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+}
+
+.impact-text {
+  font: 15px/1.65 var(--sans, "DM Sans", sans-serif);
+  color: var(--ink, #2d3029);
+  max-width: 70ch;
+  margin: 0;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 720px) {
+
+  .exp-item summary {
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .exp-year {
+    min-width: 72px;
+    font-size: 11px;
+  }
+
+  .exp-item p {
+    padding-left: 0;
+    padding-bottom: 14px;
+    font-size: 14px;
+  }
+
+  .exp-item summary::after {
+    font-size: 16px;
+  }
+}
+
+/* EXPERIENCE: replace the entire previous "EXPERIENCE – add at the very end"
+   laptop CSS block with this one. Do not append both.
+   Matches the current #experience / .exp-item markup. */
+
+@media (min-width: 901px) and (min-height: 700px) {
+  #experience.section.wrap {
+    display: block;
+    min-height: 0;
+    height: auto;
+    padding-top: clamp(28px, 3.6vh, 42px);
+    padding-bottom: clamp(30px, 4vh, 48px);
+  }
+
+  #experience > .section-label { margin: 0 0 9px; }
+
+  #experience > h2 {
+    max-width: 940px;
+    margin: 0 0 clamp(16px, 2.2vh, 23px);
+    font: 400 clamp(32px, 3vw, 44px)/1.1 var(--serif, "Instrument Serif", serif);
+    letter-spacing: -.038em;
+  }
+
+  #experience .experience-timeline {
+    position: relative;
+    display: block;
+    width: min(100%, 940px);
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line, #cfc8bb);
+  }
+
+  /* Old timeline decorations were positioned over the year column.
+     Remove them for this uncluttered list. */
+  #experience .experience-timeline::before,
+  #experience .experience-timeline::after,
+  #experience .exp-item::before,
+  #experience .exp-item::after,
+  #experience .exp-year::before,
+  #experience .exp-year::after,
+  #experience .exp-item > summary::before {
+    content: none;
+    display: none;
+  }
+
+  #experience .exp-item {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--line, #cfc8bb);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #experience .exp-item > summary {
+    position: relative;
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) 26px;
+    align-items: center;
+    column-gap: 22px;
+    min-height: clamp(54px, 6.6vh, 65px);
+    margin: 0;
+    padding: 6px 7px 6px 12px;
+    list-style: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  #experience .exp-item > summary::-webkit-details-marker { display: none; }
+  #experience .exp-item > summary::marker { content: ""; }
+  #experience .exp-item > summary:hover { background: rgba(207, 200, 187, .16); }
+  #experience .exp-item > summary:focus-visible {
+    outline: 2px solid var(--clay, #ca7058);
+    outline-offset: -2px;
+  }
+
+  #experience .exp-year {
+    grid-column: 1;
+    color: var(--moss-dark, #5f6b55);
+    font: 400 12px/1.4 var(--mono, "DM Mono", monospace);
+    white-space: nowrap;
+  }
+
+  #experience .exp-name {
+    grid-column: 2;
+    min-width: 0;
+    color: var(--ink, #2d3029);
+    font: 400 clamp(21px, 2vw, 26px)/1.15 var(--serif, "Instrument Serif", serif);
+    letter-spacing: -.02em;
+  }
+
+  #experience .exp-item > summary::after {
+    content: "+";
+    display: block;
+    grid-column: 3;
+    justify-self: end;
+    position: static;
+    color: var(--clay, #ca7058);
+    font: 18px/1 var(--mono, "DM Mono", monospace);
+  }
+  #experience .exp-item[open] > summary::after { content: "−"; }
+
+  #experience .exp-content {
+    max-height: none;
+    margin: 0;
+    padding: 0 45px 17px 174px;
+    border: 0;
+    background: transparent;
+  }
+  #experience .exp-content p {
+    max-width: 74ch;
+    margin: 0;
+    color: #50584f;
+    font: 400 15px/1.6 var(--sans, "DM Sans", sans-serif);
+  }
+
+  #experience .exp-impact {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    column-gap: 22px;
+    align-items: start;
+    width: min(100%, 940px);
+    margin: clamp(20px, 2.8vh, 28px) 0 0;
+    padding: 0 7px 0 12px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  #experience .impact-eyebrow {
+    margin: 3px 0 0;
+    color: var(--clay, #ca7058);
+    font: 400 12px/1.4 var(--mono, "DM Mono", monospace);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  #experience .impact-text {
+    max-width: 80ch;
+    margin: 0;
+    color: var(--ink, #2d3029);
+    font: 400 15px/1.55 var(--sans, "DM Sans", sans-serif);
+  }
+}
+
+@media (max-width: 900px), (max-height: 699px) {
+  #experience.section.wrap {
+    min-height: 0;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+}
+
+
+
 /* =========================================
    COMPACT LAPTOP SECTIONS
    One clear visual composition per screen.
@@ -1451,281 +1748,3 @@ h3 {
     height: 680px;
   }
 }
-
-
-/* =========================================
-   EXPERIENCE – CLEAN REBUILD (MATCHES YOUR HTML)
-   ========================================= */
-
-.experience-timeline {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--line, #cfc8bb);
-  margin-top: 28px;
-}
-
-/* ITEM */
-.exp-item {
-  border-bottom: 1px solid var(--line, #cfc8bb);
-}
-
-/* SUMMARY */
-.exp-item summary {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 14px 0;
-  cursor: pointer;
-  list-style: none;
-  position: relative;
-}
-
-/* remove default marker */
-.exp-item summary::-webkit-details-marker {
-  display: none;
-}
-
-/* YEAR */
-.exp-year {
-  font: 12px var(--mono, monospace);
-  color: var(--clay, #ca7058);
-  min-width: 90px;
-  letter-spacing: 0.02em;
-}
-
-/* TITLE */
-.exp-item summary {
-  font: 20px var(--serif, "Instrument Serif", serif);
-  color: var(--ink, #2d3029);
-  letter-spacing: -0.02em;
-}
-
-/* PLUS / MINUS */
-.exp-item summary::after {
-  content: "+";
-  margin-left: auto;
-  font: 18px var(--mono, monospace);
-  color: var(--clay, #ca7058);
-  transition: transform 0.2s ease;
-}
-
-.exp-item[open] summary::after {
-  content: "–";
-}
-
-/* BODY */
-.exp-item p {
-  margin: 0;
-  padding: 0 0 16px 106px;
-  font: 15px/1.6 var(--sans, "DM Sans", sans-serif);
-  color: var(--ink, #2d3029);
-  opacity: 0.9;
-  max-width: 75ch;
-}
-
-/* subtle open animation */
-.exp-item[open] p {
-  animation: expFade 0.25s ease;
-}
-
-@keyframes expFade {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* =========================
-   IMPACT SECTION
-   ========================= */
-
-.exp-impact {
-  margin-top: 42px;
-  padding-top: 22px;
-  border-top: 1px solid var(--line, #cfc8bb);
-}
-
-.impact-eyebrow {
-  font: 12px var(--mono, monospace);
-  color: var(--clay, #ca7058);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin: 0 0 10px;
-}
-
-.impact-text {
-  font: 15px/1.65 var(--sans, "DM Sans", sans-serif);
-  color: var(--ink, #2d3029);
-  max-width: 70ch;
-  margin: 0;
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media (max-width: 720px) {
-
-  .exp-item summary {
-    gap: 10px;
-    padding: 12px 0;
-  }
-
-  .exp-year {
-    min-width: 72px;
-    font-size: 11px;
-  }
-
-  .exp-item p {
-    padding-left: 0;
-    padding-bottom: 14px;
-    font-size: 14px;
-  }
-
-  .exp-item summary::after {
-    font-size: 16px;
-  }
-}
-
-/* EXPERIENCE – add at the very end of styles.css.
-   Matches the CURRENT markup: #experience > .section-label, h2,
-   .experience-timeline > details.exp-item, .exp-impact.
-   Desktop only; open entries and smaller devices can scroll naturally. */
-
-@media (min-width: 901px) and (min-height: 700px) {
-  #experience.section.wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100svh;
-    padding-top: clamp(22px, 3.2vh, 36px);
-    padding-bottom: clamp(22px, 3.2vh, 36px);
-  }
-
-  #experience > .section-label {
-    margin: 0 0 clamp(7px, 1vh, 12px);
-  }
-
-  #experience > h2 {
-    max-width: 930px;
-    margin: 0 0 clamp(11px, 1.5vh, 18px);
-    font: 400 clamp(35px, 3.5vw, 52px)/1.04 var(--serif, "Instrument Serif", serif);
-    letter-spacing: -.045em;
-  }
-
-  #experience .experience-timeline {
-    display: grid;
-    width: min(100%, 940px);
-    gap: 0;
-    margin: 0;
-    padding: 0;
-    border-top: 1px solid var(--line, #cfc8bb);
-  }
-
-  #experience .exp-item {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-bottom: 1px solid var(--line, #cfc8bb);
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-  }
-
-  #experience .exp-item > summary {
-    display: grid;
-    grid-template-columns: 110px minmax(0, 1fr) 20px;
-    align-items: center;
-    gap: 16px;
-    min-height: clamp(42px, 5.45vh, 53px);
-    margin: 0;
-    padding: 3px 5px;
-    list-style: none;
-    cursor: pointer;
-  }
-
-  #experience .exp-item > summary::-webkit-details-marker { display: none; }
-  #experience .exp-item > summary::marker { content: ""; }
-  #experience .exp-item > summary:hover {
-    background: rgba(207, 200, 187, .16);
-  }
-  #experience .exp-item > summary:focus-visible {
-    outline: 2px solid var(--clay, #ca7058);
-    outline-offset: -2px;
-  }
-
-  #experience .exp-year {
-    grid-column: 1;
-    color: var(--moss-dark, #5f6b55);
-    font: 400 11px/1.3 var(--mono, "DM Mono", monospace);
-    white-space: nowrap;
-  }
-
-  #experience .exp-name {
-    grid-column: 2;
-    min-width: 0;
-    color: var(--ink, #2d3029);
-    font: 400 clamp(19px, 1.75vw, 23px)/1.12 var(--serif, "Instrument Serif", serif);
-    letter-spacing: -.02em;
-  }
-
-  #experience .exp-item > summary::after {
-    content: "+";
-    grid-column: 3;
-    justify-self: end;
-    color: var(--clay, #ca7058);
-    font: 17px/1 var(--mono, "DM Mono", monospace);
-  }
-  #experience .exp-item[open] > summary::after { content: "−"; }
-
-  #experience .exp-content {
-    padding: 0 35px 12px 126px;
-  }
-  #experience .exp-content p {
-    max-width: 70ch;
-    margin: 0;
-    color: #50584f;
-    font: 400 14px/1.5 var(--sans, "DM Sans", sans-serif);
-  }
-
-  #experience .exp-impact {
-    display: grid;
-    grid-template-columns: 110px minmax(0, 1fr);
-    gap: 16px;
-    align-items: start;
-    width: min(100%, 940px);
-    margin: clamp(12px, 1.7vh, 20px) 0 0;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-  }
-  #experience .impact-eyebrow {
-    margin: 4px 0 0;
-    color: var(--clay, #ca7058);
-    font: 400 11px/1.35 var(--mono, "DM Mono", monospace);
-    letter-spacing: .04em;
-    text-transform: uppercase;
-  }
-  #experience .impact-text {
-    max-width: 77ch;
-    margin: 0;
-    color: var(--ink, #2d3029);
-    font: 400 clamp(13px, 1.05vw, 15px)/1.46 var(--sans, "DM Sans", sans-serif);
-  }
-}
-
-/* Short or narrow screens: don't clip the statement or accordion content. */
-@media (max-width: 900px), (max-height: 699px) {
-  #experience.section.wrap {
-    min-height: 0;
-    height: auto;
-    display: block;
-    overflow: visible;
-  }
-}
-
