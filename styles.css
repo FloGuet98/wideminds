@@ -1452,134 +1452,96 @@ h3 {
   }
 }
 
-
-/* =========================================
-   ERFAHRUNG — WABI-SABI-PFAD
-   Ersetzt den bisherigen Experience-CSS-Block
-   ========================================= */
-
+/* Erfahrung – vollständiger CSS-Block. Ersetzt den gesamten bisherigen Experience-CSS-Block.
+   Die Steine entsprechen den grauen Steinen der Anliegen-Section. */
 .experience-section {
   background: var(--sand, #f3efe6);
   overflow: hidden;
 }
 
+.experience-section .wrap {
+  max-width: 1180px;
+}
+
 .experience-heading {
-  max-width: 800px;
+  max-width: 940px;
+  margin: 0 auto 38px;
 }
 
 .experience-heading h2 {
-  max-width: 800px;
-  margin: 0 0 76px;
+  max-width: 850px;
+  margin: 0 0 18px;
   color: var(--ink, #2d3029);
-  font: 400 clamp(46px, 5.5vw, 76px) / 1.02 "Instrument Serif", serif;
-  letter-spacing: -0.045em;
+  font: 400 clamp(42px, 5vw, 68px) / 1.02 "Instrument Serif", serif;
+  letter-spacing: -.045em;
 }
 
-/*
-  The list has a central path area. Each following stone shifts
-  slightly farther right, then the path returns gently.
-*/
+.experience-impact {
+  max-width: 74ch;
+  margin: 0;
+  color: #50584f;
+  font: clamp(16px, 1.35vw, 18px) / 1.55 "DM Sans", sans-serif;
+}
+
 .experience-list {
   --experience-progress: 0%;
   position: relative;
   width: min(100%, 940px);
   margin: 0 auto;
-  padding: 8px 0 24px;
+  padding: 3px 0 0;
 }
 
-/* A subtle, winding background path */
-.experience-list::before {
-  content: "";
-  position: absolute;
-  top: 45px;
-  bottom: 55px;
-  left: 35px;
-  width: 230px;
-  pointer-events: none;
-  opacity: 0.45;
-  background:
-    radial-gradient(ellipse 32px 88px at 24px 10%,
-      rgba(125, 138, 112, 0.24), transparent 75%),
-    radial-gradient(ellipse 39px 105px at 58px 32%,
-      rgba(125, 138, 112, 0.22), transparent 75%),
-    radial-gradient(ellipse 39px 105px at 104px 55%,
-      rgba(125, 138, 112, 0.20), transparent 75%),
-    radial-gradient(ellipse 39px 105px at 148px 79%,
-      rgba(125, 138, 112, 0.18), transparent 75%);
-  filter: blur(14px);
-  z-index: 0;
-}
-
-/* The coloured trail gradually appears as the visitor scrolls */
+.experience-list::before,
 .experience-list::after {
   content: "";
   position: absolute;
-  top: 35px;
-  left: 35px;
-  width: 235px;
-  height: var(--experience-progress);
-  max-height: calc(100% - 90px);
+  left: 29px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 999px;
   pointer-events: none;
-  opacity: 0.6;
-  background:
-    radial-gradient(ellipse 18px 95px at 24px 12%,
-      rgba(95, 107, 85, 0.30), transparent 75%),
-    radial-gradient(ellipse 22px 112px at 65px 35%,
-      rgba(95, 107, 85, 0.26), transparent 75%),
-    radial-gradient(ellipse 22px 112px at 110px 58%,
-      rgba(95, 107, 85, 0.23), transparent 75%),
-    radial-gradient(ellipse 22px 112px at 155px 82%,
-      rgba(95, 107, 85, 0.20), transparent 75%);
-  filter: blur(9px);
-  z-index: 0;
-  transition: height 0.18s linear;
 }
 
-/* Spacious, gently staggered entries */
+.experience-list::before {
+  background: rgba(125, 138, 112, .32);
+}
+
+.experience-list::after {
+  bottom: auto;
+  height: var(--experience-progress);
+  max-height: calc(100% - 24px);
+  background: var(--moss-dark, #5f6b55);
+  transition: height .18s linear;
+}
+
 .experience-item {
-  --step: 0px;
   position: relative;
-  z-index: 1;
-  width: calc(100% - var(--step));
-  margin: 0 0 22px var(--step);
-  border: 1px solid rgba(207, 200, 187, 0.9);
-  border-radius: 29px 25px 32px 27px;
-  background: rgba(250, 248, 243, 0.88);
-  box-shadow: 0 9px 24px rgba(45, 48, 41, 0.035);
+  width: 100%;
+  margin: 0 0 10px;
+  border: 1px solid rgba(207, 200, 187, .9);
+  border-radius: 26px 23px 28px 24px;
+  background: rgba(250, 248, 243, .82);
+  box-shadow: 0 5px 17px rgba(45, 48, 41, .025);
   overflow: hidden;
-  transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease;
 }
 
-.experience-item:nth-child(1) { --step: 0px; }
-.experience-item:nth-child(2) { --step: 26px; }
-.experience-item:nth-child(3) { --step: 56px; }
-.experience-item:nth-child(4) { --step: 82px; }
-.experience-item:nth-child(5) { --step: 54px; }
-.experience-item:nth-child(6) { --step: 22px; }
-
-.experience-item:nth-child(even) {
-  border-radius: 25px 32px 27px 30px;
+.experience-item:nth-child(2n) {
+  border-radius: 23px 28px 24px 27px;
 }
 
-.experience-item:nth-child(3n) {
-  border-radius: 32px 26px 29px 25px;
-}
-
-.experience-item:hover,
 .experience-item[open] {
-  border-color: rgba(125, 138, 112, 0.58);
+  border-color: rgba(125, 138, 112, .65);
   background: var(--cream, #faf8f3);
 }
 
 .experience-item summary {
   display: grid;
-  grid-template-columns: 50px 118px minmax(0, 1fr) 30px;
+  grid-template-columns: 42px 110px minmax(0, 1fr) 27px;
   align-items: center;
-  column-gap: 17px;
-  min-height: 104px;
-  padding: 21px 25px 21px 12px;
+  gap: 14px;
+  min-height: 68px;
+  padding: 9px 20px 9px 10px;
   list-style: none;
   cursor: pointer;
 }
@@ -1594,56 +1556,37 @@ h3 {
 
 .experience-item summary:focus-visible {
   outline: 2px solid var(--clay, #ca7058);
-  outline-offset: -4px;
+  outline-offset: -3px;
 }
 
-/* Organic stone replaces the browser's default triangle */
+/* Gleiche Form, Farbe, Schattierung und Drehung wie .focus-list .focus-stone. */
 .experience-stone {
-  grid-column: 1;
   display: block;
-  width: 37px;
+  grid-column: 1;
+  position: relative;
+  z-index: 1;
+  width: 36px;
   height: 43px;
-  border-radius: 52% 48% 46% 54% / 44% 54% 46% 56%;
-  background:
-    radial-gradient(circle at 31% 28%,
-      rgba(255, 255, 255, 0.45), transparent 35%),
-    radial-gradient(circle at 73% 76%,
-      rgba(45, 48, 41, 0.14), transparent 46%),
-    #a8afa1;
-  box-shadow: 1px 4px 7px rgba(45, 48, 41, 0.13);
-  transform: rotate(-8deg);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.experience-item:nth-child(even) .experience-stone {
-  border-radius: 46% 54% 57% 43% / 55% 42% 59% 44%;
-  background-color: #c2b6a2;
-  transform: rotate(7deg);
-}
-
-.experience-item:nth-child(3n) .experience-stone {
-  border-radius: 56% 44% 48% 52% / 41% 58% 43% 59%;
-  background-color: #a1a99b;
-  transform: rotate(-3deg);
-}
-
-.experience-item[open] .experience-stone {
-  box-shadow: 1px 4px 9px rgba(95, 107, 85, 0.24);
-  transform: rotate(2deg) scale(1.04);
+  margin: 0;
+  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
+  background: radial-gradient(circle at 30% 30%, #f5f5f5, #b8b8b8);
+  box-shadow: 0 8px 16px rgba(45, 48, 41, .12);
+  transform: rotate(-6deg);
+  flex: 0 0 auto;
 }
 
 .experience-time {
   color: var(--moss-dark, #5f6b55);
   font: 12px / 1.4 "DM Mono", monospace;
-  letter-spacing: 0.02em;
   white-space: nowrap;
+  letter-spacing: .01em;
 }
 
 .experience-name {
   min-width: 0;
   color: var(--ink, #2d3029);
-  font: 400 clamp(24px, 2.6vw, 34px) / 1.08 "Instrument Serif", serif;
-  letter-spacing: -0.028em;
+  font: 400 clamp(21px, 2.2vw, 27px) / 1.08 "Instrument Serif", serif;
+  letter-spacing: -.025em;
 }
 
 .experience-item summary::after {
@@ -1651,7 +1594,7 @@ h3 {
   grid-column: 4;
   justify-self: end;
   color: var(--clay, #ca7058);
-  font: 19px "DM Mono", monospace;
+  font: 17px "DM Mono", monospace;
 }
 
 .experience-item[open] summary::after {
@@ -1659,47 +1602,52 @@ h3 {
 }
 
 .experience-body {
-  border-top: 1px solid rgba(207, 200, 187, 0.65);
-  padding: 22px 54px 31px 197px;
+  border-top: 1px solid rgba(207, 200, 187, .65);
+  padding: 16px 46px 23px 176px;
 }
 
 .experience-body p {
   max-width: 68ch;
   margin: 0;
   color: #50584f;
-  font: 16px / 1.75 "DM Sans", sans-serif;
+  font: 16px / 1.7 "DM Sans", sans-serif;
 }
 
-/* Mobile: no sideways stepping or horizontal overflow */
 @media (max-width: 720px) {
+  .experience-heading {
+    margin-bottom: 28px;
+  }
+
   .experience-heading h2 {
-    margin-bottom: 40px;
-    font-size: clamp(42px, 12vw, 62px);
+    font-size: clamp(39px, 11vw, 56px);
+  }
+
+  .experience-impact {
+    font-size: 16px;
+    line-height: 1.6;
   }
 
   .experience-list::before,
   .experience-list::after {
-    display: none;
+    left: 24px;
   }
 
-  .experience-item,
-  .experience-item:nth-child(n) {
-    width: 100%;
-    margin: 0 0 17px;
+  .experience-item {
+    margin-bottom: 9px;
   }
 
   .experience-item summary {
-    grid-template-columns: 38px minmax(0, 1fr) 24px;
-    column-gap: 11px;
-    min-height: 92px;
-    padding: 16px 17px 16px 10px;
+    grid-template-columns: 36px minmax(0, 1fr) 23px;
+    gap: 10px;
+    min-height: 72px;
+    padding: 10px 15px 10px 9px;
   }
 
   .experience-stone {
     grid-column: 1;
     grid-row: 1 / 3;
-    width: 29px;
-    height: 35px;
+    width: 36px;
+    height: 42px;
   }
 
   .experience-time {
@@ -1711,7 +1659,7 @@ h3 {
   .experience-name {
     grid-column: 2;
     grid-row: 2;
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .experience-item summary::after {
@@ -1720,7 +1668,7 @@ h3 {
   }
 
   .experience-body {
-    padding: 17px 20px 23px 57px;
+    padding: 16px 18px 20px 54px;
   }
 
   .experience-body p {
@@ -1730,8 +1678,6 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .experience-item,
-  .experience-stone,
   .experience-list::after {
     transition: none;
   }
