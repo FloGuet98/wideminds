@@ -1641,3 +1641,17 @@ h3 {
   .experience-list .experience-body { padding: 0 30px 15px 50px; }
   .experience-list .experience-body p { font-size: 14px; }
 }
+
+
+/* Nur Nummern vor Sektionsnamen visuell ausblenden */
+.section-label:has(> span[data-de][data-en]) {
+  font-size: 0;
+}
+
+.section-label:has(> span[data-de][data-en]) > span {
+  font-family: var(--mono, "DM Mono", monospace);
+  font-size: 12px;
+  line-height: 1.55;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
