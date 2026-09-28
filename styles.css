@@ -1453,84 +1453,34 @@ h3 {
 }
 
 
-
-/* =========================================================
-   RESPONSIVE FIX ONLY (no redesign)
-   ========================================================= */
-
-@media (max-width: 720px) {
-
-  .experience-section.section {
-    padding: 55px 0;
-  }
-
-  .experience-heading {
-    margin-bottom: 18px;
-  }
-
-  .experience-heading h2 {
-    font-size: clamp(38px, 10vw, 52px);
-  }
-
-  .experience-list .experience-item > summary {
-    grid-template-columns: 40px minmax(0, 1fr) 22px;
-    grid-template-rows: auto auto;
-    column-gap: 10px;
-    row-gap: 2px;
-    min-height: 68px;
-    padding: 9px 0;
-  }
-
-  .experience-stone {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-
-  .experience-time {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .experience-name {
-    grid-column: 2;
-    grid-row: 2;
-    font-size: 20px;
-  }
-
-  .experience-list .experience-item > summary::after {
-    grid-column: 3;
-    grid-row: 1 / 3;
-  }
-
-  .experience-body {
-    padding: 0 0 14px 50px;
-  }
-}
-
+/* =========================================
+   EXPERIENCE – CLEAN REBUILD (MATCHES YOUR HTML)
+   ========================================= */
 
 .experience-timeline {
   display: flex;
   flex-direction: column;
-  gap: 0;
   border-top: 1px solid var(--line, #cfc8bb);
+  margin-top: 28px;
 }
 
 /* ITEM */
 .exp-item {
   border-bottom: 1px solid var(--line, #cfc8bb);
-  padding: 0;
 }
 
 /* SUMMARY */
 .exp-item summary {
-  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 10px 0;
+  gap: 16px;
+  padding: 14px 0;
+  cursor: pointer;
   list-style: none;
+  position: relative;
 }
 
+/* remove default marker */
 .exp-item summary::-webkit-details-marker {
   display: none;
 }
@@ -1539,38 +1489,63 @@ h3 {
 .exp-year {
   font: 12px var(--mono, monospace);
   color: var(--clay, #ca7058);
-  min-width: 80px;
+  min-width: 90px;
+  letter-spacing: 0.02em;
 }
 
-/* TITLE TEXT */
+/* TITLE */
 .exp-item summary {
-  font: 20px var(--serif, serif);
+  font: 20px var(--serif, "Instrument Serif", serif);
   color: var(--ink, #2d3029);
+  letter-spacing: -0.02em;
 }
 
-/* BODY FIX (WICHTIG!) */
+/* PLUS / MINUS */
+.exp-item summary::after {
+  content: "+";
+  margin-left: auto;
+  font: 18px var(--mono, monospace);
+  color: var(--clay, #ca7058);
+  transition: transform 0.2s ease;
+}
+
+.exp-item[open] summary::after {
+  content: "–";
+}
+
+/* BODY */
 .exp-item p {
   margin: 0;
-  padding: 0 0 14px 94px;
-  font: 14px/1.55 var(--sans, sans-serif);
+  padding: 0 0 16px 106px;
+  font: 15px/1.6 var(--sans, "DM Sans", sans-serif);
   color: var(--ink, #2d3029);
   opacity: 0.9;
+  max-width: 75ch;
 }
 
-/* optional smooth open */
+/* subtle open animation */
 .exp-item[open] p {
-  animation: fadeIn .25s ease;
+  animation: expFade 0.25s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: none; }
+@keyframes expFade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* IMPACT SECTION FIX */
+/* =========================
+   IMPACT SECTION
+   ========================= */
+
 .exp-impact {
-  margin-top: 40px;
-  padding-top: 20px;
+  margin-top: 42px;
+  padding-top: 22px;
   border-top: 1px solid var(--line, #cfc8bb);
 }
 
@@ -1578,13 +1553,40 @@ h3 {
   font: 12px var(--mono, monospace);
   color: var(--clay, #ca7058);
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   margin: 0 0 10px;
 }
 
 .impact-text {
-  font: 15px/1.6 var(--sans, sans-serif);
+  font: 15px/1.65 var(--sans, "DM Sans", sans-serif);
   color: var(--ink, #2d3029);
   max-width: 70ch;
   margin: 0;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 720px) {
+
+  .exp-item summary {
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .exp-year {
+    min-width: 72px;
+    font-size: 11px;
+  }
+
+  .exp-item p {
+    padding-left: 0;
+    padding-bottom: 14px;
+    font-size: 14px;
+  }
+
+  .exp-item summary::after {
+    font-size: 16px;
+  }
 }
