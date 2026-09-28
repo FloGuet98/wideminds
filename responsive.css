@@ -431,3 +431,88 @@ iframe {
 #imprint.legal address {
   max-width: 70ch;
 }
+
+
+.experience-timeline{
+  margin-top:40px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  position:relative;
+}
+
+/* subtle vertical line */
+.experience-timeline::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:var(--line);
+  opacity:.6;
+}
+
+.exp-item{
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:14px 18px 14px 42px;
+  background:transparent;
+  position:relative;
+  transition:all .25s ease;
+}
+
+/* dot */
+.exp-item::before{
+  content:"";
+  position:absolute;
+  left:10px;
+  top:18px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--clay);
+}
+
+.exp-item summary{
+  cursor:pointer;
+  list-style:none;
+  font-family:'DM Sans', sans-serif;
+  font-size:15px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.exp-item summary::-webkit-details-marker{
+  display:none;
+}
+
+.exp-year{
+  font:12px 'DM Mono', monospace;
+  color:var(--clay);
+  min-width:70px;
+}
+
+.exp-item p{
+  margin-top:10px;
+  font-size:14px;
+  line-height:1.5;
+  color:var(--ink);
+  opacity:.9;
+}
+
+/* smooth open animation */
+.exp-item[open] p{
+  animation:fadeIn .25s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(-4px);}
+  to{opacity:1; transform:none;}
+}
+
+/* hover subtle */
+.exp-item:hover{
+  border-color:var(--moss);
+}
