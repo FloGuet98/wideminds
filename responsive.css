@@ -409,3 +409,25 @@ iframe {
     margin-top: 22px;
   }
 }
+
+
+/* Impressum */
+#imprint.legal h3 {
+  margin: 28px 0 7px;
+  font: 400 27px/1.15 var(--serif, "Instrument Serif", serif);
+  letter-spacing: -.02em;
+}
+
+#imprint.legal address {
+  font: normal 16px/1.6 var(--sans, "DM Sans", sans-serif);
+}
+
+#imprint.legal a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+#imprint.legal p,
+#imprint.legal address {
+  max-width: 70ch;
+}
