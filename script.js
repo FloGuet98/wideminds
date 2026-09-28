@@ -61,3 +61,17 @@ function updateExperiencePath() {
 addEventListener('scroll', updateExperiencePath, { passive: true });
 addEventListener('resize', updateExperiencePath);
 updateExperiencePath();
+
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+document.querySelectorAll('.reveal-on-scroll')
+  .forEach(el => observer.observe(el));
