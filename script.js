@@ -43,3 +43,21 @@ if (menuToggle && mainNavigation) {
     });
   });
 }
+
+function updateExperiencePath() {
+  const list = document.querySelector('.experience-list');
+  if (!list) return;
+
+  const rect = list.getBoundingClientRect();
+  const viewportPoint = window.innerHeight * 0.58;
+  const progress = Math.max(
+    0,
+    Math.min(100, ((viewportPoint - rect.top) / rect.height) * 100)
+  );
+
+  list.style.setProperty('--experience-progress', `${progress}%`);
+}
+
+addEventListener('scroll', updateExperiencePath, { passive: true });
+addEventListener('resize', updateExperiencePath);
+updateExperiencePath();
