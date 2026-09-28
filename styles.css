@@ -1451,3 +1451,111 @@ h3 {
     height: 680px;
   }
 }
+
+
+/* =========================
+   EXPERIENCE / TIMELINE
+========================= */
+
+.experience h2 {
+  font: clamp(45px,5vw,70px)/1.05 'Instrument Serif', serif;
+  margin-bottom: 18px;
+}
+
+.experience-intro {
+  max-width: 720px;
+  font-size: 18px;
+  margin-bottom: 50px;
+  opacity: 0.9;
+}
+
+/* timeline layout */
+.timeline {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 28px;
+}
+
+/* vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+  opacity: 0.7;
+}
+
+/* each item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 42px;
+  padding-left: 18px;
+}
+
+/* dot */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clay);
+}
+
+/* year */
+.timeline .year {
+  font: 12px 'DM Mono', monospace;
+  color: var(--clay);
+  margin-bottom: 6px;
+  letter-spacing: .04em;
+}
+
+/* content */
+.timeline h3 {
+  font: 26px 'Instrument Serif', serif;
+  margin: 0 0 6px 0;
+}
+
+.timeline p {
+  margin: 0 0 10px 0;
+  max-width: 720px;
+}
+
+/* details accordion */
+.timeline details {
+  font-size: 14px;
+}
+
+.timeline summary {
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* impact statement */
+.impact {
+  margin-top: 60px;
+  font-size: 18px;
+  max-width: 720px;
+  border-top: 1px solid var(--line);
+  padding-top: 25px;
+  opacity: 0.9;
+}
+
+/* scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: all 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
