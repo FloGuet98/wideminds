@@ -1,10 +1,11 @@
 /* =========================================
-   WIDEMINDS: CLEAN & STRUCTURED CSS (v4)
+   WABI-SABI × OLD DESIGN (FINAL v4)
+   Fluid, editorial, calm, professional
+   FULL-SCREEN SECTION PAGES
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap');
 
-/* ---------- ROOT VARIABLES ---------- */
 
 :root {
   --ink: #2d3029;
@@ -21,7 +22,6 @@
   --serif: "Instrument Serif", serif;
 }
 
-/* ---------- GLOBAL RESET ---------- */
 
 * {
   box-sizing: border-box;
@@ -30,7 +30,7 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-  overflow-x: hidden;
+
 }
 
 body {
@@ -40,19 +40,9 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.55;
-  overflow-x: hidden;
+
 }
 
-h1, h2, h3, p {
-  margin-top: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* ---------- LAYOUT UTILS ---------- */
 
 .wrap {
   width: min(1180px, calc(100% - 56px));
@@ -62,19 +52,21 @@ a {
 /* ---------- HEADER ---------- */
 
 .site-header {
+   position: sticky;
+  top: 0;
+  z-index: 1000;
   height: 93px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
+ 
   background: var(--paper);
-  z-index: 100;
-  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(45, 48, 41, 0.05);
 }
 
 .brand {
   color: inherit;
+   text-decoration: none;
   font: 34px var(--serif);
   letter-spacing: -0.04em;
   display: flex;
@@ -86,6 +78,11 @@ a {
   font-weight: normal;
 }
 
+.brand-mark {
+  width: 32px;
+  height: 32px;
+}
+
 .site-header nav {
   display: flex;
   gap: 28px;
@@ -94,12 +91,13 @@ a {
 .site-header nav a {
   font-size: 14px;
   color: inherit;
-  transition: color 0.2s ease;
+   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.site-header nav a.active {
+.site-header nav a:hover {
   color: var(--clay);
-  font-weight: 500;
+
 }
 
 .language {
@@ -113,29 +111,91 @@ a {
   font: 12px var(--mono);
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .language:hover {
-  background: var(--cream);
+  background: var(--ink);
+  color: var(--paper);
 }
 
-/* ---------- HERO ---------- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
 
+/* ---------- MAIN CONTENT ---------- */
+
+main {
+  position: relative;
+}
+/* ---------- SECTION PAGES ---------- */
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.section.screen-section {
+  min-height: 100vh;
+}
+
+/* Hero - special case */
 .hero {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 80px;
   align-items: center;
-  padding: 58px 0 94px;
+
+     padding: 80px 0;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
+}
+
+.hero.wrap {
+  width: min(1180px, calc(100% - 56px));
+  margin-inline: auto;
 }
 
 .hero-copy {
-  max-width: 500px;
+  z-index: 2;
 }
+
+.hero-portrait {
+  position: relative;
+  width: min(100%, 360px);
+  justify-self: end;
+}
+
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 900 / 1125;
+  object-fit: cover;
+  border-radius: 220px 220px 8px 8px;
+  filter: saturate(0.82) contrast(0.95);
+}
+.shape-sun {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  right: -54px;
+  top: -45px;
+  background: var(--clay);
+  z-index: -1;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
 
 .eyebrow {
   font: 12px var(--mono);
@@ -144,23 +204,36 @@ a {
   color: var(--clay);
   margin: 0 0 26px;
 }
-
-h1 {
-  font: clamp(42px, 4.2vw, 72px) / 1.02 var(--serif);
-  letter-spacing: -0.045em;
+h1, h2, h3, p {
+  margin-top: 0;
 }
 
-h2 {
-  font: clamp(47px, 5vw, 76px) / 0.95 var(--serif);
+h1, h2 {
+  font: clamp(55px, 7vw, 100px) / 0.91 var(--serif);
+  letter-spacing: -0.055em;
+  font-weight: 400;
+
+}
+
+.hero h1 {
+  font: clamp(42px, 4.2vw, 72px) / 1.02 var(--serif);
   letter-spacing: -0.045em;
-  margin-bottom: 35px;
+  font-weight: 400;
+  margin-bottom: 26px;
 }
 
 h1 em, h2 em {
   color: var(--clay);
 }
 
+h3 {
+  font: 42px var(--serif);
+  letter-spacing: -0.04em;
+  margin: 25px 0 16px;
+}
+
 .intro {
+  max-width: 450px;
   font-size: 19px;
   line-height: 1.5;
   margin: 34px 0;
@@ -168,9 +241,10 @@ h1 em, h2 em {
 
 .booking-reassurance,
 .service-boundary {
+   max-width: 450px;
   font-size: 13px;
   line-height: 1.5;
-  margin: 0;
+
 }
 
 .booking-reassurance {
@@ -180,8 +254,9 @@ h1 em, h2 em {
 }
 
 .service-boundary {
-  color: #666960;
   margin: 0 0 22px;
+  color: #666960;
+
 }
 
 .hero-facts {
@@ -212,71 +287,19 @@ h1 em, h2 em {
   border-radius: 999px;
   color: #fff;
   padding: 14px 21px;
+  
+  text-decoration: none;
   font-size: 14px;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
+  border: 2px solid var(--ink);
 }
 
 .button:hover {
-  background: var(--moss-dark);
+  background: transparent;
+  color: var(--ink);
 }
 
-.hero-portrait {
-  position: relative;
-  width: min(100%, 360px);
-  max-width: 360px;
-  justify-self: end;
-}
-
-.hero-portrait img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 900 / 1125;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 220px 220px 8px 8px;
-  filter: saturate(0.82) contrast(0.95);
-}
-
-.shape-sun {
-  position: absolute;
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  right: -54px;
-  top: -45px;
-  background: var(--clay);
-  z-index: -1;
-}
-
-.portrait-caption {
-  font: 12px var(--mono);
-  margin: 13px 0 0;
-}
-
-/* ---------- SECTIONS ---------- */
-
-.section {
-  padding: 138px 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  position: relative;
-}
-
-.screen-section {
-  opacity: 0;
-  animation: sectionFadeIn 0.8s ease 0.2s forwards;
-}
-
-@keyframes sectionFadeIn {
-  to {
-    opacity: 1;
-  }
-}
+/* ---------- SECTION LABEL ---------- */
 
 .section-label {
   font: 12px var(--mono);
@@ -284,20 +307,10 @@ h1 em, h2 em {
   text-transform: uppercase;
   color: var(--clay);
   margin-bottom: 38px;
+  display: block;
 }
 
-.section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--line), transparent);
-  opacity: 0.6;
-}
-
-/* ---------- ABOUT ---------- */
+/* ---------- ABOUT SECTION ---------- */
 
 .about {
   display: grid;
@@ -305,56 +318,94 @@ h1 em, h2 em {
   gap: 52px;
 }
 
+.about h2 {
+  font-size: clamp(47px, 5vw, 76px);
+  max-width: 700px;
+  margin-bottom: 35px;
+}
+
 .about p {
   font-size: 18px;
   max-width: 680px;
+  margin-bottom: 20px;
 }
 
 .qualification-panel {
-  margin-top: 32px;
-  padding: 24px;
-  background: rgba(125, 138, 112, 0.08);
-  border-radius: 12px;
+  background: rgba(223, 225, 215, 0.5);
+  border: 1px solid var(--line);
+    border-radius: 16px;
+  padding: 32px;
+  margin-top: 40px;
 }
 
 .qualification-panel ul {
   list-style: none;
   padding: 0;
   margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .qualification-panel li {
-  padding: 10px 0;
-  font-size: 15px;
-  line-height: 1.55;
-  border-bottom: 1px solid rgba(125, 138, 112, 0.15);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  padding-left: 20px;
+  position: relative;
 }
 
-.qualification-panel li:last-child {
-  border-bottom: none;
+.qualification-panel li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--clay);
+}
+   .about-pebble {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  width: 120px;
+  height: 120px;
+  background: rgba(202, 112, 88, 0.08);
+  border-radius: 50%;
+  z-index: 0;
 }
 
-/* ---------- APPROACH ---------- */
+/* ---------- APPROACH SECTION ---------- */
 
 .approach {
   background: #dfe1d7;
+  position: relative;
 }
 
-.approach-grid {
+.approach .wrap {
+  position: relative;
+  z-index: 2;
+}
+
+   .approach-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
 }
 
+.approach h2 {
+  font-size: clamp(45px, 5vw, 70px);
+  margin-bottom: 40px;
+}
+
 .large {
   font-size: 23px;
   line-height: 1.43;
+  margin-bottom: 24px;
 }
 
 .approach-copy p {
   font-size: 16px;
   line-height: 1.55;
   max-width: 68ch;
+  margin-bottom: 20px;
 }
 
 .methods {
