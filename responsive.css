@@ -1,7 +1,9 @@
-/* Responsive finishing layer
-   Loaded after styles.css so the layout remains readable from small phones
-   through tablets and desktop widths. */
+/* =========================================
+   RESPONSIVE STYLES (v2)
+   Clean mobile-first breakpoints
+   ========================================= */
 
+/* Prevent overflow */
 html {
   overflow-x: hidden;
 }
@@ -11,24 +13,18 @@ body {
   overflow-wrap: anywhere;
 }
 
-img,
-iframe {
+img, iframe {
   max-width: 100%;
 }
 
-/* Prevent long labels and booking details from forcing horizontal overflow. */
-.hero-copy,
-.about-body,
-.approach-copy,
-.booking-intro,
-.booking-panel,
-.contact > div,
-.session-grid article,
-.process-card,
-.focus-inner,
-.focus-title-text {
+/* Prevent text containers from breaking */
+.hero-copy, .about-body, .approach-copy, .booking-intro,
+.booking-panel, .contact > div, .session-grid article,
+.process-card, .faq-inner, .faq-title-text {
   min-width: 0;
 }
+
+/* ---------- TABLET (900px) ---------- */
 
 @media (max-width: 900px) {
   .wrap {
@@ -51,10 +47,7 @@ iframe {
     width: min(100%, 340px);
   }
 
-  .approach-grid,
-  .contact,
-  .faq-intro,
-  .diagnostic-note {
+  .approach-grid, .contact, .diagnostic-note {
     grid-template-columns: 1fr;
     gap: clamp(24px, 6vw, 42px);
   }
@@ -72,17 +65,17 @@ iframe {
     flex-wrap: wrap;
     gap: 12px 24px;
   }
+
+  .approach-heading .methods {
+    margin-top: 22px;
+  }
 }
+
+/* ---------- MOBILE (720px) ---------- */
 
 @media (max-width: 720px) {
   .wrap {
     width: min(100% - 36px, 560px);
-  }
-
-  .preview-bar {
-    padding: 8px 16px;
-    font-size: 10px;
-    line-height: 1.35;
   }
 
   .site-header {
@@ -95,11 +88,14 @@ iframe {
   .brand {
     min-width: 0;
     font-size: clamp(27px, 8vw, 34px);
+    display: flex;
+    gap: 6px;
   }
 
   .brand-mark {
     width: 28px;
     height: 28px;
+    flex-shrink: 0;
   }
 
   .language {
@@ -115,27 +111,27 @@ iframe {
     white-space: nowrap;
   }
 
+  /* Hero */
   .hero {
     gap: 28px;
     padding: 28px 0 54px;
+    min-height: auto;
   }
 
   .hero h1 {
-    font-size: clamp(48px, 14vw, 72px);
-    line-height: .92;
-    overflow-wrap: normal;
+    font-size: clamp(32px, 10vw, 48px);
+    line-height: 0.95;
   }
 
   .eyebrow {
     margin-bottom: 18px;
     font-size: 10px;
-    line-height: 1.45;
   }
 
   .intro {
-    max-width: 34ch;
+    max-width: none;
     margin: 18px 0 22px;
-    font-size: clamp(16px, 4.6vw, 18px);
+    font-size: clamp(16px, 4vw, 18px);
     line-height: 1.45;
   }
 
@@ -143,15 +139,11 @@ iframe {
     max-width: 100%;
     padding: 13px 17px;
     font-size: 13px;
-    line-height: 1.3;
-    text-align: center;
+    display: block;
   }
 
-  .booking-reassurance,
-  .service-boundary {
-    max-width: 36ch;
+  .booking-reassurance, .service-boundary {
     font-size: 12px;
-    line-height: 1.45;
   }
 
   .hero-facts {
@@ -159,7 +151,6 @@ iframe {
     gap: 6px 12px;
     margin-top: 18px;
     font-size: 10px;
-    line-height: 1.35;
   }
 
   .hero-facts li:not(:last-child)::after {
@@ -167,41 +158,38 @@ iframe {
   }
 
   .hero-portrait {
-    width: min(100%, 300px);
+    width: min(100%, 280px);
   }
 
-  .shape-sun,
-  .sun {
+  .shape-sun {
     width: 120px;
     height: 120px;
     right: -12px;
     top: -28px;
   }
 
+  /* Sections */
   .section {
-    padding: clamp(64px, 14vw, 86px) 0;
+    padding: clamp(60px, 12vw, 85px) 0;
+    min-height: auto;
   }
 
   h2 {
-    font-size: clamp(42px, 12vw, 62px);
-    line-height: .96;
+    font-size: clamp(36px, 10vw, 56px);
+    line-height: 0.95;
   }
 
   h3 {
-    font-size: clamp(32px, 9vw, 42px);
-    line-height: 1;
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.05;
   }
 
-  .about p,
-  .approach-copy p,
-  .process-card p,
-  .booking-intro p {
+  .about p, .approach-copy p, .process-card p, .booking-intro p {
     font-size: 15px;
-    line-height: 1.55;
   }
 
   .large {
-    font-size: clamp(19px, 5.5vw, 23px);
+    font-size: clamp(18px, 5vw, 22px);
     line-height: 1.4;
   }
 
@@ -214,11 +202,9 @@ iframe {
     max-width: 100%;
     padding: 7px 10px;
     font-size: 12px;
-    line-height: 1.4;
   }
 
-  .process-card,
-  .session-grid article {
+  .process-card, .session-grid article {
     min-height: 0;
     padding: 24px 20px;
   }
@@ -232,34 +218,53 @@ iframe {
     width: 90px;
   }
 
-  .focus-list .focus-item summary {
-    grid-template-columns: 36px minmax(0, 1fr) 22px;
-    gap: 10px;
-    padding: 16px 2px;
+  /* FAQ Section */
+  .faq-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-top: 14px;
   }
 
-  .focus-list .focus-title-text {
-    font-size: clamp(18px, 5vw, 22px);
+  .faq-stone {
+    width: 36px;
+    height: 42px;
+    margin: 0 0 6px 0;
+    grid-column: 1 / -1;
+  }
+
+  .faq-item summary {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding: 16px 6px 16px 0;
+    padding-right: 40px;
+  }
+
+  .faq-inner {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .faq-title-text {
+    font-size: clamp(17px, 5vw, 21px);
     line-height: 1.15;
     overflow-wrap: anywhere;
   }
 
-  .focus-list .focus-inner > p {
+  .faq-inner p {
     padding-left: 0;
     font-size: 15px;
-    line-height: 1.55;
   }
 
+  /* Booking */
   .booking-intro {
     margin-bottom: 28px;
   }
 
   .booking-intro h2 {
-    font-size: clamp(36px, 10vw, 52px);
+    font-size: clamp(32px, 9vw, 48px);
   }
 
-  .privacy-note,
-  .response-time {
+  .privacy-note {
     font-size: 13px;
     line-height: 1.5;
   }
@@ -275,9 +280,11 @@ iframe {
     border-radius: 15px;
   }
 
+  /* Contact */
   .contact {
     width: 100%;
     padding: 50px 18px;
+    flex-direction: column;
   }
 
   .contact > div {
@@ -286,8 +293,10 @@ iframe {
 
   .contact > div:last-child {
     font-size: 16px;
+    align-self: auto;
   }
 
+  /* Footer */
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
@@ -295,6 +304,8 @@ iframe {
     font-size: 12px;
   }
 }
+
+/* ---------- SMALL MOBILE (380px) ---------- */
 
 @media (max-width: 380px) {
   .wrap {
@@ -306,12 +317,12 @@ iframe {
   }
 
   .brand {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .brand-mark {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
 
   .language {
@@ -325,7 +336,7 @@ iframe {
   }
 
   .hero h1 {
-    font-size: clamp(43px, 13vw, 58px);
+    font-size: clamp(28px, 9vw, 40px);
   }
 
   .hero-facts {
@@ -338,7 +349,6 @@ iframe {
   }
 
   .button {
-    display: block;
     width: 100%;
   }
 
@@ -348,15 +358,17 @@ iframe {
   }
 }
 
+/* ---------- ANIMATIONS ---------- */
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .zen-step-card {
-    animation: none;
+  .reveal, .zen-step-card, .screen-section {
+    animation: none !important;
     opacity: 1;
     transform: none;
   }
 }
 
+/* ---------- APPROACH GRID OPTIMIZATION ---------- */
 
 .approach-heading {
   min-width: 0;
@@ -404,115 +416,124 @@ iframe {
   }
 }
 
-@media (max-width: 900px) {
-  .approach-heading .methods {
-    margin-top: 22px;
+/* ---------- EXPERIENCE TIMELINE ---------- */
+
+.experience-timeline {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+  opacity: 0.6;
+}
+
+.exp-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 18px 14px 42px;
+  background: transparent;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.exp-item::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 18px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clay);
+}
+
+.exp-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.exp-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.exp-year {
+  font: 12px var(--mono);
+  color: var(--clay);
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+.exp-name {
+  font-weight: 500;
+}
+
+.exp-content {
+  margin-top: 10px;
+}
+
+.exp-item p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+  opacity: 0.9;
+  margin: 0;
+}
+
+.exp-item[open] p {
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-
-/* Impressum */
-#imprint.legal h3 {
-  margin: 28px 0 7px;
-  font: 400 27px/1.15 var(--serif, "Instrument Serif", serif);
-  letter-spacing: -.02em;
+.exp-item:hover {
+  border-color: var(--moss);
+  background: rgba(125, 138, 112, 0.04);
 }
 
-#imprint.legal address {
-  font: normal 16px/1.6 var(--sans, "DM Sans", sans-serif);
-}
+@media (max-width: 720px) {
+  .experience-timeline {
+    gap: 8px;
+  }
 
-#imprint.legal a {
-  color: inherit;
-  text-underline-offset: 3px;
-}
+  .exp-item {
+    padding: 12px 14px 12px 36px;
+  }
 
-#imprint.legal p,
-#imprint.legal address {
-  max-width: 70ch;
-}
+  .exp-item::before {
+    left: 8px;
+    top: 14px;
+  }
 
+  .exp-year {
+    min-width: 60px;
+    font-size: 11px;
+  }
 
-.experience-timeline{
-  margin-top:40px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  position:relative;
-}
-
-/* subtle vertical line */
-.experience-timeline::before{
-  content:"";
-  position:absolute;
-  left:14px;
-  top:0;
-  bottom:0;
-  width:1px;
-  background:var(--line);
-  opacity:.6;
-}
-
-.exp-item{
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:14px 18px 14px 42px;
-  background:transparent;
-  position:relative;
-  transition:all .25s ease;
-}
-
-/* dot */
-.exp-item::before{
-  content:"";
-  position:absolute;
-  left:10px;
-  top:18px;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--clay);
-}
-
-.exp-item summary{
-  cursor:pointer;
-  list-style:none;
-  font-family:'DM Sans', sans-serif;
-  font-size:15px;
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.exp-item summary::-webkit-details-marker{
-  display:none;
-}
-
-.exp-year{
-  font:12px 'DM Mono', monospace;
-  color:var(--clay);
-  min-width:70px;
-}
-
-.exp-item p{
-  margin-top:10px;
-  font-size:14px;
-  line-height:1.5;
-  color:var(--ink);
-  opacity:.9;
-}
-
-/* smooth open animation */
-.exp-item[open] p{
-  animation:fadeIn .25s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(-4px);}
-  to{opacity:1; transform:none;}
-}
-
-/* hover subtle */
-.exp-item:hover{
-  border-color:var(--moss);
+  .exp-item p {
+    font-size: 13px;
+  }
 }
