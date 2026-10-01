@@ -1,9 +1,10 @@
 /* =========================================
-   WABI-SABI × OLD DESIGN (FINAL v3)
-   Fluid, editorial, calm, professional
+   WIDEMINDS: CLEAN & STRUCTURED CSS (v4)
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap');
+
+/* ---------- ROOT VARIABLES ---------- */
 
 :root {
   --ink: #2d3029;
@@ -15,10 +16,12 @@
   --cream: #faf8f3;
   --sand: #f3efe6;
   --stone: #d8d3c7;
-   --mono: "DM Mono", monospace;
+  --mono: "DM Mono", monospace;
   --sans: "DM Sans", sans-serif;
   --serif: "Instrument Serif", serif;
 }
+
+/* ---------- GLOBAL RESET ---------- */
 
 * {
   box-sizing: border-box;
@@ -27,38 +30,36 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--sans);
   font-size: 16px;
   line-height: 1.55;
+  overflow-x: hidden;
 }
 
-body, p, span, a, div {
-  font-family: "DM Sans", sans-serif;
+h1, h2, h3, p {
+  margin-top: 0;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- LAYOUT UTILS ---------- */
 
 .wrap {
   width: min(1180px, calc(100% - 56px));
   margin-inline: auto;
 }
 
-/* ---------- Preview bar ---------- */
-
-.preview-bar {
-  background: var(--ink);
-  color: var(--paper);
-  font: 12px "DM Mono", monospace;
-  letter-spacing: 0.04em;
-  text-align: center;
-  padding: 9px;
-}
-
-/* ---------- Header ---------- */
+/* ---------- HEADER ---------- */
 
 .site-header {
   height: 93px;
@@ -74,9 +75,11 @@ body, p, span, a, div {
 
 .brand {
   color: inherit;
-  text-decoration: none;
-  font: 34px "Instrument Serif", serif;
+  font: 34px var(--serif);
   letter-spacing: -0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .brand i {
@@ -91,7 +94,12 @@ body, p, span, a, div {
 .site-header nav a {
   font-size: 14px;
   color: inherit;
-  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-header nav a.active {
+  color: var(--clay);
+  font-weight: 500;
 }
 
 .language {
@@ -102,12 +110,17 @@ body, p, span, a, div {
   height: 38px;
   padding: 0 16px;
   color: var(--ink);
-  font: 12px "DM Mono", monospace;
+  font: 12px var(--mono);
   letter-spacing: 0.02em;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-/* ---------- Hero ---------- */
+.language:hover {
+  background: var(--cream);
+}
+
+/* ---------- HERO ---------- */
 
 .hero {
   min-height: 100vh;
@@ -120,65 +133,57 @@ body, p, span, a, div {
   scroll-snap-stop: always;
 }
 
+.hero-copy {
+  max-width: 500px;
+}
+
 .eyebrow {
-  font: 12px "DM Mono", monospace;
+  font: 12px var(--mono);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--clay);
   margin: 0 0 26px;
 }
 
-h1, h2, h3, p {
-  margin-top: 0;
-}
-
-h1, h2 {
-  font: clamp(55px, 7vw, 100px) / 0.91 "Instrument Serif", serif;
-  letter-spacing: -0.055em;
-  font-weight: 400;
-}
-
-.hero h1 {
-  font: clamp(42px, 4.2vw, 72px) / 1.02 "Instrument Serif", serif;
+h1 {
+  font: clamp(42px, 4.2vw, 72px) / 1.02 var(--serif);
   letter-spacing: -0.045em;
-  font-weight: 400;
+}
+
+h2 {
+  font: clamp(47px, 5vw, 76px) / 0.95 var(--serif);
+  letter-spacing: -0.045em;
+  margin-bottom: 35px;
 }
 
 h1 em, h2 em {
   color: var(--clay);
 }
 
-@media (max-width: 720px) {
-  .intro {
-    font-size: 17px;
-    line-height: 1.45;
-    margin: 16px 0 20px;
-  }
+.intro {
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 34px 0;
 }
+
 .booking-reassurance,
 .service-boundary {
-  max-width: 450px;
   font-size: 13px;
   line-height: 1.5;
+  margin: 0;
 }
 
 .booking-reassurance {
   margin: 16px 0 8px;
   color: var(--clay);
-  font-family: "DM Mono", monospace;
+  font-family: var(--mono);
 }
 
 .service-boundary {
-  margin: 0 0 22px;
   color: #666960;
+  margin: 0 0 22px;
 }
 
-.intro {
-  max-width: 450px;
-  font-size: 19px;
-  line-height: 1.5;
-  margin: 34px 0;
-}
 .hero-facts {
   display: flex;
   flex-wrap: wrap;
@@ -187,7 +192,7 @@ h1 em, h2 em {
   margin: 22px 0 0;
   padding: 0;
   color: var(--moss-dark);
-  font: 12px "DM Mono", monospace;
+  font: 12px var(--mono);
 }
 
 .hero-facts li {
@@ -207,8 +212,12 @@ h1 em, h2 em {
   border-radius: 999px;
   color: #fff;
   padding: 14px 21px;
-  text-decoration: none;
   font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: var(--moss-dark);
 }
 
 .hero-portrait {
@@ -223,14 +232,13 @@ h1 em, h2 em {
   width: 100%;
   height: auto;
   aspect-ratio: 900 / 1125;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   border-radius: 220px 220px 8px 8px;
   filter: saturate(0.82) contrast(0.95);
 }
 
-.shape-sun,
-.sun {
+.shape-sun {
   position: absolute;
   width: 170px;
   height: 170px;
@@ -242,11 +250,11 @@ h1 em, h2 em {
 }
 
 .portrait-caption {
-  font: 12px "DM Mono", monospace;
+  font: 12px var(--mono);
   margin: 13px 0 0;
 }
 
-/* ---------- Sections ---------- */
+/* ---------- SECTIONS ---------- */
 
 .section {
   padding: 138px 0;
@@ -260,33 +268,23 @@ h1 em, h2 em {
 }
 
 .screen-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   opacity: 0;
   animation: sectionFadeIn 0.8s ease 0.2s forwards;
 }
 
 @keyframes sectionFadeIn {
-  from {
-    opacity: 0;
-  }
   to {
     opacity: 1;
   }
 }
 
 .section-label {
-  font: 12px "DM Mono", monospace;
+  font: 12px var(--mono);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--clay);
   margin-bottom: 38px;
-  display: block;
 }
-
-/* ---------- Section Divider ---------- */
 
 .section::before {
   content: "";
@@ -296,23 +294,10 @@ h1 em, h2 em {
   right: 0;
   height: 1px;
   background: linear-gradient(to right, transparent, var(--line), transparent);
-  opacity: 0;
-  animation: dividerFade 0.6s ease 0.1s forwards;
+  opacity: 0.6;
 }
 
-@keyframes dividerFade {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.6;
-  }
-}
-
-/* ---------- About ---------- */
+/* ---------- ABOUT ---------- */
 
 .about {
   display: grid;
@@ -320,18 +305,36 @@ h1 em, h2 em {
   gap: 52px;
 }
 
-.about h2 {
-  font-size: clamp(47px, 5vw, 76px);
-  max-width: 700px;
-  margin-bottom: 35px;
-}
-
 .about p {
   font-size: 18px;
   max-width: 680px;
 }
 
-/* ---------- Approach ---------- */
+.qualification-panel {
+  margin-top: 32px;
+  padding: 24px;
+  background: rgba(125, 138, 112, 0.08);
+  border-radius: 12px;
+}
+
+.qualification-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.qualification-panel li {
+  padding: 10px 0;
+  font-size: 15px;
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(125, 138, 112, 0.15);
+}
+
+.qualification-panel li:last-child {
+  border-bottom: none;
+}
+
+/* ---------- APPROACH ---------- */
 
 .approach {
   background: #dfe1d7;
@@ -341,10 +344,6 @@ h1 em, h2 em {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-}
-
-.approach h2 {
-  font-size: clamp(45px, 5vw, 70px);
 }
 
 .large {
@@ -372,7 +371,7 @@ h1 em, h2 em {
   font-size: 13px;
 }
 
-/* ---------- Process (What to expect) ---------- */
+/* ---------- PROCESS ---------- */
 
 .process {
   background: var(--paper);
@@ -382,73 +381,145 @@ h1 em, h2 em {
   font-size: 18px;
   max-width: 680px;
   margin: 0 0 38px;
-  line-height: 1.5;
 }
 
-.process-grid {
+.zen-path-wrapper {
+  position: relative;
+  margin-top: 40px;
+}
+
+.zen-start {
+  display: grid;
+  place-items: center;
+  margin-bottom: 50px;
+}
+
+.zen-start-card {
+  max-width: 560px;
+  text-align: center;
+  border-radius: 34px;
+}
+
+.zen-trail {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 22px;
+  gap: 90px;
+  padding: 40px 0 60px;
 }
 
+.zen-trail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  bottom: -40px;
+  width: 180px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(70% 70% at 50% 50%, rgba(125, 138, 112, 0.22), transparent 70%),
+    radial-gradient(80% 80% at 40% 40%, rgba(125, 138, 112, 0.16), transparent 70%),
+    radial-gradient(75% 75% at 60% 60%, rgba(125, 138, 112, 0.14), transparent 70%);
+  filter: blur(0.8px);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.zen-step {
+  position: relative;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.zen-step-card,
 .process-card {
   position: relative;
+  max-width: 720px;
+  width: 100%;
   padding: 32px;
   border: 1px solid var(--line);
-  min-height: 260px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 28px;
   background: var(--cream);
+  border-radius: 28px;
 }
 
-.process-card .card-mark {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  font: 12px "DM Mono", monospace;
-  color: var(--clay);
-  display: none; /* numbering removed as requested */
+.zen-step-card {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: zenStepFadeIn 0.7s ease forwards;
 }
 
-.process-card h3 {
-  font: 42px "Instrument Serif", serif;
-  letter-spacing: -0.04em;
-  margin: 25px 0 16px;
+.zen-step:nth-child(1) .zen-step-card {
+  animation-delay: 0.1s;
 }
 
-.process-card p {
-  margin: auto 0 0;
-  font-size: 16px;
-  line-height: 1.55;
-  max-width: 68ch;
+.zen-step:nth-child(2) .zen-step-card {
+  animation-delay: 0.25s;
 }
 
-/* Slightly different organic radii */
-.process-card:nth-child(1) {
-  border-radius: 30px 26px 32px 28px;
+.zen-step:nth-child(3) .zen-step-card {
+  animation-delay: 0.4s;
 }
 
-.process-card:nth-child(2) {
-  border-radius: 28px 32px 26px 30px;
-}
-
-.process-card:nth-child(3) {
-  border-radius: 32px 28px 30px 26px;
-}
-
-.process-card:nth-child(4) {
-  border-radius: 26px 30px 28px 32px;
-}
-
-@media (min-width: 900px) {
-  .process-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
+@keyframes zenStepFadeIn {
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* ---------- Sessions ---------- */
+.zen-step::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -22px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--moss));
+  box-shadow: 0 6px 12px rgba(45, 48, 41, 0.12);
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.zen-step:first-child::before {
+  display: none;
+}
+
+.process-card h3,
+.zen-step-card h3 {
+  font: 42px var(--serif);
+  letter-spacing: -0.04em;
+  margin: 0 0 16px;
+}
+
+.process-card p {
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 68ch;
+  margin: auto 0 0;
+}
+
+.diagnostic-note {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 60px;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+}
+
+.shore-image {
+  width: 200px;
+  height: 140px;
+  background: linear-gradient(135deg, #dfe1d7 0%, #c9cdc0 100%);
+  border-radius: 8px;
+}
+
+/* ---------- SESSIONS ---------- */
 
 .sessions {
   background: var(--paper);
@@ -463,66 +534,76 @@ h1 em, h2 em {
 .session-grid article {
   padding: 32px;
   border: 1px solid var(--line);
-  min-height: 310px;
+  background: var(--cream);
+  border-radius: 28px;
   display: flex;
   flex-direction: column;
-  border-radius: 28px;
-  background: var(--cream);
 }
 
-.session-grid .card-mark {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  font: 12px "DM Mono", monospace;
-  color: var(--clay);
-}
-
-.number {
-  font: 12px "DM Mono", monospace;
-  color: var(--clay);
-}
-
-h3 {
-  font: 42px "Instrument Serif", serif;
+.session-grid h3 {
+  font: 42px var(--serif);
   letter-spacing: -0.04em;
-  margin: 25px 0 16px;
+  margin: 25px 0 16px 0;
 }
 
 .detail {
   margin: auto 0 0;
-  font: 12px "DM Mono", monospace;
+  font: 12px var(--mono);
   text-transform: uppercase;
 }
 
-/* ---------- Booking ---------- */
+/* ---------- BOOKING ---------- */
+
+.booking {
+  background: linear-gradient(to bottom, var(--paper), #f7f3ea);
+}
+
+.booking-intro {
+  max-width: 720px;
+  margin: 0 0 42px;
+}
+
+.booking-intro h2 {
+  font: clamp(40px, 5vw, 58px) / 1.05 var(--serif);
+  letter-spacing: -0.04em;
+  margin: 0 0 14px;
+}
+
+.booking-intro p {
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 65ch;
+}
 
 .booking-panel {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 10px 28px rgba(45, 48, 41, 0.06);
+  box-shadow: 0 14px 38px rgba(45, 48, 41, 0.07);
+  padding: 18px;
 }
 
 .booking-frame {
   width: 100%;
-  height: 720px;
+  height: 760px;
   border: none;
   border-radius: 22px;
-  overflow: hidden;
+  display: block;
 }
 
-/* ---------- Contact ---------- */
+.privacy-note {
+  font-size: 13px;
+  margin: 28px 0;
+  opacity: 0.8;
+}
+
+/* ---------- CONTACT ---------- */
 
 .contact {
   background: var(--clay);
   color: #fff;
   padding: 85px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 90px;
-  margin-bottom: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -555,7 +636,113 @@ h3 {
   opacity: 0.8;
 }
 
-/* ---------- Footer ---------- */
+/* ---------- FAQ ---------- */
+
+.faq {
+  background: var(--paper);
+}
+
+.faq-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.faq-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  grid-template-rows: auto 0fr;
+  gap: 14px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-stone {
+  display: block;
+  width: 42px;
+  height: 50px;
+  margin: 6px 0 0 0;
+  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
+  background: radial-gradient(circle at 30% 30%, #f5f5f5, #b8b8b8);
+  box-shadow: 0 8px 16px rgba(45, 48, 41, 0.12);
+  transform: rotate(-6deg);
+  flex: 0 0 auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] .faq-stone {
+  transform: rotate(6deg);
+}
+
+.faq-item summary {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 6px 14px 0;
+  position: relative;
+  transition: background-color 0.25s ease;
+  border-radius: 6px;
+  margin: 0 -6px;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:hover {
+  background-color: rgba(207, 200, 187, 0.18);
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 3px;
+}
+
+.faq-title-text {
+  font: clamp(18px, 2.4vw, 24px) var(--serif);
+  color: var(--ink);
+  display: block;
+  letter-spacing: -0.02em;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 18px var(--mono);
+  color: var(--clay);
+  transition: transform 0.35s ease;
+}
+
+.faq-item[open] summary::after {
+  content: "–";
+  transform: translateY(-50%) scale(1.05);
+}
+
+.faq-inner {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  display: block;
+  overflow: visible;
+  padding: 0;
+}
+
+.faq-inner p {
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------- FOOTER ---------- */
 
 .site-footer {
   display: flex;
@@ -570,7 +757,7 @@ h3 {
   margin: 0;
 }
 
-/* ---------- Animations ---------- */
+/* ---------- ANIMATIONS ---------- */
 
 .reveal {
   animation: appear 0.7s ease both;
@@ -586,481 +773,3 @@ h3 {
     transform: none;
   }
 }
-
-
-/* ---------- Responsive (Base) ---------- */
-
-@media (max-width: 720px) {
-  .wrap {
-    width: min(100% - 36px, 1180px);
-  }
-
-  .site-header {
-    height: 74px;
-  }
-
-  .site-header nav {
-    display: none;
-  }
-
-  .hero {
-    min-height: 100vh;
-    grid-template-columns: 1fr;
-    gap: 50px;
-    padding: 55px 0 70px;
-  }
-
- .hero-portrait {
-    justify-self: start;
-    width: min(100%, 300px);
-    max-width: 300px;
-  }
-
-  .hero-copy {
-    order: 2;
-  }
-
-  .shape-sun,
-  .sun {
-    right: -18px;
-  }
-
-  .section {
-    padding: 85px 0;
-    min-height: auto;
-  }
-
-  .about {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .section-label {
-    margin-bottom: 27px;
-  }
-
-  .approach-grid,
-  .contact {
-    grid-template-columns: 1fr;
-    gap: 42px;
-  }
-
-  .session-grid,
-  .process-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact {
-    width: 100%;
-    padding: 58px 18px;
-  }
-
-  .contact > div {
-    width: min(100% - 36px, 1180px);
-    margin-inline: auto;
-  }
-
-  .site-footer {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .brand {
-    font-size: 30px;
-  }
-}
-
-/* =========================================
-   PROCESS: ZEN GARDEN PEBBLE TRAIL (v3)
-   Curvy, green, organic path (stronger)
-   ========================================= */
-
-.zen-path-wrapper {
-  position: relative;
-  margin-top: 40px;
-}
-
-/* ---------- Start stone (centered) ---------- */
-
-.zen-start {
-  display: grid;
-  place-items: center;
-  margin-bottom: 50px;
-}
-
-.zen-start-card {
-  max-width: 560px;
-  text-align: center;
-  border-radius: 34px;
-}
-
-/* ---------- Trail container ---------- */
-
-.zen-trail {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 90px;
-  padding: 40px 0 60px;
-}
-
-/* Curvy, green "river" path - stronger, wider, greener */
-.zen-trail::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -40px;
-  bottom: -40px;
-  width: 180px;
-  transform: translateX(-50%);
-  background:
-    radial-gradient(70% 70% at 50% 50%, rgba(125, 138, 112, 0.22), transparent 70%),
-    radial-gradient(80% 80% at 40% 40%, rgba(125, 138, 112, 0.16), transparent 70%),
-    radial-gradient(75% 75% at 60% 60%, rgba(125, 138, 112, 0.14), transparent 70%);
-  filter: blur(0.8px);
-  border-radius: 999px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Organic pebbles scattered along the path - stronger green */
-.zen-trail::after {
-  content: "";
-  position: absolute;
-  inset: -60px 0;
-  pointer-events: none;
-  z-index: 1;
-  background:
-    radial-gradient(26px 20px at 20% 12%, rgba(125, 138, 112, 0.65), transparent 70%),
-    radial-gradient(22px 17px at 70% 18%, rgba(125, 138, 112, 0.55), transparent 70%),
-    radial-gradient(24px 18px at 28% 40%, rgba(125, 138, 112, 0.6), transparent 70%),
-    radial-gradient(20px 15px at 75% 48%, rgba(125, 138, 112, 0.5), transparent 70%),
-    radial-gradient(22px 17px at 22% 68%, rgba(125, 138, 112, 0.55), transparent 70%),
-    radial-gradient(24px 18px at 72% 76%, rgba(125, 138, 112, 0.6), transparent 70%),
-    radial-gradient(18px 14px at 32% 88%, rgba(125, 138, 112, 0.45), transparent 70%),
-    radial-gradient(20px 15px at 62% 8%, rgba(125, 138, 112, 0.5), transparent 70%);
-  filter: blur(0.4px);
-}
-
-.zen-trail::after {
-  display: none;
-}
-
-/* ---------- Steps ---------- */
-
-.zen-step {
-  position: relative;
-  display: grid;
-  place-items: center;
-  z-index: 2;
-}
-
-.zen-step-card {
-  position: relative;
-  max-width: 720px;
-  width: 100%;
-  border-radius: 30px 26px 32px 28px;
-  opacity: 0;
-  transform: translateY(18px);
-  animation: zenStepFadeIn 0.7s ease forwards;
-}
-
-/* Staggered animation for steps */
-.zen-step:nth-child(1) .zen-step-card {
-  animation-delay: 0.1s;
-  border-radius: 30px 26px 32px 28px;
-}
-
-.zen-step:nth-child(2) .zen-step-card {
-  animation-delay: 0.25s;
-  border-radius: 28px 32px 26px 30px;
-}
-
-.zen-step:nth-child(3) .zen-step-card {
-  animation-delay: 0.4s;
-  border-radius: 32px 28px 30px 26px;
-}
-
-@keyframes zenStepFadeIn {
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* Small footstep dots above each step */
-.zen-step::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -22px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, var(--moss));
-  box-shadow: 0 6px 12px rgba(45, 48, 41, 0.12);
-  transform: translateX(-50%);
-  z-index: 3;
-}
-
-.zen-step:first-child::before {
-  display: none;
-}
-
-/* Mobile adjustments */
-@media (max-width: 720px) {
-  .zen-trail {
-    gap: 60px;
-  }
-
-  .zen-step-card {
-    border-radius: 24px !important;
-  }
-
-  .zen-trail::before {
-    width: 130px;
-  }
-
-  .zen-trail::after {
-    background:
-      radial-gradient(20px 15px at 20% 12%, rgba(125, 138, 112, 0.55), transparent 70%),
-      radial-gradient(17px 13px at 70% 18%, rgba(125, 138, 112, 0.45), transparent 70%),
-      radial-gradient(18px 14px at 28% 40%, rgba(125, 138, 112, 0.5), transparent 70%),
-      radial-gradient(15px 11px at 75% 48%, rgba(125, 138, 112, 0.4), transparent 70%),
-      radial-gradient(17px 13px at 22% 68%, rgba(125, 138, 112, 0.45), transparent 70%),
-      radial-gradient(18px 14px at 72% 76%, rgba(125, 138, 112, 0.5), transparent 70%),
-      radial-gradient(14px 11px at 32% 88%, rgba(125, 138, 112, 0.35), transparent 70%),
-      radial-gradient(15px 11px at 62% 8%, rgba(125, 138, 112, 0.4), transparent 70%);
-  }
-
-  .zen-step::before {
-    display: none;
-  }
-}
-
-/* =========================================
-   AREAS: GREY WABI-SABI STONES (v3)
-   Stone next to heading, text normal width
-   ========================================= */
-
-/* Container for accordion list */
-.focus-list {
-  display: grid;
-  gap: 14px;
-  margin-top: 28px;
-}
-
-/* Each accordion item */
-.focus-item {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-  grid-template-rows: auto 0fr;
-  gap: 14px;
-  align-items: start;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-}
-
-.focus-item:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-/* Grey wabi-sabi stone */
-.focus-stone {
-  display: block;
-  width: 42px;
-  height: 50px;
-  margin: 6px 0 0 0;
-  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
-  background: radial-gradient(circle at 30% 30%, #f5f5f5, #b8b8b8);
-  box-shadow: 0 8px 16px rgba(45, 48, 41, 0.12);
-  transform: rotate(-6deg);
-  flex: 0 0 auto;
-  cursor: pointer;
-}
-
-/* Summary (title) to the right of the stone */
-.focus-item summary {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  list-style: none;
-  cursor: pointer;
-  padding: 14px 6px 14px 0;
-  position: relative;
-  transition: background-color 0.25s ease;
-  border-radius: 6px;
-  margin: 0 -6px;
-}
-
-.focus-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.focus-item summary:hover {
-  background-color: rgba(207, 200, 187, 0.18);
-}
-
-.focus-item summary:focus-visible {
-  outline: 2px solid var(--clay);
-  outline-offset: 3px;
-}
-
-.focus-title-text {
-  font: clamp(20px, 2.4vw, 28px) "Instrument Serif", serif;
-  color: var(--ink);
-  display: block;
-  letter-spacing: -0.02em;
-}
-
-/* +/- indicator */
-.focus-item summary::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font: 18px "DM Mono", monospace;
-  color: var(--clay);
-  transition: transform 0.35s ease, opacity 0.35s ease;
-}
-
-.focus-item[open] summary::after {
-  content: "–";
-  transform: translateY(-50%) scale(1.05);
-}
-
-/* Content: smooth roll-out, normal width, not cramped */
-.focus-inner {
-  grid-column: 1 / -1;
-  grid-row: 2 / 3;
-  display: block;
-  overflow: visible;
-  padding: 0;
-}
-
-
-
-.focus-approach {
-  color: #5a5a5a;
-  font-style: italic;
-}
-
-/* Ensure that sections after focus are not pulled into the accordion */
-.focus-list ~ .section,
-.focus-list ~ .sessions,
-.focus-list ~ .booking,
-.focus-list ~ .contact {
-  position: relative;
-  z-index: 2;
-}
-
-/* Mobile */
-@media (max-width: 720px) {
-  .focus-item {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding-top: 14px;
-  }
-
-  .focus-stone {
-    width: 36px;
-    height: 42px;
-    margin: 0 0 6px 0;
-    grid-column: 1 / -1;
-    grid-row: auto;
-  }
-
-  .focus-item summary {
-    grid-column: 1 / -1;
-    grid-row: auto;
-    padding: 16px 6px 16px 0;
-    padding-right: 40px;
-  }
-
-  .focus-inner {
-    grid-column: 1 / -1;
-    grid-row: auto;
-    padding-left: 0;
-  }
-
-  .focus-title-text {
-    font-size: 19px;
-  }
-
-  .focus-item summary::after {
-    font-size: 16px;
-  }
-
-  .focus-content p {
-    font-size: 15px;
-    padding-bottom: 18px;
-  }
-}
-
-/* =========================================
-   BOOKING: MESSAGE OF HOPE, WABI-SABI
-   ========================================= */
-
-.booking {
-  background: linear-gradient(
-    to bottom,
-    var(--paper),
-    #f7f3ea
-  );
-}
-
-.booking-intro {
-  max-width: 720px;
-  margin: 0 0 42px;
-}
-
-.booking-intro h2 {
-  font: clamp(40px, 5vw, 58px) / 1.05 "Instrument Serif", serif;
-  letter-spacing: -0.04em;
-  margin: 0 0 14px;
-  color: var(--ink);
-}
-
-.booking-intro p {
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--ink);
-  max-width: 65ch;
-}
-
-.booking-panel {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 14px 38px rgba(45, 48, 41, 0.07);
-  padding: 18px;
-}
-
-.booking-frame {
-  width: 100%;
-  height: 760px;
-  border: none;
-  border-radius: 22px;
-  display: block;
-}
-
-@media (max-width: 720px) {
-  .booking-intro h2 {
-    font-size: 32px;
-  }
-
-  .booking-intro p {
-    font-size: 15px;
-  }
-
-  .booking-panel {
-    padding: 12px;
-  }
-
-  .booking-frame {
-    height: 680px;
-  }
-}
-
-/* Refinement: these rules exactly match the supplied details markup. */
