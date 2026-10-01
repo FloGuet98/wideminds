@@ -30,6 +30,7 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  overscroll-behavior: none;
 
 }
 
@@ -665,6 +666,11 @@ h3 {
   justify-content: center;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+  /* WABI-SABI PAPIERLAGEN EFFEKT */
+  position: relative;
+  box-shadow: inset 0 -60px 120px rgba(45, 48, 41, 0.04);
 }
 
 .contact .eyebrow {
