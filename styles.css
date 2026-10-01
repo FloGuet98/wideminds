@@ -209,10 +209,9 @@ h1, h2, h3, p {
 }
 
 h1, h2 {
-  font: clamp(55px, 7vw, 100px) / 0.91 var(--serif);
-  letter-spacing: -0.055em;
+  font: clamp(42px, 5vw, 72px) / 0.95 "Instrument Serif", serif;
+  letter-spacing: -0.045em;
   font-weight: 400;
-
 }
 
 .hero h1 {
