@@ -828,3 +828,77 @@ h3 {
     transform: none;
   }
 }
+
+/* =========================================
+   LAPTOP FIT MODE (KEY FIX)
+   Makes each section fit one screen cleanly
+   ========================================= */
+
+@media (min-width: 900px) and (max-height: 900px) {
+
+  h2 {
+    font-size: clamp(34px, 2.6vw, 44px);
+    margin-bottom: 18px;
+  }
+
+  .section-label {
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  /* ABOUT */
+  .about {
+    gap: 32px;
+  }
+
+  .about p {
+    margin-bottom: 14px;
+  }
+
+  /* APPROACH */
+  .approach-grid {
+    gap: 40px;
+  }
+
+  .approach-copy p {
+    margin-bottom: 14px;
+  }
+
+  /* PROCESS */
+  .zen-trail {
+    gap: 24px;
+  }
+
+  .zen-step-card {
+    padding: 20px;
+  }
+
+  .zen-step-card h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .zen-step-card p {
+    font-size: 14px;
+  }
+
+  /* SESSIONS */
+  .session-grid article {
+    padding: 20px;
+  }
+
+  .session-grid h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  /* BOOKING */
+  .booking-frame {
+    height: 480px;
+  }
+
+}
