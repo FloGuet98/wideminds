@@ -1,11 +1,9 @@
 /* =========================================
-   WABI-SABI × OLD DESIGN (FINAL v4)
+   WABI-SABI × OLD DESIGN (FINAL v3)
    Fluid, editorial, calm, professional
-   FULL-SCREEN SECTION PAGES
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap');
-
 
 :root {
   --ink: #2d3029;
@@ -17,11 +15,10 @@
   --cream: #faf8f3;
   --sand: #f3efe6;
   --stone: #d8d3c7;
-  --mono: "DM Mono", monospace;
+   --mono: "DM Mono", monospace;
   --sans: "DM Sans", sans-serif;
   --serif: "Instrument Serif", serif;
 }
-
 
 * {
   box-sizing: border-box;
@@ -29,59 +26,55 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  overscroll-behavior: none;
-
 }
 
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: "DM Sans", sans-serif;
   font-size: 16px;
   line-height: 1.55;
-
 }
 
+body, p, span, a, div {
+  font-family: "DM Sans", sans-serif;
+}
 
 .wrap {
   width: min(1180px, calc(100% - 56px));
   margin-inline: auto;
 }
 
-/* ---------- HEADER ---------- */
+/* ---------- Preview bar ---------- */
+
+.preview-bar {
+  background: var(--ink);
+  color: var(--paper);
+  font: 12px "DM Mono", monospace;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 9px;
+}
+
+/* ---------- Header ---------- */
 
 .site-header {
-   position: sticky;
-  top: 0;
-  z-index: 1000;
   height: 93px;
   display: flex;
   align-items: center;
   justify-content: space-between;
- 
-  background: var(--paper);
-  box-shadow: 0 2px 8px rgba(45, 48, 41, 0.05);
 }
 
 .brand {
   color: inherit;
-   text-decoration: none;
-  font: 34px var(--serif);
+  text-decoration: none;
+  font: 34px "Instrument Serif", serif;
   letter-spacing: -0.04em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .brand i {
   font-weight: normal;
-}
-
-.brand-mark {
-  width: 32px;
-  height: 32px;
 }
 
 .site-header nav {
@@ -92,13 +85,7 @@ body {
 .site-header nav a {
   font-size: 14px;
   color: inherit;
-   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.site-header nav a:hover {
-  color: var(--clay);
-
+  text-decoration: none;
 }
 
 .language {
@@ -109,132 +96,73 @@ body {
   height: 38px;
   padding: 0 16px;
   color: var(--ink);
-  font: 12px var(--mono);
+  font: 12px "DM Mono", monospace;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-.language:hover {
-  background: var(--ink);
-  color: var(--paper);
-}
+/* ---------- Hero ---------- */
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-
-/* ---------- MAIN CONTENT ---------- */
-
-main {
-  position: relative;
-}
-/* ---------- SECTION PAGES ---------- */
-
-.section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: clamp(80px, 10vh, 120px) 0;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-/* === SCREEN FITTING SECTIONS === */
-.screen-section {
-  min-height: 100vh;
-  padding: clamp(60px, 8vh, 90px) 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Hero - special case */
 .hero {
-  min-height: 100vh;
+  min-height: 620px;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 80px;
   align-items: center;
-
-     padding: 80px 0;
-  scroll-snap-align: start;
+  padding: 58px 0 94px;
 }
-
-.hero.wrap {
-  width: min(1180px, calc(100% - 56px));
-  margin-inline: auto;
-}
-
-.hero-copy {
-  z-index: 2;
-}
-
-.hero-portrait {
-  position: relative;
-  width: min(100%, 360px);
-  justify-self: end;
-}
-
-.hero-portrait img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 900 / 1125;
-  object-fit: cover;
-  border-radius: 220px 220px 8px 8px;
-  filter: saturate(0.82) contrast(0.95);
-}
-.shape-sun {
-  position: absolute;
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  right: -54px;
-  top: -45px;
-  background: var(--clay);
-  z-index: -1;
-}
-
-/* ---------- TYPOGRAPHY ---------- */
 
 .eyebrow {
-  font: 12px var(--mono);
+  font: 12px "DM Mono", monospace;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--clay);
   margin: 0 0 26px;
 }
+
 h1, h2, h3, p {
   margin-top: 0;
 }
 
 h1, h2 {
-  font: clamp(42px, 5vw, 72px) / 0.95 "Instrument Serif", serif;
-  letter-spacing: -0.045em;
+  font: clamp(55px, 7vw, 100px) / 0.91 "Instrument Serif", serif;
+  letter-spacing: -0.055em;
   font-weight: 400;
 }
 
 .hero h1 {
-  font: clamp(42px, 4.2vw, 72px) / 1.02 var(--serif);
+  font: clamp(42px, 4.2vw, 72px) / 1.02 "Instrument Serif", serif;
   letter-spacing: -0.045em;
   font-weight: 400;
-  margin-bottom: 26px;
 }
 
 h1 em, h2 em {
   color: var(--clay);
 }
 
-h3 {
-  font: 42px var(--serif);
-  letter-spacing: -0.04em;
-  margin: 25px 0 16px;
+@media (max-width: 720px) {
+  .intro {
+    font-size: 17px;
+    line-height: 1.45;
+    margin: 16px 0 20px;
+  }
+}
+.booking-reassurance,
+.service-boundary {
+  max-width: 450px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.booking-reassurance {
+  margin: 16px 0 8px;
+  color: var(--clay);
+  font-family: "DM Mono", monospace;
+}
+
+.service-boundary {
+  margin: 0 0 22px;
+  color: #666960;
 }
 
 .intro {
@@ -243,27 +171,6 @@ h3 {
   line-height: 1.5;
   margin: 34px 0;
 }
-
-.booking-reassurance,
-.service-boundary {
-   max-width: 450px;
-  font-size: 13px;
-  line-height: 1.5;
-
-}
-
-.booking-reassurance {
-  margin: 16px 0 8px;
-  color: var(--clay);
-  font-family: var(--mono);
-}
-
-.service-boundary {
-  margin: 0 0 22px;
-  color: #666960;
-
-}
-
 .hero-facts {
   display: flex;
   flex-wrap: wrap;
@@ -272,7 +179,7 @@ h3 {
   margin: 22px 0 0;
   padding: 0;
   color: var(--moss-dark);
-  font: 12px var(--mono);
+  font: 12px "DM Mono", monospace;
 }
 
 .hero-facts li {
@@ -292,22 +199,53 @@ h3 {
   border-radius: 999px;
   color: #fff;
   padding: 14px 21px;
-  
   text-decoration: none;
   font-size: 14px;
-  transition: all 0.3s ease;
-  border: 2px solid var(--ink);
 }
 
-.button:hover {
-  background: transparent;
-  color: var(--ink);
+.hero-portrait {
+  position: relative;
+  width: min(100%, 360px);
+  max-width: 360px;
+  justify-self: end;
 }
 
-/* ---------- SECTION LABEL ---------- */
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 900 / 1125;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 220px 220px 8px 8px;
+  filter: saturate(0.82) contrast(0.95);
+}
+
+.shape-sun,
+.sun {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  right: -54px;
+  top: -45px;
+  background: var(--clay);
+  z-index: -1;
+}
+
+.portrait-caption {
+  font: 12px "DM Mono", monospace;
+  margin: 13px 0 0;
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding: 138px 0;
+}
 
 .section-label {
-  font: 12px var(--mono);
+  font: 12px "DM Mono", monospace;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--clay);
@@ -315,7 +253,7 @@ h3 {
   display: block;
 }
 
-/* ---------- ABOUT SECTION ---------- */
+/* ---------- About ---------- */
 
 .about {
   display: grid;
@@ -332,64 +270,15 @@ h3 {
 .about p {
   font-size: 18px;
   max-width: 680px;
-  margin-bottom: 20px;
 }
 
-.qualification-panel {
-  background: rgba(223, 225, 215, 0.5);
-  border: 1px solid var(--line);
-    border-radius: 16px;
-  padding: 32px;
-  margin-top: 40px;
-}
-
-.qualification-panel ul {
-  list-style: none;
-  padding: 0;
-  margin: 16px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.qualification-panel li {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--ink);
-  padding-left: 20px;
-  position: relative;
-}
-
-.qualification-panel li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--clay);
-}
-   .about-pebble {
-  position: absolute;
-  bottom: 20px;
-  right: 40px;
-  width: 120px;
-  height: 120px;
-  background: rgba(202, 112, 88, 0.08);
-  border-radius: 50%;
-  z-index: 0;
-}
-
-/* ---------- APPROACH SECTION ---------- */
+/* ---------- Approach ---------- */
 
 .approach {
   background: #dfe1d7;
-  position: relative;
 }
 
-.approach .wrap {
-  position: relative;
-  z-index: 2;
-}
-
-   .approach-grid {
+.approach-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -397,20 +286,17 @@ h3 {
 
 .approach h2 {
   font-size: clamp(45px, 5vw, 70px);
-  margin-bottom: 40px;
 }
 
 .large {
   font-size: 23px;
   line-height: 1.43;
-  margin-bottom: 24px;
 }
 
 .approach-copy p {
   font-size: 16px;
   line-height: 1.55;
   max-width: 68ch;
-  margin-bottom: 20px;
 }
 
 .methods {
@@ -427,7 +313,7 @@ h3 {
   font-size: 13px;
 }
 
-/* ---------- PROCESS ---------- */
+/* ---------- Process (What to expect) ---------- */
 
 .process {
   background: var(--paper);
@@ -437,145 +323,73 @@ h3 {
   font-size: 18px;
   max-width: 680px;
   margin: 0 0 38px;
+  line-height: 1.5;
 }
 
-.zen-path-wrapper {
-  position: relative;
-  margin-top: 40px;
-}
-
-.zen-start {
-  display: grid;
-  place-items: center;
-  margin-bottom: 50px;
-}
-
-.zen-start-card {
-  max-width: 560px;
-  text-align: center;
-  border-radius: 34px;
-}
-
-.zen-trail {
-  position: relative;
+.process-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 90px;
-  padding: 40px 0 60px;
+  gap: 22px;
 }
 
-.zen-trail::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -40px;
-  bottom: -40px;
-  width: 180px;
-  transform: translateX(-50%);
-  background:
-    radial-gradient(70% 70% at 50% 50%, rgba(125, 138, 112, 0.22), transparent 70%),
-    radial-gradient(80% 80% at 40% 40%, rgba(125, 138, 112, 0.16), transparent 70%),
-    radial-gradient(75% 75% at 60% 60%, rgba(125, 138, 112, 0.14), transparent 70%);
-  filter: blur(0.8px);
-  border-radius: 999px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.zen-step {
-  position: relative;
-  display: grid;
-  place-items: center;
-  z-index: 2;
-}
-
-.zen-step-card,
 .process-card {
   position: relative;
-  max-width: 720px;
-  width: 100%;
   padding: 32px;
   border: 1px solid var(--line);
-  background: var(--cream);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
   border-radius: 28px;
+  background: var(--cream);
 }
 
-.zen-step-card {
-  opacity: 0;
-  transform: translateY(18px);
-  animation: zenStepFadeIn 0.7s ease forwards;
-}
-
-.zen-step:nth-child(1) .zen-step-card {
-  animation-delay: 0.1s;
-}
-
-.zen-step:nth-child(2) .zen-step-card {
-  animation-delay: 0.25s;
-}
-
-.zen-step:nth-child(3) .zen-step-card {
-  animation-delay: 0.4s;
-}
-
-@keyframes zenStepFadeIn {
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.zen-step::before {
-  content: "";
+.process-card .card-mark {
   position: absolute;
-  left: 50%;
-  top: -22px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #fff, var(--moss));
-  box-shadow: 0 6px 12px rgba(45, 48, 41, 0.12);
-  transform: translateX(-50%);
-  z-index: 3;
+  top: 22px;
+  right: 22px;
+  font: 12px "DM Mono", monospace;
+  color: var(--clay);
+  display: none; /* numbering removed as requested */
 }
 
-.zen-step:first-child::before {
-  display: none;
-}
-
-.process-card h3,
-.zen-step-card h3 {
-  font: 42px var(--serif);
+.process-card h3 {
+  font: 42px "Instrument Serif", serif;
   letter-spacing: -0.04em;
-  margin: 0 0 16px;
+  margin: 25px 0 16px;
 }
 
 .process-card p {
+  margin: auto 0 0;
   font-size: 16px;
   line-height: 1.55;
   max-width: 68ch;
-  margin: auto 0 0;
 }
 
-.diagnostic-note {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 40px;
-  align-items: start;
-  margin-top: 60px;
-  padding: 24px;
-  background: rgba(0, 0, 0, 0.02);
-  border-radius: 12px;
+/* Slightly different organic radii */
+.process-card:nth-child(1) {
+  border-radius: 30px 26px 32px 28px;
 }
 
-.shore-image {
-  width: 200px;
-  height: 140px;
-  background: linear-gradient(135deg, #dfe1d7 0%, #c9cdc0 100%);
-  border-radius: 8px;
+.process-card:nth-child(2) {
+  border-radius: 28px 32px 26px 30px;
 }
 
-/* ---------- SESSIONS ---------- */
+.process-card:nth-child(3) {
+  border-radius: 32px 28px 30px 26px;
+}
+
+.process-card:nth-child(4) {
+  border-radius: 26px 30px 28px 32px;
+}
+
+@media (min-width: 900px) {
+  .process-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+}
+
+/* ---------- Sessions ---------- */
 
 .sessions {
   background: var(--paper);
@@ -590,87 +404,66 @@ h3 {
 .session-grid article {
   padding: 32px;
   border: 1px solid var(--line);
-  background: var(--cream);
-  border-radius: 28px;
+  min-height: 310px;
   display: flex;
   flex-direction: column;
+  border-radius: 28px;
+  background: var(--cream);
 }
 
-.session-grid h3 {
-  font: 42px var(--serif);
+.session-grid .card-mark {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  font: 12px "DM Mono", monospace;
+  color: var(--clay);
+}
+
+.number {
+  font: 12px "DM Mono", monospace;
+  color: var(--clay);
+}
+
+h3 {
+  font: 42px "Instrument Serif", serif;
   letter-spacing: -0.04em;
-  margin: 25px 0 16px 0;
+  margin: 25px 0 16px;
 }
 
 .detail {
   margin: auto 0 0;
-  font: 12px var(--mono);
+  font: 12px "DM Mono", monospace;
   text-transform: uppercase;
 }
 
-/* ---------- BOOKING ---------- */
-
-.booking {
-  background: linear-gradient(to bottom, var(--paper), #f7f3ea);
-}
-
-.booking-intro {
-  max-width: 720px;
-  margin: 0 0 42px;
-}
-
-.booking-intro h2 {
-  font: clamp(40px, 5vw, 58px) / 1.05 var(--serif);
-  letter-spacing: -0.04em;
-  margin: 0 0 14px;
-}
-
-.booking-intro p {
-  font-size: 17px;
-  line-height: 1.6;
-  max-width: 65ch;
-}
+/* ---------- Booking ---------- */
 
 .booking-panel {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 14px 38px rgba(45, 48, 41, 0.07);
-  padding: 18px;
+  box-shadow: 0 10px 28px rgba(45, 48, 41, 0.06);
 }
 
 .booking-frame {
   width: 100%;
-  height: 760px;
+  height: 720px;
   border: none;
   border-radius: 22px;
-  display: block;
+  overflow: hidden;
 }
 
-.privacy-note {
-  font-size: 13px;
-  margin: 28px 0;
-  opacity: 0.8;
-}
-
-/* ---------- CONTACT ---------- */
+/* ---------- Contact ---------- */
 
 .contact {
   background: var(--clay);
   color: #fff;
   padding: 85px;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-  /* WABI-SABI PAPIERLAGEN EFFEKT */
-  position: relative;
-  box-shadow: inset 0 -60px 120px rgba(45, 48, 41, 0.04);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  margin-bottom: 0;
 }
 
 .contact .eyebrow {
@@ -697,113 +490,7 @@ h3 {
   opacity: 0.8;
 }
 
-/* ---------- FAQ ---------- */
-
-.faq {
-  background: var(--paper);
-}
-
-.faq-list {
-  display: grid;
-  gap: 14px;
-  margin-top: 28px;
-}
-
-.faq-item {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-  grid-template-rows: auto 0fr;
-  gap: 14px;
-  align-items: start;
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-}
-
-.faq-item:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.faq-stone {
-  display: block;
-  width: 42px;
-  height: 50px;
-  margin: 6px 0 0 0;
-  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
-  background: radial-gradient(circle at 30% 30%, #f5f5f5, #b8b8b8);
-  box-shadow: 0 8px 16px rgba(45, 48, 41, 0.12);
-  transform: rotate(-6deg);
-  flex: 0 0 auto;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.faq-item[open] .faq-stone {
-  transform: rotate(6deg);
-}
-
-.faq-item summary {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  list-style: none;
-  cursor: pointer;
-  padding: 14px 6px 14px 0;
-  position: relative;
-  transition: background-color 0.25s ease;
-  border-radius: 6px;
-  margin: 0 -6px;
-}
-
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item summary:hover {
-  background-color: rgba(207, 200, 187, 0.18);
-}
-
-.faq-item summary:focus-visible {
-  outline: 2px solid var(--clay);
-  outline-offset: 3px;
-}
-
-.faq-title-text {
-  font: clamp(18px, 2.4vw, 24px) var(--serif);
-  color: var(--ink);
-  display: block;
-  letter-spacing: -0.02em;
-}
-
-.faq-item summary::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font: 18px var(--mono);
-  color: var(--clay);
-  transition: transform 0.35s ease;
-}
-
-.faq-item[open] summary::after {
-  content: "–";
-  transform: translateY(-50%) scale(1.05);
-}
-
-.faq-inner {
-  grid-column: 1 / -1;
-  grid-row: 2 / 3;
-  display: block;
-  overflow: visible;
-  padding: 0;
-}
-
-.faq-inner p {
-  font-size: 15px;
-  line-height: 1.55;
-  margin: 0;
-}
-
-/* ---------- FOOTER ---------- */
+/* ---------- Footer ---------- */
 
 .site-footer {
   display: flex;
@@ -818,7 +505,7 @@ h3 {
   margin: 0;
 }
 
-/* ---------- ANIMATIONS ---------- */
+/* ---------- Animations ---------- */
 
 .reveal {
   animation: appear 0.7s ease both;
@@ -835,76 +522,1235 @@ h3 {
   }
 }
 
-/* =========================================
-   LAPTOP FIT MODE (KEY FIX)
-   Makes each section fit one screen cleanly
-   ========================================= */
 
-@media (min-width: 900px) and (max-height: 900px) {
+/* ---------- Responsive (Base) ---------- */
 
-  h2 {
-    font-size: clamp(34px, 2.6vw, 44px);
-    margin-bottom: 18px;
+@media (max-width: 720px) {
+  .wrap {
+    width: min(100% - 36px, 1180px);
+  }
+
+  .site-header {
+    height: 74px;
+  }
+
+  .site-header nav {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding: 55px 0 70px;
+  }
+
+ .hero-portrait {
+    justify-self: start;
+    width: min(100%, 300px);
+    max-width: 300px;
+  }
+
+  .hero-copy {
+    order: 2;
+  }
+
+  .shape-sun,
+  .sun {
+    right: -18px;
+  }
+
+  .section {
+    padding: 85px 0;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .section-label {
-    margin-bottom: 16px;
+    margin-bottom: 27px;
   }
 
-  p {
-    font-size: 15px;
-    line-height: 1.45;
+  .approach-grid,
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 42px;
   }
 
-  /* ABOUT */
-  .about {
-    gap: 32px;
+  .session-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
   }
 
-  .about p {
-    margin-bottom: 14px;
+  .contact {
+    width: 100%;
+    padding: 58px 18px;
   }
 
-  /* APPROACH */
-  .approach-grid {
-    gap: 40px;
+  .contact > div {
+    width: min(100% - 36px, 1180px);
+    margin-inline: auto;
   }
 
-  .approach-copy p {
-    margin-bottom: 14px;
+  .site-footer {
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
-  /* PROCESS */
+  .brand {
+    font-size: 30px;
+  }
+}
+
+/* =========================================
+   PROCESS: ZEN GARDEN PEBBLE TRAIL (v3)
+   Curvy, green, organic path (stronger)
+   ========================================= */
+
+.zen-path-wrapper {
+  position: relative;
+  margin-top: 40px;
+}
+
+/* ---------- Start stone (centered) ---------- */
+
+.zen-start {
+  display: grid;
+  place-items: center;
+  margin-bottom: 50px;
+}
+
+.zen-start-card {
+  max-width: 560px;
+  text-align: center;
+  border-radius: 34px;
+}
+
+/* ---------- Trail container ---------- */
+
+.zen-trail {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 90px;
+  padding: 40px 0 60px;
+}
+
+/* Curvy, green "river" path - stronger, wider, greener */
+.zen-trail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  bottom: -40px;
+  width: 180px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(70% 70% at 50% 50%, rgba(125, 138, 112, 0.22), transparent 70%),
+    radial-gradient(80% 80% at 40% 40%, rgba(125, 138, 112, 0.16), transparent 70%),
+    radial-gradient(75% 75% at 60% 60%, rgba(125, 138, 112, 0.14), transparent 70%);
+  filter: blur(0.8px);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Organic pebbles scattered along the path - stronger green */
+.zen-trail::after {
+  content: "";
+  position: absolute;
+  inset: -60px 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(26px 20px at 20% 12%, rgba(125, 138, 112, 0.65), transparent 70%),
+    radial-gradient(22px 17px at 70% 18%, rgba(125, 138, 112, 0.55), transparent 70%),
+    radial-gradient(24px 18px at 28% 40%, rgba(125, 138, 112, 0.6), transparent 70%),
+    radial-gradient(20px 15px at 75% 48%, rgba(125, 138, 112, 0.5), transparent 70%),
+    radial-gradient(22px 17px at 22% 68%, rgba(125, 138, 112, 0.55), transparent 70%),
+    radial-gradient(24px 18px at 72% 76%, rgba(125, 138, 112, 0.6), transparent 70%),
+    radial-gradient(18px 14px at 32% 88%, rgba(125, 138, 112, 0.45), transparent 70%),
+    radial-gradient(20px 15px at 62% 8%, rgba(125, 138, 112, 0.5), transparent 70%);
+  filter: blur(0.4px);
+}
+
+.zen-trail::after {
+  display: none;
+}
+
+/* ---------- Steps ---------- */
+
+.zen-step {
+  position: relative;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.zen-step-card {
+  position: relative;
+  max-width: 720px;
+  width: 100%;
+  border-radius: 30px 26px 32px 28px;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: zenStepFadeIn 0.7s ease forwards;
+}
+
+/* Staggered animation for steps */
+.zen-step:nth-child(1) .zen-step-card {
+  animation-delay: 0.1s;
+  border-radius: 30px 26px 32px 28px;
+}
+
+.zen-step:nth-child(2) .zen-step-card {
+  animation-delay: 0.25s;
+  border-radius: 28px 32px 26px 30px;
+}
+
+.zen-step:nth-child(3) .zen-step-card {
+  animation-delay: 0.4s;
+  border-radius: 32px 28px 30px 26px;
+}
+
+@keyframes zenStepFadeIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Small footstep dots above each step */
+.zen-step::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -22px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--moss));
+  box-shadow: 0 6px 12px rgba(45, 48, 41, 0.12);
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.zen-step:first-child::before {
+  display: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 720px) {
   .zen-trail {
-    gap: 24px;
+    gap: 60px;
   }
 
   .zen-step-card {
-    padding: 20px;
+    border-radius: 24px !important;
+  }
+
+  .zen-trail::before {
+    width: 130px;
+  }
+
+  .zen-trail::after {
+    background:
+      radial-gradient(20px 15px at 20% 12%, rgba(125, 138, 112, 0.55), transparent 70%),
+      radial-gradient(17px 13px at 70% 18%, rgba(125, 138, 112, 0.45), transparent 70%),
+      radial-gradient(18px 14px at 28% 40%, rgba(125, 138, 112, 0.5), transparent 70%),
+      radial-gradient(15px 11px at 75% 48%, rgba(125, 138, 112, 0.4), transparent 70%),
+      radial-gradient(17px 13px at 22% 68%, rgba(125, 138, 112, 0.45), transparent 70%),
+      radial-gradient(18px 14px at 72% 76%, rgba(125, 138, 112, 0.5), transparent 70%),
+      radial-gradient(14px 11px at 32% 88%, rgba(125, 138, 112, 0.35), transparent 70%),
+      radial-gradient(15px 11px at 62% 8%, rgba(125, 138, 112, 0.4), transparent 70%);
+  }
+
+  .zen-step::before {
+    display: none;
+  }
+}
+
+/* =========================================
+   AREAS: GREY WABI-SABI STONES (v3)
+   Stone next to heading, text normal width
+   ========================================= */
+
+/* Container for accordion list */
+.focus-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+/* Each accordion item */
+.focus-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  grid-template-rows: auto 0fr;
+  gap: 14px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.focus-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+/* Grey wabi-sabi stone */
+.focus-stone {
+  display: block;
+  width: 42px;
+  height: 50px;
+  margin: 6px 0 0 0;
+  border-radius: 48% 52% 55% 45% / 45% 42% 58% 55%;
+  background: radial-gradient(circle at 30% 30%, #f5f5f5, #b8b8b8);
+  box-shadow: 0 8px 16px rgba(45, 48, 41, 0.12);
+  transform: rotate(-6deg);
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+/* Summary (title) to the right of the stone */
+.focus-item summary {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 6px 14px 0;
+  position: relative;
+  transition: background-color 0.25s ease;
+  border-radius: 6px;
+  margin: 0 -6px;
+}
+
+.focus-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.focus-item summary:hover {
+  background-color: rgba(207, 200, 187, 0.18);
+}
+
+.focus-item summary:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 3px;
+}
+
+.focus-title-text {
+  font: clamp(20px, 2.4vw, 28px) "Instrument Serif", serif;
+  color: var(--ink);
+  display: block;
+  letter-spacing: -0.02em;
+}
+
+/* +/- indicator */
+.focus-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 18px "DM Mono", monospace;
+  color: var(--clay);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.focus-item[open] summary::after {
+  content: "–";
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Content: smooth roll-out, normal width, not cramped */
+.focus-inner {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  display: block;
+  overflow: visible;
+  padding: 0;
+}
+
+
+
+.focus-approach {
+  color: #5a5a5a;
+  font-style: italic;
+}
+
+/* Ensure that sections after focus are not pulled into the accordion */
+.focus-list ~ .section,
+.focus-list ~ .sessions,
+.focus-list ~ .booking,
+.focus-list ~ .contact {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile */
+@media (max-width: 720px) {
+  .focus-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-top: 14px;
+  }
+
+  .focus-stone {
+    width: 36px;
+    height: 42px;
+    margin: 0 0 6px 0;
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .focus-item summary {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding: 16px 6px 16px 0;
+    padding-right: 40px;
+  }
+
+  .focus-inner {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding-left: 0;
+  }
+
+  .focus-title-text {
+    font-size: 19px;
+  }
+
+  .focus-item summary::after {
+    font-size: 16px;
+  }
+
+  .focus-content p {
+    font-size: 15px;
+    padding-bottom: 18px;
+  }
+}
+
+/* =========================================
+   BOOKING: MESSAGE OF HOPE, WABI-SABI
+   ========================================= */
+
+.booking {
+  background: linear-gradient(
+    to bottom,
+    var(--paper),
+    #f7f3ea
+  );
+}
+
+.booking-intro {
+  max-width: 720px;
+  margin: 0 0 42px;
+}
+
+.booking-intro h2 {
+  font: clamp(40px, 5vw, 58px) / 1.05 "Instrument Serif", serif;
+  letter-spacing: -0.04em;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+
+.booking-intro p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 65ch;
+}
+
+.booking-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 14px 38px rgba(45, 48, 41, 0.07);
+  padding: 18px;
+}
+
+.booking-frame {
+  width: 100%;
+  height: 760px;
+  border: none;
+  border-radius: 22px;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .booking-intro h2 {
+    font-size: 32px;
+  }
+
+  .booking-intro p {
+    font-size: 15px;
+  }
+
+  .booking-panel {
+    padding: 12px;
+  }
+
+  .booking-frame {
+    height: 680px;
+  }
+}
+
+/* Refinement: these rules exactly match the supplied details markup. */
+.focus-list .focus-item { display:block; border-top:1px solid var(--line); padding:0; }
+.focus-list .focus-item:last-child { border-bottom:1px solid var(--line); }
+.focus-list .focus-item summary { display:grid; grid-template-columns:48px minmax(0,1fr) 26px; align-items:center; gap:14px; padding:18px 4px; margin:0; }
+.focus-list .focus-stone { grid-column:1; grid-row:1; margin:0; width:36px; height:43px; }
+.focus-list .focus-title-text { grid-column:2; }
+.focus-list .focus-item summary::after { grid-column:3; position:static; transform:none; text-align:right; }
+.focus-list .focus-item[open] summary::after { transform:none; }
+.focus-list .focus-inner { display:grid; grid-template-rows:0fr; overflow:hidden; padding:0; transition:grid-template-rows .36s ease; }
+.focus-list .focus-item[open] .focus-inner { grid-template-rows:1fr; }
+.focus-list .focus-inner > p { min-height:0; overflow:hidden; margin:0; padding:0 0 0 62px; opacity:0; transform:translateY(-7px); transition:opacity .25s ease,transform .36s ease,padding .36s ease; }
+.focus-list .focus-item[open] .focus-inner > p { padding-bottom:15px; opacity:1; transform:none; }
+
+/* A quiet pebble trail fills as the visitor scrolls. */
+.zen-path { --scroll-progress:0; position:fixed; right:21px; top:18vh; z-index:5; width:31px; height:64vh; pointer-events:none; opacity:.85; }
+.zen-path::before,.zen-path::after { content:""; position:absolute; inset:0; background:radial-gradient(9px 7px at 50% 4%,#a7ada4 0 76%,transparent 80%),radial-gradient(13px 9px at 38% 18%,#9ba299 0 76%,transparent 80%),radial-gradient(10px 8px at 59% 32%,#a7ada4 0 76%,transparent 80%),radial-gradient(14px 10px at 40% 47%,#969f95 0 76%,transparent 80%),radial-gradient(10px 7px at 58% 62%,#a7ada4 0 76%,transparent 80%),radial-gradient(13px 9px at 42% 78%,#969f95 0 76%,transparent 80%),radial-gradient(9px 7px at 55% 94%,#a7ada4 0 76%,transparent 80%); }
+.zen-path::before { opacity:.25; }
+.zen-path::after { background:radial-gradient(9px 7px at 50% 4%,#65725f 0 76%,transparent 80%),radial-gradient(13px 9px at 38% 18%,#65725f 0 76%,transparent 80%),radial-gradient(10px 8px at 59% 32%,#65725f 0 76%,transparent 80%),radial-gradient(14px 10px at 40% 47%,#65725f 0 76%,transparent 80%),radial-gradient(10px 7px at 58% 62%,#65725f 0 76%,transparent 80%),radial-gradient(13px 9px at 42% 78%,#65725f 0 76%,transparent 80%),radial-gradient(9px 7px at 55% 94%,#65725f 0 76%,transparent 80%); clip-path:inset(calc(100% - (var(--scroll-progress) * 100%)) 0 0); transition:clip-path .18s linear; }
+@media (max-width:720px){.zen-path{display:none}.focus-list .focus-item summary{grid-template-columns:40px minmax(0,1fr) 22px}.focus-list .focus-inner>p{padding-left:0}}
+
+/* Professional information layers, kept deliberately quiet within the existing style. */
+.qualification-panel{margin-top:42px;padding:27px 28px;border:1px solid var(--line);border-radius:24px 28px 22px 26px;background:rgba(250,248,243,.55)}
+.qualification-panel .eyebrow{margin-bottom:15px}.qualification-panel ul{margin:0;padding-left:19px}.qualification-panel li{margin:6px 0;font-size:14px}.qualification-panel .small{max-width:70ch;margin:20px 0 0;color:#555d55;opacity:1}
+.brand{display:inline-flex;align-items:center;gap:10px}.brand-mark{width:31px;height:31px;flex:0 0 auto}
+.sessions{background:linear-gradient(135deg,#eef0e8 0%,#f4f0e7 48%,#f0e3d8 100%)}.sessions .session-grid{grid-template-columns:repeat(2,1fr);gap:24px}.sessions .session-grid article{position:relative;min-height:320px;background:rgba(250,248,243,.78);box-shadow:0 11px 30px rgba(62,69,58,.06)}.sessions .session-grid article:nth-child(1){border-radius:36px 24px 34px 27px}.sessions .session-grid article:nth-child(2){border-radius:25px 36px 26px 34px}.sessions .session-grid article:nth-child(3){grid-column:1/-1;min-height:205px;background:#d8dfd3;border-color:#9da895;border-radius:30px 34px 25px 32px}.sessions-note{margin-top:26px;max-width:760px}.sessions-note p{margin:0;font-size:14px}
+.payments{background:#e0e3da}.payment-layout{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}.payment-layout h2,.faq h2,.legal h2{font-size:clamp(44px,5vw,68px);margin-bottom:24px}.payment-layout>div>p{max-width:460px;font-size:18px}.payment-steps{list-style:none;margin:0;padding:0;border-top:1px solid #aab3a3}.payment-steps li{display:grid;grid-template-columns:44px 1fr;gap:2px;padding:13px 0;border-bottom:1px solid #aab3a3}.payment-steps span{grid-row:span 2;font:12px var(--mono);color:var(--clay)}.payment-steps strong{font:20px var(--serif);font-weight:400;letter-spacing:-.02em}.payment-steps small{color:#596259}.payment-note{max-width:720px;margin:35px 0 0;font:12px/1.6 var(--mono);color:#596259}
+.faq-intro{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:38px}.faq-intro p{max-width:390px;margin:0}.faq-list{border-top:1px solid var(--line)}.faq-list details{border-bottom:1px solid var(--line)}.faq-list summary{list-style:none;cursor:pointer;position:relative;padding:18px 32px 18px 0;font:clamp(23px,2.8vw,34px)/1.15 var(--serif);letter-spacing:-.035em}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary::after{content:"+";position:absolute;right:2px;font:18px var(--mono);color:var(--clay)}.faq-list details[open] summary::after{content:"–"}.faq-list details p{max-width:720px;margin:0;padding:0 32px 24px 0}.legal{border-top:1px solid var(--line);padding:65px 0 80px}.legal h2{margin-bottom:20px}.legal>p:last-child{max-width:750px}.legal .eyebrow{margin-bottom:20px}
+.diagnostic-note{display:grid;grid-template-columns:minmax(180px,.55fr) 1.45fr;gap:34px;align-items:stretch;max-width:920px;margin:70px auto 0;padding:20px;border:1px solid var(--line);border-radius:32px 26px 36px 24px;background:#ebe7dd}.diagnostic-note h3{font:clamp(36px,4vw,53px)/.96 "Instrument Serif",serif;letter-spacing:-.045em;margin:0 0 17px}.diagnostic-note p:last-child{margin:0;max-width:64ch}.shore-image{min-height:260px;border-radius:24px 18px 29px 19px;background-image:linear-gradient(90deg,rgba(244,240,231,.08),rgba(244,240,231,.2)),url("images/berlin-shore.jpg");background-size:cover;background-position:left center;filter:saturate(.65) contrast(.92)}
+@media(max-width:900px){.sessions .session-grid{grid-template-columns:1fr}.sessions .session-grid article:nth-child(3){grid-column:auto}.faq-intro,.diagnostic-note{grid-template-columns:1fr;gap:25px}.qualification-panel{padding:22px}.legal{padding:55px 0}.faq-intro{margin-bottom:28px}.shore-image{min-height:210px;background-position:left center}}
+
+
+/* Smaller hero portrait */
+.hero-portrait {
+  width: min(100%, 360px);
+  max-width: 360px;
+  justify-self: end;
+}
+
+.hero-portrait img {
+  width: 100%;
+  aspect-ratio: 0.8;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Smaller portrait on phones */
+@media (max-width: 720px) {
+  .hero-portrait {
+    width: min(100%, 320px);
+    max-width: 320px;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 0 52px;
+  }
+
+  .hero-copy {
+    order: 1;
+  }
+
+  .hero-portrait {
+    order: 2;
+    width: min(100%, 300px);
+    max-width: 300px;
+    align-self: center;
+  }
+
+  .site-header nav {
+    display: none;
+  }
+}
+
+/* Mobile navigation button is hidden on larger screens */
+.menu-toggle {
+  display: none;
+}
+
+/* Mobile navigation */
+@media (max-width: 720px) {
+ .site-header {
+  position: relative;
+  z-index: 101;
+  min-height: 74px;
+  height: auto;
+  padding: 10px 0;
+  gap: 8px;
+}
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    padding: 9px 12px;
+    font: 11px "DM Mono", monospace;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 16px;
+  }
+
+  .menu-icon span {
+    display: block;
+    width: 16px;
+    height: 1px;
+    background: currentColor;
+    transition: transform 0.2s ease;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: calc(100% - 4px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 13px 4px;
+    border-bottom: 1px solid rgba(207, 200, 187, 0.55);
+    font: 12px "DM Mono", monospace;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .main-nav a:last-child {
+    border-bottom: 0;
+  }
+
+   .booking-reassurance,
+.service-boundary {
+  max-width: 100%;
+}
+
+  .hero-facts {
+    gap: 6px 10px;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-facts li:not(:last-child)::after {
+    right: -7px;
+  }
+
+  .main-nav a:hover,
+  .main-nav a:focus-visible {
+    color: var(--clay);
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-icon span:first-child {
+    transform: translateY(2.5px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-icon span:last-child {
+    transform: translateY(-2.5px) rotate(-45deg);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--clay);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+.response-time {
+  margin: 18px 0 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.email-link,
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.email-link:hover,
+.site-footer a:hover {
+  color: var(--cream);
+}
+
+
+
+
+/* =========================================
+   EXPERIENCE – CLEAN REBUILD (MATCHES YOUR HTML)
+   ========================================= */
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line, #cfc8bb);
+  margin-top: 28px;
+}
+
+/* ITEM */
+.exp-item {
+  border-bottom: 1px solid var(--line, #cfc8bb);
+}
+
+/* SUMMARY */
+.exp-item summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+
+/* remove default marker */
+.exp-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* YEAR */
+.exp-year {
+  font: 12px var(--mono, monospace);
+  color: var(--clay, #ca7058);
+  min-width: 90px;
+  letter-spacing: 0.02em;
+}
+
+/* TITLE */
+.exp-item summary {
+  font: 20px var(--serif, "Instrument Serif", serif);
+  color: var(--ink, #2d3029);
+  letter-spacing: -0.02em;
+}
+
+/* PLUS / MINUS */
+.exp-item summary::after {
+  content: "+";
+  margin-left: auto;
+  font: 18px var(--mono, monospace);
+  color: var(--clay, #ca7058);
+  transition: transform 0.2s ease;
+}
+
+.exp-item[open] summary::after {
+  content: "–";
+}
+
+/* BODY */
+.exp-item p {
+  margin: 0;
+  padding: 0 0 16px 106px;
+  font: 15px/1.6 var(--sans, "DM Sans", sans-serif);
+  color: var(--ink, #2d3029);
+  opacity: 0.9;
+  max-width: 75ch;
+}
+
+/* subtle open animation */
+.exp-item[open] p {
+  animation: expFade 0.25s ease;
+}
+
+@keyframes expFade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================
+   IMPACT SECTION
+   ========================= */
+
+.exp-impact {
+  margin-top: 42px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line, #cfc8bb);
+}
+
+.impact-eyebrow {
+  font: 12px var(--mono, monospace);
+  color: var(--clay, #ca7058);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px;
+}
+
+.impact-text {
+  font: 15px/1.65 var(--sans, "DM Sans", sans-serif);
+  color: var(--ink, #2d3029);
+  max-width: 70ch;
+  margin: 0;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 720px) {
+
+  .exp-item summary {
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .exp-year {
+    min-width: 72px;
+    font-size: 11px;
+  }
+
+  .exp-item p {
+    padding-left: 0;
+    padding-bottom: 14px;
+    font-size: 14px;
+  }
+
+  .exp-item summary::after {
+    font-size: 16px;
+  }
+}
+
+/* EXPERIENCE: replace the entire previous "EXPERIENCE – add at the very end"
+   laptop CSS block with this one. Do not append both.
+   Matches the current #experience / .exp-item markup. */
+
+@media (min-width: 901px) and (min-height: 700px) {
+  #experience.section.wrap {
+    display: block;
+    min-height: 0;
+    height: auto;
+    padding-top: clamp(28px, 3.6vh, 42px);
+    padding-bottom: clamp(30px, 4vh, 48px);
+  }
+
+  #experience > .section-label { margin: 0 0 9px; }
+
+  #experience > h2 {
+    max-width: 940px;
+    margin: 0 0 clamp(16px, 2.2vh, 23px);
+    font: 400 clamp(32px, 3vw, 44px)/1.1 var(--serif, "Instrument Serif", serif);
+    letter-spacing: -.038em;
+  }
+
+  #experience .experience-timeline {
+    position: relative;
+    display: block;
+    width: min(100%, 940px);
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line, #cfc8bb);
+  }
+
+  /* Old timeline decorations were positioned over the year column.
+     Remove them for this uncluttered list. */
+  #experience .experience-timeline::before,
+  #experience .experience-timeline::after,
+  #experience .exp-item::before,
+  #experience .exp-item::after,
+  #experience .exp-year::before,
+  #experience .exp-year::after,
+  #experience .exp-item > summary::before {
+    content: none;
+    display: none;
+  }
+
+  #experience .exp-item {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--line, #cfc8bb);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #experience .exp-item > summary {
+    position: relative;
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) 26px;
+    align-items: center;
+    column-gap: 22px;
+    min-height: clamp(54px, 6.6vh, 65px);
+    margin: 0;
+    padding: 6px 7px 6px 12px;
+    list-style: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  #experience .exp-item > summary::-webkit-details-marker { display: none; }
+  #experience .exp-item > summary::marker { content: ""; }
+  #experience .exp-item > summary:hover { background: rgba(207, 200, 187, .16); }
+  #experience .exp-item > summary:focus-visible {
+    outline: 2px solid var(--clay, #ca7058);
+    outline-offset: -2px;
+  }
+
+  #experience .exp-year {
+    grid-column: 1;
+    color: var(--moss-dark, #5f6b55);
+    font: 400 12px/1.4 var(--mono, "DM Mono", monospace);
+    white-space: nowrap;
+  }
+
+  #experience .exp-name {
+    grid-column: 2;
+    min-width: 0;
+    color: var(--ink, #2d3029);
+    font: 400 clamp(21px, 2vw, 26px)/1.15 var(--serif, "Instrument Serif", serif);
+    letter-spacing: -.02em;
+  }
+
+  #experience .exp-item > summary::after {
+    content: "+";
+    display: block;
+    grid-column: 3;
+    justify-self: end;
+    position: static;
+    color: var(--clay, #ca7058);
+    font: 18px/1 var(--mono, "DM Mono", monospace);
+  }
+  #experience .exp-item[open] > summary::after { content: "−"; }
+
+  #experience .exp-content {
+    max-height: none;
+    margin: 0;
+    padding: 0 45px 17px 174px;
+    border: 0;
+    background: transparent;
+  }
+  #experience .exp-content p {
+    max-width: 74ch;
+    margin: 0;
+    color: #50584f;
+    font: 400 15px/1.6 var(--sans, "DM Sans", sans-serif);
+  }
+
+  #experience .exp-impact {
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr);
+    column-gap: 22px;
+    align-items: start;
+    width: min(100%, 940px);
+    margin: clamp(20px, 2.8vh, 28px) 0 0;
+    padding: 0 7px 0 12px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  #experience .impact-eyebrow {
+    margin: 3px 0 0;
+    color: var(--clay, #ca7058);
+    font: 400 12px/1.4 var(--mono, "DM Mono", monospace);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  #experience .impact-text {
+    max-width: 80ch;
+    margin: 0;
+    color: var(--ink, #2d3029);
+    font: 400 15px/1.55 var(--sans, "DM Sans", sans-serif);
+  }
+}
+
+@media (max-width: 900px), (max-height: 699px) {
+  #experience.section.wrap {
+    min-height: 0;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+}
+
+
+
+/* =========================================
+   COMPACT LAPTOP SECTIONS
+   One clear visual composition per screen.
+   Mögliche Anliegen remains naturally scrollable.
+   ========================================= */
+
+@media (min-width: 901px) and (max-height: 900px) {
+  .screen-section {
+    min-height: 100svh;
+    padding-top: 54px;
+    padding-bottom: 54px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .screen-section > .wrap,
+  .screen-section.wrap {
+    width: min(1180px, calc(100% - 56px));
+  }
+
+  .screen-section .section-label {
+    margin-bottom: 20px;
+  }
+
+  .screen-section h2 {
+    margin-bottom: 20px;
+  }
+
+  /* About */
+  .about {
+    grid-template-columns: 145px minmax(0, 1fr);
+    gap: 38px;
+  }
+
+  .about-body {
+    max-width: 920px;
+  }
+
+  .about p {
+    max-width: 82ch;
+    font-size: 16px;
+    line-height: 1.45;
+    margin-bottom: 13px;
+  }
+
+  .qualification-panel {
+    margin-top: 20px;
+    padding: 16px 20px;
+  }
+
+  .qualification-panel li {
+    margin: 3px 0;
+    font-size: 12px;
+  }
+
+  /* Approach */
+  .approach-grid {
+    grid-template-columns: minmax(250px, .75fr) minmax(0, 1.25fr);
+    gap: 52px;
+    align-items: start;
+  }
+
+  .approach-copy p {
+    max-width: 76ch;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.42;
+  }
+
+  .approach-copy .large {
+    font-size: 20px;
+    line-height: 1.35;
+    margin-bottom: 18px;
+  }
+
+  .methods {
+    gap: 6px;
+    margin-top: 18px;
+  }
+
+  .methods span {
+    padding: 5px 9px;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  /* Process */
+  .process-intro {
+    margin-bottom: 18px;
+    font-size: 16px;
+  }
+
+  .zen-path-wrapper {
+    margin-top: 12px;
+  }
+
+  .zen-start {
+    display: none;
+  }
+
+  .zen-trail {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 12px 0 18px;
+  }
+
+  .zen-trail::before {
+    display: none;
+  }
+
+  .zen-step-card {
+    min-height: 250px;
+    padding: 22px;
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 
   .zen-step-card h3 {
-    font-size: 26px;
-    margin-bottom: 10px;
+    margin: 8px 0 12px;
+    font-size: 30px;
+    line-height: .98;
   }
 
   .zen-step-card p {
     font-size: 14px;
+    line-height: 1.42;
   }
 
-  /* SESSIONS */
-  .session-grid article {
-    padding: 20px;
+  .diagnostic-note {
+    margin-top: 18px;
+    padding: 14px;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
   }
 
-  .session-grid h3 {
-    font-size: 28px;
+  .shore-image {
+    min-height: 150px;
+  }
+
+  .diagnostic-note h3 {
+    font-size: 36px;
     margin-bottom: 10px;
   }
 
-  /* BOOKING */
-  .booking-frame {
-    height: 480px;
+  .diagnostic-note p:last-child {
+    font-size: 13px;
+    line-height: 1.4;
   }
 
+  /* Sessions */
+  .sessions .session-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .sessions .session-grid article {
+    min-height: 235px;
+    padding: 22px;
+  }
+
+  .sessions .session-grid article:nth-child(3) {
+    grid-column: 1 / -1;
+    min-height: auto;
+    padding: 13px 22px;
+  }
+
+  .sessions .session-grid article:nth-child(3) h3 {
+    margin: 0 0 5px;
+    font-size: 25px;
+  }
+
+  .sessions .session-grid article:nth-child(3) p:not(.detail) {
+    margin-bottom: 5px;
+    font-size: 13px;
+  }
+
+  .sessions-note {
+    margin-top: 14px;
+  }
+
+  .sessions-note p {
+    font-size: 12px;
+  }
+
+  /* Booking */
+  .booking-intro {
+    margin-bottom: 18px;
+  }
+
+  .booking-intro h2 {
+    font-size: clamp(40px, 4.5vw, 58px);
+    margin-bottom: 8px;
+  }
+
+  .booking-intro p {
+    max-width: 75ch;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .booking-panel {
+    padding: 8px;
+    border-radius: 20px;
+  }
+
+  .booking-frame {
+    height: 430px;
+    border-radius: 14px;
+  }
+}
+
+/* Do not force one-screen sections on short phones or tablets. */
+@media (max-width: 900px), (max-height: 700px) {
+  .screen-section {
+    min-height: auto;
+    display: block;
+  }
+
+  .zen-trail {
+    grid-template-columns: 1fr;
+  }
+
+  .zen-start {
+    display: grid;
+  }
+
+  .booking-frame {
+    height: 680px;
+  }
 }
