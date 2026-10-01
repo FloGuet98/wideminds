@@ -139,13 +139,18 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 120px 0;
+  padding: clamp(80px, 10vh, 120px) 0;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
 
-.section.screen-section {
+/* === SCREEN FITTING SECTIONS === */
+.screen-section {
   min-height: 100vh;
+  padding: clamp(60px, 8vh, 90px) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Hero - special case */
